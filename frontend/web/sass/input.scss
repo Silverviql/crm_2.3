@@ -1,0 +1,179 @@
+$border-radius: 26px;
+$font-size: 11px;
+$errorInput: rgba(171, 100, 24, 0.99);
+$gold: #736a50;
+$colPlaceholder: #191412;
+
+
+@mixin inputForm{
+  outline: 0;
+  width: 86%;
+  padding-left: 3%;
+  background: $gold;
+  border: none;
+}
+@mixin actionModal-input{
+  width: 64%;
+  margin-left: 11px;
+  height: 30px;
+  background: $gold;
+  border: none;
+}
+@mixin actionModal{
+  button{
+    float: right;
+    margin-top: -45px;
+    height: 30px;
+    width: 99px;
+    margin-right: 26px;
+  }
+}
+@mixin fileInput{
+  .file-preview{
+    border:none;
+    .close{
+      display: none;
+    }
+    .file-actions-cell{
+      display: none;
+    }
+    .file-footer-buttons{
+      display: none;
+    }
+  }
+}
+
+#login-form{
+  input{
+    padding-left: 5%;
+  }
+}
+#autsors{
+  display: none;
+}
+.form-group{
+  input{
+    border-radius:$border-radius;
+    font-size: $font-size;
+    height: 26px;
+    color: #000;
+    background: $gold;
+    border: none;
+    outline: 0;
+    &::-webkit-inner-spin-button{
+      display: none;
+    }
+    &::-webkit-input-placeholder {
+      color:$colPlaceholder;
+      text-indent: 0;   transition: text-indent 0.3s ease;
+    }
+    &:focus{
+      &::-webkit-input-placeholder{
+        text-indent: 550px; transition: text-indent 0.3s ease;
+      }
+    }
+  }
+  select{
+    @include inputForm;
+    border-radius:$border-radius;
+    font-size: $font-size;
+    border: none;
+    height: 26px;
+    color: #000;
+  }
+  textarea{
+    @include inputForm;
+    color: #000;
+    font-size: 11px;
+    height: 66px;
+    &::-webkit-input-placeholder {
+      color:$colPlaceholder;
+      font-size: 11px;
+    }
+  }
+  .inputComment{
+    height: 31px;
+  }
+  .inputForm{
+    @include inputForm;
+  }
+  .help-block{
+    color: rgba(171, 100, 24, 0.99);
+  }
+}
+.zakaz-shippingForm{
+  input{
+    width: 55%;
+    margin-left: 15px;
+  }
+  .inputForm{
+    width: 38%;
+  }
+  .help-block{
+    margin-left: 19px;
+  }
+}
+.zakaz-form{
+  .input-group-addon{
+    padding: 0 7px;
+    background: $gold;
+    border: none;
+    color: #000;
+  }
+  .inputWidget-form{
+    width: 82px;
+    padding-right: 7%;
+  }
+  .inputWidget-contact{
+    padding-left: 7%;
+  }
+  #zakaz-number{
+    padding-left: 9%;
+    margin-left: -48px;
+  }
+  #zakaz-phone, #zakaz-email{
+    width: 109px;
+  }
+  #zakaz-sotrud_name{
+    width: 69%;
+  }
+  #zakaz-name, #zakaz-oplata, #zakaz-fact_oplata{
+    padding-left: 7%;
+  }
+  #zakaz-srok-disp{
+    width: 123px;
+  }
+  @include fileInput;
+  button{
+    height: 30px;
+  }
+  select{
+    width: 70%;
+  }
+}
+#acceptdModal{
+  select{
+    @include actionModal-input;
+  }
+  @include actionModal;
+}
+#declinedModal{
+  input{
+    @include actionModal-input;
+  }
+  @include actionModal;
+}
+#modalFile{
+  @include fileInput;
+}
+.datetimepicker{
+  margin-top: 19px;
+  table{
+   color: #000;
+  }
+}
+.modal-dialog{
+  h2{
+    margin-left: 15px;
+  }
+}

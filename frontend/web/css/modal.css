@@ -1,0 +1,67 @@
+/* line 28, ../sass/modal.scss */
+.modal-content {
+  background: #302927;
+  border: 2px solid rgba(204, 198, 198, 0.6);
+}
+/* line 31, ../sass/modal.scss */
+.modal-content select {
+  background: #302927;
+}
+/* line 34, ../sass/modal.scss */
+.modal-content select option:hover {
+  background-color: #2b542c;
+}
+/* line 39, ../sass/modal.scss */
+.modal-content .modal-header {
+  border-bottom: none;
+}
+
+/* line 12, ../sass/modal.scss */
+#acceptdModal .modal-content {
+  width: 75%;
+}
+/* line 14, ../sass/modal.scss */
+#acceptdModal .modal-content .close {
+  display: none;
+}
+/* line 18, ../sass/modal.scss */
+#acceptdModal .modal-content .modal-header h2 {
+  margin-bottom: 0;
+}
+/* line 22, ../sass/modal.scss */
+#acceptdModal .modal-content .modal-body {
+  padding-top: 0;
+}
+
+/* line 12, ../sass/modal.scss */
+#declinedModal .modal-content {
+  width: 75%;
+}
+/* line 14, ../sass/modal.scss */
+#declinedModal .modal-content .close {
+  display: none;
+}
+/* line 18, ../sass/modal.scss */
+#declinedModal .modal-content .modal-header h2 {
+  margin-bottom: 0;
+}
+/* line 22, ../sass/modal.scss */
+#declinedModal .modal-content .modal-body {
+  padding-top: 0;
+}
+
+/* line 50, ../sass/modal.scss */
+.footer-view-zakaz .modal-content {
+  width: 61%;
+  height: 249px;
+  margin-left: 18%;
+  margin-top: 36%;
+}
+/* line 55, ../sass/modal.scss */
+.footer-view-zakaz .modal-content .modal-header {
+  padding: 6px;
+}
+/* line 58, ../sass/modal.scss */
+.footer-view-zakaz .modal-content .modal-body {
+  padding: 0;
+}

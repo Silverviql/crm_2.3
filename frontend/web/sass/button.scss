@@ -1,0 +1,315 @@
+$font-size: 11px;
+$bodyBackground: #302927;
+$colorH3: #736a50;
+$bodyBackground: #302927;
+$titleMain: rgba(204, 198, 198, 0.6);
+$colButtonHover: #191412;
+$colorText: rgba(204, 198, 198, 0.6);
+$colorButton: #3a3331;
+$colorGreen: #446505;
+$orang: #f0ad4e;
+$bacgrountTr: #802c2c;
+
+@mixin buttonZakaz{
+    padding-left: 13px;
+    padding-right: 13px;
+    float: right;
+    margin-top: -10px;
+    margin-right: 18px;
+    font-size: 11px;
+    background: $colorButton;
+    border-radius: 26px;
+    color: $colorH3;
+    &:hover{
+        color: $colorButton;
+        background: $colorH3;
+    }
+}
+
+@mixin cancel{
+    width:78px;
+    position: relative;
+    left: 66px;
+    top: -1px;
+    &:hover{
+        background: #802c2c;
+        color: white;
+    }
+}
+@mixin success{
+    left:64px;
+    top:-1px;
+    width:79px;
+    position: relative;
+    &:hover{
+        border: none;
+        background: $colorGreen;
+        color: white;
+    }
+}
+
+@mixin fileInput{
+    height: 30px;
+    line-height: 25px;
+    padding-left: 20px;
+}
+
+@mixin declined{
+  color: $bacgrountTr;
+  text-decoration: none;
+}
+
+@mixin declined{
+    color: $bacgrountTr;
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+        color: $bacgrountTr;
+    }
+}
+@mixin accept{
+    color: $colorGreen;
+    text-decoration: none;
+    &:hover{
+        text-decoration: none;
+        color: $colorGreen;
+    }
+}
+
+.text-orange{
+    color: $orang;
+}
+.helpdesk-index{
+  a{
+    padding-left: 16px;
+    text-decoration: none;
+    &:hover{
+      color: white;
+    }
+  }
+}
+.commentButton{
+    padding-left: 13px;
+    padding-right: 13px;
+    float: right;
+    margin-top: -10px;
+    margin-right: 18px;
+    font-size: 11px;
+    background: #3a3331;
+    border-radius: 26px;
+    color: #736a50;
+}
+.buttonAdd{
+    border-radius: 68px;
+    width: 74px;
+    height: 74px;
+    line-height: 2px;
+    font-size: 46px;
+    box-shadow: 5px 6px 20px 0 rgba(2, 2, 2, 0.48);
+    color: #fff;
+    background: #a90329;
+    background: -moz-radial-gradient(center, ellipse cover, #a90329 34%, #8f0222 67%, #6d0019 98%);
+    background: -webkit-radial-gradient(center, ellipse cover, #a90329 34%,#8f0222 67%,#6d0019 98%);
+    background: radial-gradient(ellipse at right top, #9e1818 34%, #791010 67%, #882828 98%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=1 );
+    border: 5px solid rgba(72, 26, 26, 0.51);
+    // cursor: none;
+    &:hover &:focus{
+        background: #791010;
+        color: #fff;
+    }
+    .caret{
+        display: none;
+    }
+}
+.btn-group{
+    position: fixed;
+    top: 85%;
+    z-index: 1;
+    float: right;
+    left: 86%;
+    .dropdown-menu{
+        top: -103px;
+        left: -27px;
+        font-size: $font-size;
+        background: $bodyBackground;
+        min-width: 92px;
+        border: 2px solid $colorText;
+        border-radius: 9px;
+        .divider{
+            margin: 0 0 0 10px;
+            background: rgba(255, 255, 255, 0.07);
+            width: 64px;
+        }
+        .dropdown-header{
+            padding: 0.4px 0;
+        }
+        a{
+            color: $titleMain;
+            &:hover{
+                border-radius: 12px;
+                margin: 0 8px 0 7px;
+                padding: 3px 0 3px 13px;
+                background-color: $colButtonHover;
+                color: $colorH3;
+            }
+        }
+    }
+}
+.zakaz-form{
+    .kv-file-content {
+        i{
+            font-size: 30px;
+        }
+    }
+    .file-actions-cell{
+        display: none;
+    }
+    .file-preview{
+        padding: 0;
+    }
+    @include fileInput;
+    .submitZakazForm{
+        float: right;
+        margin-top: -76px;
+        margin-right: 185px;
+        button{
+            width: 111px;
+        }
+    }
+}
+#modalFile{
+    .zakaz-upload{
+        .fileInput{
+            @include fileInput;
+            text-align: center;
+        }
+        .submitFile{
+          @include fileInput;
+          width: 100%;
+        }
+    }
+}
+.action{
+    padding-left: 13px;
+    padding-right: 13px;
+    font-size: 11px;
+    border: none;
+    background: #3a3331;
+    border-radius: 26px;
+    color: $colorH3;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    text-decoration: none;
+    outline: 0;
+    &:hover{
+        background: $colorH3;
+        color: $colorButton;
+    }
+}
+.actionCancel{
+    @include cancel;
+}
+.actionApprove{
+    @include success;
+}
+.success{
+  @include success;
+}
+.cancelButton{
+  @include cancel;
+}
+.appoint{
+    top: -16px;
+    left: 139px;
+}
+.todoist{
+    margin-left: 111px;
+}
+.zakaz-index{
+    .modalDisain{
+        float: right;
+    }
+}
+.ispolShop{
+    a{
+        color: $colorGreen;
+        text-decoration: none;
+    }
+}
+.courier-shipping{
+    a{
+        @include declined;
+    }
+}
+.courier-index, .custom-index, .helpdesk-index{
+  a{
+    color: $colorGreen;
+    text-decoration: none;
+  }
+  .declinedHelp{
+    @include declined;
+  }
+  .declined{
+    @include declined;
+  }
+  .successHelp{
+    color: $colorGreen;
+  }
+}
+.footer-view-zakaz{
+    .done{
+        &:hover{
+            border: none;
+            background: $colorGreen;
+            color: white;
+        }
+    }
+    a{
+        @include buttonZakaz;
+        background: none;
+        border: 1px solid #3a3331;
+        color: $colorButton;
+        margin-top: 1px;
+        float:none;
+        &:hover{
+            text-decoration: none;
+            outline: 0;
+            color: #191412;
+            background: #3a3331;
+        }
+    }
+}
+.zakaz-shippingForm{
+    button{
+        height: 30px;
+        margin-left: 15px;
+        position: relative;
+        top: -43px;
+        left: 211px;
+        outline: 0;
+    }
+}
+.modal-content{
+    a{
+        height: 30px;
+    }
+    .fulfilled{
+        width: 64%;
+        margin-left: 11px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-right: 146px;
+        padding-left: 130px;
+        text-decoration: none;
+    }
+}
+.accept{
+    @include accept;
+}
+.declined{
+    @include declined;
+}
+.declinedTodoist{
+    @include declined;
+}

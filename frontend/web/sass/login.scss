@@ -1,0 +1,123 @@
+$font-family: "Helvetica Neue", Helvetica, sans-serif;
+$font-size: 11px;
+$bold: bold;
+
+$border: none;
+$position: relative;
+
+
+$colorText: rgba(204, 198, 198, 0.6);
+$colTextButton: rgb(153, 146, 101);
+$colorButton: #3a3331;
+$colButtonHover: #191412;
+$background: rgba(255, 255, 255, 0.04);
+
+$widthInput: 193px;
+$border-radius: 26px;
+
+
+body{
+	font-family: $font-family;
+	// font-size: $font-size;
+    color: $colorText;
+}
+.headerLogin{
+    background: $background;
+
+    height: 126px;
+    margin-top: 32px;
+    padding: 18px 0px 0px 101px;
+    h1{
+        font-size: 28px;
+        font-weight: $bold;
+        span{
+            color: $colTextButton;
+        }
+    }
+    p{
+        font-size: 13px;
+        margin-top: -8px;
+    }
+}
+
+.site-login{
+    .formLogin{
+        margin-top: 10%;
+        margin-left: 36%;
+        background: rgba(0, 0, 0, 0.16);
+        height: 284px;
+        padding-left: 48px;
+        padding-top: 42px;
+        border-radius: 16px;
+            .inputForm{
+                    outline: 0;
+                    width: 86%;
+                    padding-left: 3%;
+                }
+            input{
+                border-radius:$border-radius;
+                font-size: $font-size;
+                height: 26px;
+                color: #000;
+            }
+            p{
+                width: $widthInput;
+                padding-left: 10px;
+                padding-top: 3px;
+                font-size: $font-size;
+            }
+            label{
+                color: $colorText;
+                font-size: $font-size;
+                line-height: 33px;
+                position: $position;
+                top: -20px;
+                left: 79px;
+            }
+            button{
+                width: 204px;
+                border-radius: $border-radius;
+                font-size: $font-size;
+                height: 30px;
+                font-size: $font-size;
+                color: $colTextButton;
+                background: $colorButton;
+                outline: 0;
+                position: $position;
+                top: -33px;
+                left: -5px;
+                border: $border;
+                &:hover{
+                    background: $colButtonHover;
+                }
+            }
+    }
+
+    .has-error .help-block{
+        color: rgba(171, 100, 24, 0.99);
+    }
+
+    .titleLogin{
+        text-align: center;
+        position: $position;
+        top: -23px;
+        left: -18px;
+        font-size: 27px;
+        font-weight: $bold;
+    }
+}
+.footerLogin{
+    position: $position;
+    top: -15px;
+    text-align: center;
+    left: -22px;
+    line-height: 14px;
+    img{
+        width: 49px;
+        height: 46px;
+    }
+    div{
+        font-size: $font-size;
+    }
+}
+

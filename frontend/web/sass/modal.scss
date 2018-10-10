@@ -1,0 +1,62 @@
+$font-size: 11px;
+$bodyBackground: #302927;
+$colorH3: #736a50;
+$bodyBackground: #302927;
+$titleMain: rgba(204, 198, 198, 0.6);
+$colButtonHover: #191412;
+$colorText: rgba(204, 198, 198, 0.6);
+$colorButton: #3a3331;
+$colorGreen: #446505;
+
+@mixin modalAction{
+  .modal-content{
+    width: 75%;
+    .close{
+      display: none;
+    }
+    .modal-header{
+      h2{
+        margin-bottom: 0px;
+      }
+    }
+    .modal-body{
+      padding-top: 0px;
+    }
+  }
+}
+
+.modal-content{
+  background: $bodyBackground;
+  border: 2px solid $colorText;
+  select{
+    background: #302927;
+    option{
+      &:hover{
+        background-color: #2b542c;
+      }
+    }
+  }
+  .modal-header{
+    border-bottom: none;
+  }
+}
+#acceptdModal{
+  @include modalAction;
+}
+#declinedModal{
+  @include modalAction;
+}
+.footer-view-zakaz{
+  .modal-content{
+    width: 61%;
+    height: 249px;
+    margin-left: 18%;
+    margin-top: 36%;
+    .modal-header{
+      padding: 6px;
+    }
+    .modal-body{
+      padding: 0px;
+    }
+  }
+}

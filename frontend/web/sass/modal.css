@@ -1,0 +1,30 @@
+.btn-group {
+  position: fixed;
+  top: 85%;
+  z-index: 1;
+  float: right;
+  left: 86%; }
+  .btn-group .dropdown-menu {
+    top: -103px;
+    left: -27px;
+    font-size: 11px;
+    background: #302927;
+    min-width: 92px;
+    border: 2px solid rgba(204, 198, 198, 0.6);
+    border-radius: 9px; }
+    .btn-group .dropdown-menu .divider {
+      margin: 0px 0px 0px 10px;
+      background: rgba(255, 255, 255, 0.07);
+      width: 64px; }
+    .btn-group .dropdown-menu .dropdown-header {
+      padding: 0.4px 0; }
+    .btn-group .dropdown-menu a {
+      color: rgba(204, 198, 198, 0.6); }
+      .btn-group .dropdown-menu a:hover {
+        border-radius: 12px;
+        margin: 0px 8px 0px 7px;
+        padding: 3px 0px 3px 13px;
+        background-color: #191412;
+        color: #736a50; }
+
+/*# sourceMappingURL=modal.css.map */

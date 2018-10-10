@@ -1,0 +1,550 @@
+$font-size: 11px;
+$fontCaption: 24px;
+$border: none;
+$position: relative;
+$text-decoration: none;
+
+$display: none;
+
+$bold: 700;
+$italic: 100;
+
+$width10: 10px;
+$width20:20px;
+$width50:50px;
+$width70:70px;
+$width90:90px;
+
+$border-left: 19px 0px 0px 19px;
+$border-right: 0px 19px 18px 0px;
+$colorH3: #736a50;
+
+//Кнопка архив
+$colorText: rgba(204, 198, 198, 0.6);
+$colTextButton: rgb(153, 146, 101);
+$colorButton: #3a3331;
+$colButtonHover: #191412;
+$border-radius: 26px;
+$bacgrountTr: #802c2c;
+$backgroundComment: #1f1b1a;
+$bodyBackground: #302927;
+$success: #446505;
+$orangeDostavka: #f0ad4e;
+$colorDeclined: #7c1111;
+
+@mixin border-bottom($color) {
+    border-bottom: 1px solid $color;
+}
+@mixin border($color) {
+    border: 1px solid $color;
+}
+@mixin declined{
+  width: 155px;
+}
+
+
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th {
+    background: $colButtonHover;
+    border-radius: 0 0 15px 15px;
+}
+
+.personnel-index{
+  .infoContact{
+    background: $colTextButton;
+    border: none;
+    color: black;
+  }
+}
+.container{
+    font-size: $font-size;
+}
+.form-control{
+    &:focus{
+        outline: none;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+    }
+}
+.button{
+    outline: none;
+    color: $colTextButton;
+    background: $bodyBackground;
+}
+.divWork{
+  background: $bodyBackground;
+}
+.srok{
+  text-transform: capitalize;
+}
+.headerTable{
+  display: $display;
+}
+    //.nav-pills: 37px;
+    .titleCaption{
+        color: $colorH3;
+        position: relative;
+    }
+    .titleTable{
+        @extend .titleCaption;
+        font-size: $fontCaption;
+        margin-top: 41px;
+        margin-bottom: 8px;
+        margin-left: 15px;
+        float: left;
+        &:nth-of-type(3){
+            float: none;
+        }
+    }
+    .zakazSearch{
+        height: 73px;
+        float: right;
+        .zakaz-search{
+            input{
+                position: $position;
+                top: 40px;
+                left: -56px;
+                height: 30px;
+                border-radius: 16px 0 0 19px;
+                background: #302927;
+                font-size: $font-size;
+                @include border($colorText);
+                &:focus{
+                    background: $colorText;
+                    color: #302927;
+                    border: none;
+                }
+            }
+            button{
+                @extend .button;
+                margin-top: -5px;
+                height: 30px;
+                padding: 0 23px 0 13px;
+                margin-left: 98px;
+                border-radius: 0 16px 16px 0;
+                color: $colorText;
+                background: $colorButton;
+                @include border($colorText);
+                border-left: 1px solid $colorButton;
+                &:hover{
+                    background: $bacgrountTr;
+                    border-bottom: 1px solid $bacgrountTr;
+                    border-top: 1px solid $bacgrountTr;
+                    border-right: 1px solid $bacgrountTr;
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .border-left {
+        width: $width10;
+        border-radius: $border-left;
+        border: $border;
+    }
+
+    .border-right {
+        width: $width90;
+        border-radius: $border-right;
+        border: $border;
+    }
+
+    .tr10 {width: $width10;}
+    .tr20 {width: $width20;}
+    .tr25 {width: $width20 + 5;}
+    .tr50 {width: $width50;}
+    .tr70 {width: $width70;}
+    .tr90 {width: $width90;}
+    .tr100 {width: $width90 + 10;}
+    .tr180 {width: $width90 + 47;}
+    .tr202 {width: $width90 + 47 + 22;}
+
+    .header {display: $display;}
+    .trBorder {border: $border;}
+    .position {position: $position;}
+    .bold {font-weight: $bold;}
+    .italic {font-weight: $italic;}
+    .table .trTablePass{
+        background: $bacgrountTr;
+    }
+    .table thead{
+        background: #302927;
+    }
+    .table .trNew{
+        font-weight: bold;
+        color: $colButtonHover;
+    }
+    .reminder{
+        position: relative;
+        top: -104px;
+        clear: both;
+    }
+    .grid-view td {
+        white-space: inherit;
+    }
+
+    .fa-red{
+        color: #CC0000;
+        font-size: 10px;
+    }
+    .fa-ping{
+        color: #FF9999;
+        font-size: 10px;
+    }
+    .anketaZakaz{
+      color: $colorText;
+      padding-left: 23px;
+      margin-top: 1px;
+      width: 100px;
+      div{
+        margin-bottom: 7px;
+        &:nth-of-type(4){
+          margin-top: -7px;
+        }
+        &:nth-of-type(5){
+          margin-top: -7px;
+        }
+      }
+      .anketaZakaz_from{
+        font-weight: 900;
+        color: $colorButton;
+      }
+    }
+  .linePrice{
+    margin-top: 13px;
+    border-bottom: 1px solid rgba(48, 41, 39, 0.3);
+    position: relative;
+    left: -18px;
+    top: -10px;
+    width: 228px;
+  }
+    .responsible{
+      color: $colorText;
+      margin-top: 1px;
+      padding-left: 15px;
+      float: right;
+      width: 254px;
+      a{
+        &:hover{
+          text-decoration: none;
+        }
+      }
+      .responsible_person{
+        font-weight: 900;
+        color: $colorButton;
+        margin-left: -1px;
+        margin-right: 20px;
+      }
+      .namePrice{
+        &:nth-of-type(1){
+          margin-right: 7px;
+          position: relative;
+          left: -19px;
+        }
+        &:nth-of-type(3){
+          margin-left: 12px;
+        }
+      }
+      .price{
+        font-weight: $italic;
+        color: $colorText;
+        margin-right: 0;
+        margin-left: 36px;
+        float: left;
+        &:nth-of-type(1){
+          margin-left: 18px;
+        }
+        &:nth-of-type(2){
+          margin-left: 64px;
+        }
+        &:nth-of-type(3){
+          margin-right: 27px;
+          margin-left: 0;
+          float: right;
+        }
+      }
+      .statusZakaz{
+        width: 155px;
+        top: -15px;
+        left: 64px;
+        position: relative;
+        font-size: 15px;
+        background: #446505;
+        font-weight: bold;
+        color: white;
+        text-align: center;
+        }
+      .declined{
+        background: $colorDeclined;
+      }
+      .declinedIspol{
+        background: $colorDeclined;
+        margin-top: 15px;
+      }
+      .declinedIspol_div{
+        @include declined;
+      }
+      .declined_div{
+        @include declined;
+        position: relative;
+        left: 63px;
+        top: -1px;
+      }
+    }
+    .zakazFile{
+      color: $colorText;
+      padding-left: 20px;
+      margin-top: 1px;
+      width: 52px;
+      div{
+        margin-left: -28px;
+        .zakazFile_block-number{
+          font-weight: 900;
+          color: $colorButton;
+        }
+        div{
+          text-align: right;
+          width: 69px;
+        }
+      }
+    }
+    table{
+        color: #ccc6c6;
+    }
+
+    thead{
+        @include border(#302927);
+    }
+
+    thead a{
+        color: #302927;
+    }
+    .table-bordered > thead > tr > th{
+        border: $border;
+    }
+
+    .table {
+        tbody > tr{
+            border: 1px solid #302927;
+        }
+        .textTr{
+            color: rgba(204, 198, 198, 0.6);
+        }
+    }
+    .table-bordered tbody {
+        tr{
+            td{
+                border: $border;
+                border-bottom: none;
+            }
+            .zakaz-view-kartik{
+                border-bottom: none;
+                color: rgba(204, 198, 198, 0.6);
+            }
+            .zakazInfo{
+              margin-top: 1px;
+              .divInform{
+                overflow-y: auto;
+                height: 133px;
+                background: $colorH3;
+                color: $colButtonHover;
+                border-radius: 8px;
+                padding: 5px 18px 0 17px;
+                border-top: 4px solid $colorH3;
+                border-right: 4px solid $colorH3;
+                border-left: 1px solid $colorH3;
+                border-bottom: 14px solid $colorH3;
+              }
+              .comment-zakaz{
+                overflow-y: auto;
+                height: 75px;
+                margin-top: 5px;
+                color: $colorButton;
+                background: $colButtonHover;
+                border-radius: 8px;
+                padding: 9px 18px 0 17px;
+                border-left: 0 solid $colButtonHover;
+                border-top: 0 solid $colButtonHover;
+                border-right: 3px solid $colButtonHover;
+                border-bottom: 27px solid $colButtonHover;
+              }
+              .CommentForm{
+                visibility: hidden;
+              }
+              .CommentForm-visible{
+                visibility: visible;
+              }
+              ::-webkit-scrollbar {
+                width: 4px;
+              }
+
+              /* Track */
+              ::-webkit-scrollbar-track {
+                -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+              }
+
+              /* Handle */
+              ::-webkit-scrollbar-thumb {
+                -webkit-border-radius: 10px;
+                border-radius: 10px;
+                background: $colorButton;
+                -webkit-box-shadow: inset 0 0 5px $colorButton;
+              }
+              ::-webkit-scrollbar-thumb:window-inactive {
+                background: $colorButton;
+              }
+            }
+            .detail-view{
+              background-color: $colButtonHover;
+              .trMaket{
+                color:black;
+                border: none;
+                .maket{
+                  margin-top: 44px;
+                }
+                .imgZakaz{
+                  font-size: 18px;
+                  height: 39px;
+                  width: 39px;
+                  text-align: center;
+                  border-radius: 4px;
+                  padding-top: 11px;
+                  background: $bodyBackground;
+                  color: $colorH3;
+                  margin-top: -5px;
+                  margin-left: -33px;
+                  &:hover{
+                    color: $bodyBackground;
+                    background: $colorH3;
+                  }
+                }
+                .maketView{
+                  margin-top: 4px;
+                  margin-left: -33px;
+                }
+              }
+            }
+
+        }
+    }
+    .tableSize{
+        font-size: $font-size;
+    }
+    .summary{
+        display: $display;
+    }
+    .borderSrok{
+        @include border-bottom(#000);
+    }
+    .table-bordered > tbody {
+        .trTable{
+            @include border-bottom(#423836);
+        }
+        .trSrok{
+            &:hover{
+                background: #3c3432;
+            }
+        }
+        .trNormal{
+            &:hover{
+                background: #3c3432;
+            }
+        }
+    }
+    .footerView{
+        border-top: 1px solid rgba(48, 41, 39, 0.3);
+        width: 95.5%;
+        margin-left: 22px;
+        position: relative;
+        top: -28px;
+
+    }
+    .footer-view-zakaz{
+        margin-top: -22px;
+    }
+.zakaz-index{
+  .detail-view{
+    tbody{
+      background: $colButtonHover;
+    }
+  }
+  .success-ispol{
+    color: $success;
+  }
+  .userCommit{
+    width: 62px;
+    float: left;
+    text-align: right;
+    padding-right: 10px;
+  }
+  .comment{
+    width: 446px;
+    float: left;
+    color: #505050;
+  }
+  .dateCommit{
+    float: left;
+  }
+}
+.zakaz-shop{
+  .zakazSearch{
+    .shopSearch{
+      margin-top: -45px;
+      margin-left: 158px;
+      font-size: 11px;
+    }
+      input{
+        left: 5px;
+        width: 168px;
+      }
+    }
+  .shopZakaz{
+    margin-top: 1px;
+  }
+  .zakazFile{
+    .table{
+      background: $colButtonHover;
+    }
+  }
+}
+.shipping{
+  color: $colButtonHover;
+  font-weight: $bold;
+  margin-right: 4px;
+}
+.footerNav{
+    margin-top: 27px;
+    font-size: 24px;
+    a{
+        width: 135px;
+        border-radius: $border-radius;
+        font-size: 18px;
+        color: $colorH3;
+        background: $colorButton;
+        outline: 0;
+        position: $position;
+        text-align: center;
+        top: 40px;
+        left: 15px;
+        line-height: 12px;
+        border: $border;        
+    }
+}
+.nav > li > a:hover, .nav > li > a:focus{
+    background: $colButtonHover;
+}
+.nav-pills > li > a{
+    border-radius: $border-radius;
+}
+
