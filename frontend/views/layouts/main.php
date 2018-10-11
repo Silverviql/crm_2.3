@@ -70,7 +70,7 @@ AppAsset::register($this);
                         if (Yii::$app->user->isGuest) {
                             echo '';
                         } else {
-                      /*      PopoverX::begin([
+                            PopoverX::begin([
                                 'header' => '<i class="glyphicon glyphicon-lock"></i>Учетная запись',
                                 'closeButton' => ['label' => false],
                                 'placement' => PopoverX::ALIGN_BOTTOM,
@@ -86,8 +86,8 @@ AppAsset::register($this);
                             echo Html::submitButton('Выход '.Html::tag('span', '', ['class' => 'glyphicon glyphicon-lock']), ['class' => 'btn btn-primary']);
                             echo Html::endForm();
 
-                            PopoverX::end();*/
-                            echo Nav::widget([
+                            PopoverX::end();
+                /*            echo Nav::widget([
                                 'options' => ['class' => 'nav nav-pills headerNav'],
                                 'items' => [
                                     [
@@ -101,7 +101,7 @@ AppAsset::register($this);
                                     ],
                                     ['label' => 'Главная', 'encode' => false,'url' => ['site/manager'], 'visible' => Yii::$app->user->can('manager')],
                                 ],
-                            ]);
+                            ]);*/
                         }
                         ?>
                     </div>

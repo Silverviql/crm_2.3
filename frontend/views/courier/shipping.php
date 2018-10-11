@@ -68,12 +68,12 @@ $this->title = 'Все доставки';
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'floatHeader' => true,
+        'floatHeader' => false,
         'headerRowOptions' => ['class' => 'headerTable'],
         'pjax' => true,
         'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
         'striped' => false,
-        'rowOptions' => ['class' => 'trTable srok trNormal'],
+        'rowOptions' => ['class' => 'trShipping srok trNormal'],
         'columns' => [
             [
                 'attribute' => 'date',

@@ -14,13 +14,13 @@ use yii\bootstrap\ButtonDropdown;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $dataProviderExecute yii\data\ActiveDataProvider */
 
-$this->title = 'ВСЕ ЗАКАЗЫ';
+$this->title = 'Все заказы';
 ?>
 
 <?php Pjax::begin(); ?>
 
 
-<div class="zakaz-shop">
+<div class="order-table">
     <div class="container order">
         <div class="row">
             <div class="button-dropmenu">
@@ -89,7 +89,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 <h3 class="titleTable">Исполнено</h3>
                 <?= GridView::widget([
                     'dataProvider' => $dataProviderExecute,
-                    'floatHeader' => true,
+                    'floatHeader' => false,
                     'headerRowOptions' => ['class' => 'headerTable'],
                     'pjax' => true,
                     'striped' => false,
@@ -193,10 +193,9 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 ]); ?>
 
                 <h3 class="titleTable">В работе</h3>
-
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,
-                    'floatHeader' => true,
+                    'floatHeader' => false,
                     'headerRowOptions' => ['class' => 'headerTable'],
                     'pjax' => true,
                     'striped' => false,
@@ -298,7 +297,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
     <?php echo Nav::widget([
         'options' => ['class' => 'nav nav-pills footerNav'],
         'items' => [
-            ['label' => 'Архив', 'url' => ['zakaz/closezakaz'], 'visible' => Yii::$app->user->can('seeShop')],
+            ['label' => 'Архив', 'url' => ['zakaz/closeorder'], 'visible' => Yii::$app->user->can('seeShop')],
         ],
     ]); ?>
 </div>

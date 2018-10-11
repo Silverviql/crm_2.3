@@ -5,6 +5,7 @@ body {
   background: #544943;
   font-family:Oswald;
   font-weight:300;
+    font-size: 14px;
 }
 
 .fixed {
@@ -166,7 +167,7 @@ body {
 
 /* line 69, ../sass/gridview.scss */
 .container {
-  font-size: 11px;
+  font-size: 14px;
 }
 
 /* line 73, ../sass/gridview.scss */
@@ -239,7 +240,7 @@ body {
 }
 
 /* line 510, ../sass/gridview.scss */
-.zakaz-shop .zakazSearch input {
+.order-table .zakazSearch input {
   left: 50px;
   width: 170px;
   background: rgba(179, 174, 132, 0);
@@ -549,10 +550,10 @@ table {
   color: #ccc6c6;
 }
 
-/* line 324, ../sass/gridview.scss */
-thead {
+/*!* line 324, ../sass/gridview.scss *!
+thead  {
   border: 1px solid #b3ae84;
-}
+}*/
 
 /* line 328, ../sass/gridview.scss */
 thead a {
@@ -564,13 +565,13 @@ thead a {
   border: none;
 }
 
-/* line 336, ../sass/gridview.scss */
+/*!* line 336, ../sass/gridview.scss *!
 .table tbody > tr {
   border: 1px solid #b3ae84;
   border-left-color: #b3ae84;
   border-right-color: #b3ae84;
   font-size: 14px;
-}
+}*/
 /* line 339, ../sass/gridview.scss */
 .table .textTr {
   color: #210510;
@@ -744,9 +745,20 @@ thead a {
   border-bottom: 1px solid #000;
 }
 
+
+.table-bordered > tbody .trCloseorder {
+  border: 1px solid #544943;
+}
+.table-bordered > tbody .trShipping {
+  border: 1px solid #544943;
+}
 /* line 454, ../sass/gridview.scss */
 .table-bordered > tbody .trTable {
   border-bottom: 1px solid #9c9b6c;
+  border: 1px solid #b3ae84;
+  border-left-color: #b3ae84;
+  border-right-color: #b3ae84;
+  font-size: 14px;
 }
 /* line 458, ../sass/gridview.scss */
 .table-bordered > tbody .trSrok:hover {
@@ -797,7 +809,7 @@ thead a {
 }
 
 /* line 505, ../sass/gridview.scss */
-.zakaz-shop .zakazSearch .shopSearch {
+.order-table .zakazSearch .shopSearch {
   margin-top: -13px;
   margin-left: 220px;
   font-size: 11px;
@@ -810,11 +822,11 @@ thead a {
   font-size: 11px;
 }
 /* line 515, ../sass/gridview.scss */
-.zakaz-shop .shopZakaz {
+.order-table .shopZakaz {
   margin-top: 1px;
 }
 /* line 519, ../sass/gridview.scss */
-.zakaz-shop .zakazFile .table {
+.order-table .zakazFile .table {
   background: #96916d;
 }
 
@@ -1649,6 +1661,8 @@ thead a {
   width: 335px;
   height: 39px;
   float: right;
+  margin-right: 60px;
+  padding-left: 6px;
 }
 
 /* line 84, ../sass/style.scss */
@@ -1694,10 +1708,6 @@ thead a {
 
 }
 
-#w34{
-  margin-right: 60px;
-  padding-left: 6px;
-}
 /* line 123, ../sass/style.scss */
 .titleMain {
   font-size: 23px;

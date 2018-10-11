@@ -21,7 +21,7 @@ use yii\widgets\Pjax;
     ['label' => 'Прием заказов', 'url' => ['zakaz/shop'], 'visible' => Yii::$app->user->can('seeShop')],
     ['label' => 'Закрытые заказы', 'url' => ['zakaz/archive'], 'visible' => Yii::$app->user->can('seeAdmin')],
     ['label' => 'Курьер', 'url' => ['courier/index'], 'visible' => Yii::$app->user->can('courier')],
-    ['label' => 'Закрытые заказы', 'url' => ['zakaz/closezakaz'], 'visible' => Yii::$app->user->can('seeShop')],
+    ['label' => 'Закрытые заказы', 'url' => ['zakaz/closeorder'], 'visible' => Yii::$app->user->can('seeShop')],
     ['label' => 'Прочее', 'items' => [
         ['label' => 'Задачник', 'url' => ['todoist/index']],
         ['label' => 'Help Desk', 'url' => ['helpdesk/index']],

@@ -14,13 +14,15 @@ use yii\bootstrap\ButtonDropdown;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $dataProviderExecute yii\data\ActiveDataProvider */
 
-$this->title = 'ВСЕ ЗАКАЗЫ';
+$this->title = 'Все заказы';
 ?>
 <?php Pjax::begin(); ?>
 
-<div class="zakaz-shop">
-<div class="button-dropmenu">
-    <?php echo ButtonDropdown::widget([
+<div class="order-table">
+    <div class="container order">
+        <div class="row">
+            <div class="button-dropmenu">
+                 <?php echo ButtonDropdown::widget([
         'label' => '+',
         'options' => [
             'class' => 'btn buttonAdd',
@@ -68,14 +70,15 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
             ]
         ]
     ]); ?>
-    </div>
-    <div class="col-lg-3 zakazSearch">
-        <?php echo $this->render('_search', ['model' => $searchModel]);?>
-    </div>
-    <div class="col-lg-9 shopZakaz">
-        <h3 class="titleTable">Исполнено</h3>
-    </div>
-    <div class="col-xs-12 ispolShop">
+            </div>
+            <div class="col-lg-6 shopZakaz"></div>
+            <div class="col-lg-6 zakazSearch">
+                <?php echo $this->render('_search', ['model' => $searchModel]);?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9 ispolShop">
+                <h3 class="titleTable">Исполнено</h3>
         <?= GridView::widget([
             'dataProvider' => $dataProviderExecute,
             'floatHeader' => true,
@@ -181,11 +184,9 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 ]
             ],
         ]); ?>
-    </div>
-    <div class="col-lg-12">
+                <h3 class="titleTable">В работе</h3>
         <h3 class="titleTable">В работе</h3>
-    </div>
-    <div class="col-xs-12">
+
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'floatHeader' => true,
@@ -291,14 +292,18 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
             ]
         ],
     ]); ?>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
     </div>
+</div>
     <?php Pjax::end(); ?>
 </div>
 <div class="footerNav">
     <?php echo Nav::widget([
         'options' => ['class' => 'nav nav-pills footerNav'],
         'items' => [
-            ['label' => 'Архив', 'url' => ['zakaz/closezakaz'], 'visible' => Yii::$app->user->can('seeShop')],
+            ['label' => 'Архив', 'url' => ['zakaz/closeorder'], 'visible' => Yii::$app->user->can('seeShop')],
         ],
     ]); ?>
 </div>

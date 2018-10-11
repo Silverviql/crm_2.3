@@ -88,6 +88,12 @@ $this->title = 'Управляющий';
                     <?= Html::a('Калин', ['/zakaz/manager', 'id' => 17], ['class' => 'btn btn-success']) ?>
                 </p>
             </div>
+            <div class="col-lg-3">
+                <h2><?=Html::encode('Архив') ?></h2>
+                <p>
+                    <?= Html::a('Архив', ['/zakaz/archive'], ['class' => 'btn btn-success']) ?>
+                </p>
+            </div>
         </div>
     </div>
 </div>

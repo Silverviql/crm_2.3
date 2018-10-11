@@ -23,7 +23,7 @@ $this->title = 'Экран - ВСЕ ЗАКАЗЫ';
     'items' => [
     ['label' => 'Главная', 'url' => ['zakaz/index']],
     ['label' => 'Прием заказов', 'url' => ['zakaz/shop'], 'visible' => Yii::$app->user->can('seeShop')],
-    ['label' => 'Закрытые заказы', 'url' => ['zakaz/closezakaz']],
+    ['label' => 'Закрытые заказы', 'url' => ['zakaz/closeorder']],
     ],
 ]); ?>
 <div class="zakaz-index">

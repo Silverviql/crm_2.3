@@ -9,7 +9,7 @@ use yii\helpers\StringHelper;
 /* @var $searchModel app\models\ZakazSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Закрытые заказы1';
+$this->title = 'Закрытые заказы';
 ?>
  
 <div class="zakaz-index">
@@ -17,11 +17,11 @@ $this->title = 'Закрытые заказы1';
     <div class="col-xs-12">
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
-            'floatHeader' => true,
+            'floatHeader' => false,
             'headerRowOptions' => ['class' => 'headerTable'],
             'pjax' => true,
             'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
-            'rowOptions' => ['class' => 'trTable trNormal'],
+            'rowOptions' => ['class' => 'trCloseorder trNormal'],
             'striped' => false,
             'columns' => [
                 [

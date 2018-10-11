@@ -121,10 +121,10 @@ class ZakazController extends Controller
                     [
                         'actions' => ['archive'],
                         'allow' => true,
-                        'roles' => ['admin', 'program'],
+                        'roles' => ['admin', 'program','manager'],
                     ],
                     [
-                        'actions' => ['closezakaz'],
+                        'actions' => ['closeorder'],
                         'allow' => true,
                         'roles' => ['shop', 'program'],
                     ],
@@ -582,13 +582,13 @@ class ZakazController extends Controller
     }
 
     /** All close zakaz in shop */
-    public function actionClosezakaz()
+    public function actionCloseorder()
     {
         $searchModel = new ZakazSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, 'closeshop');
         $notification = $this->findNotification();
 
-        return $this->render('closezakaz', [
+        return $this->render('closeorder', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'notification' => $notification,

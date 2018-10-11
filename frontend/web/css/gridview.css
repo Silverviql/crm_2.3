@@ -594,22 +594,22 @@ thead a {
 }
 
 /* line 505, ../sass/gridview.scss */
-.zakaz-shop .zakazSearch .shopSearch {
+.order-table .zakazSearch .shopSearch {
   margin-top: -45px;
   margin-left: 158px;
   font-size: 11px;
 }
 /* line 510, ../sass/gridview.scss */
-.zakaz-shop .zakazSearch input {
+.order-table .zakazSearch input {
   left: 5px;
   width: 168px;
 }
 /* line 515, ../sass/gridview.scss */
-.zakaz-shop .shopZakaz {
+.order-table .shopZakaz {
   margin-top: 1px;
 }
 /* line 519, ../sass/gridview.scss */
-.zakaz-shop .zakazFile .table {
+.order-table .zakazFile .table {
   background: #191412;
 }
 

@@ -20,7 +20,7 @@ $this->title = 'Закрытые заказы';
     'items' => [
     ['label' => 'Главная', 'url' => ['zakaz/index']],
     ['label' => 'Прием заказов', 'url' => ['zakaz/shop']],
-    ['label' => 'Закрытые заказы', 'url' => ['zakaz/closeZakaz']],
+    ['label' => 'Закрытые заказы', 'url' => ['zakaz/closeorder']],
     ],
 ]); ?>
  
