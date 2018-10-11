@@ -200,7 +200,8 @@ $this->title = 'Все заказы';
                     'pjax' => true,
                     'striped' => false,
                     'tableOptions' => ['class' => 'table table-bordered tableSize'],
-                    'rowOptions' => ['class' => 'trTable srok trNormal'],
+                    'rowOptions' => ['class' => 'trTable trSrok trNormal'],
+
                     'columns' => [
                         [
                             'class'=>'kartik\grid\ExpandRowColumn',

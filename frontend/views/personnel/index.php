@@ -86,11 +86,13 @@ $this->title = 'Контакты';
             [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{update}',
+                'visible' => Yii::$app->user->can('manager'),
                 'contentOptions' => ['class' => 'textPerTr'],
             ],
              [
                 'class' => 'yii\grid\ActionColumn',
                 'template' => '{delete}',
+                 'visible' => Yii::$app->user->can('manager'),
                 'contentOptions' => ['class' => 'textPerTr'],
             ],
         ],

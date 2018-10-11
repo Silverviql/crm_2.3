@@ -70,7 +70,7 @@ AppAsset::register($this);
                         if (Yii::$app->user->isGuest) {
                             echo '';
                         } else {
-                            PopoverX::begin([
+                           /* PopoverX::begin([
                                 'header' => '<i class="glyphicon glyphicon-lock"></i>Учетная запись',
                                 'closeButton' => ['label' => false],
                                 'placement' => PopoverX::ALIGN_BOTTOM,
@@ -86,22 +86,24 @@ AppAsset::register($this);
                             echo Html::submitButton('Выход '.Html::tag('span', '', ['class' => 'glyphicon glyphicon-lock']), ['class' => 'btn btn-primary']);
                             echo Html::endForm();
 
-                            PopoverX::end();
-                /*            echo Nav::widget([
+                            PopoverX::end();*/
+                           echo Nav::widget([
                                 'options' => ['class' => 'nav nav-pills headerNav'],
                                 'items' => [
                                     [
                                         'label' => 'Управляющий',
                                         'items' => [
-                                            ['label' => 'Level 1 - Dropdown A', 'url' => '#'],
+                                            ['label' => 'Настройки', 'url' => ['/site/setting','id' => Yii::$app->user->identity->id]],
                                             '<li class="divider"></li>',
                                             '<li class="dropdown-header">Dropdown Header</li>',
-                                            ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
+                                            ['label' => 'Контакты', 'url' => '/personnel/index'],
+                                            ['label' => 'Отчет по закрытию кассы', 'url' => '/cashbox/creat', 'visible' => Yii::$app->user->can('shop')],
+                                            ['label' => 'Инфорстенд', 'url' => '/site/index'],
                                         ],
                                     ],
-                                    ['label' => 'Главная', 'encode' => false,'url' => ['site/manager'], 'visible' => Yii::$app->user->can('manager')],
+                                    ['label' => 'Выход', 'encode' => false,'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],
                                 ],
-                            ]);*/
+                            ]);
                         }
                         ?>
                     </div>

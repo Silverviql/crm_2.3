@@ -282,14 +282,14 @@ body {
 /* line 149, ../sass/gridview.scss */
 .border-left {
   width: 10px;
-  border-radius: 19px 0px 0px 19px;
+/*  border-radius: 19px 0px 0px 19px;*/
   border: none;
 }
 
 /* line 155, ../sass/gridview.scss */
 .border-right {
   width: 90px;
-  border-radius: 0px 19px 18px 0px;
+/*  border-radius: 0px 19px 18px 0px;*/
   border: none;
 }
 
@@ -457,6 +457,8 @@ body {
 }
 .oplata-zakaz{
   margin-top: 10px;
+  position:absolute;
+  top:56px;
 }
 
 /* line 230, ../sass/gridview.scss */
@@ -565,13 +567,11 @@ thead a {
   border: none;
 }
 
-/*!* line 336, ../sass/gridview.scss *!
+/*!* line 336, ../sass/gridview.scss */
 .table tbody > tr {
   border: 1px solid #b3ae84;
-  border-left-color: #b3ae84;
-  border-right-color: #b3ae84;
-  font-size: 14px;
-}*/
+}
+
 /* line 339, ../sass/gridview.scss */
 .table .textTr {
   color: #210510;
@@ -674,7 +674,7 @@ thead a {
 
 /* line 389, ../sass/gridview.scss */
 .table-bordered tbody tr .orderComment ::-webkit-scrollbar {
-  width: 4px;
+  width: 10px;
 }
 /* line 394, ../sass/gridview.scss */
 .table-bordered tbody tr .orderComment ::-webkit-scrollbar-track {
@@ -686,7 +686,7 @@ thead a {
 .table-bordered tbody tr .orderComment ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: #3a3331;
+  background: #96916d;
   -webkit-box-shadow: inset 0 0 5px #3a3331;
 }
 /* line 407, ../sass/gridview.scss */
