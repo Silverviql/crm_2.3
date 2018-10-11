@@ -1,7 +1,7 @@
 $(document).ready(function() {
     modalView('.actionCancel', '#declinedModal');
     modalView('.actionApprove', '#acceptdModal');
-    modalView('.modalDisain', '#modalFile');
+    modalView('.modalDesign', '#modalFile');
     modalView('.declinedHelp', '#declinedHelpModal');
     modalView('.draft', '#draftModal');
     modalView('.modalShipping-button', '#modalShipping');

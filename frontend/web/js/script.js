@@ -8,7 +8,7 @@ $(document).ready(function(){
         let urlSite = window.location.origin;
         changeStatus('.trNew', urlSite+'/zakaz/adopted?id=');
         changeStatus('.trNewMaster', urlSite+'/zakaz/adopmaster?id=');
-        changeStatus('.trNewDisain', urlSite+'/zakaz/adopdisain?id=');
+        changeStatus('.trNewDesign', urlSite+'/zakaz/adopdesign?id=');
         addClassForm('.startShift', '#form-startShift', '.form-shiftStart');
         addClassForm('.endShift', '#form-endShift', '.form-shiftEnd');
 

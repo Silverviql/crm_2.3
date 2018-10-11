@@ -1,31 +1,18 @@
-
-
-/* line 37, ../sass/style.scss */
+/* Welcome to Compass.
+* In this file you should write your main styles. (or centralize your imports)
+* Import this file using the following HTML or equivalent:
+* <link href="/css/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+/* line 19, ../sass/login.scss */
 body {
-  background: #544943;
-  font-family:Oswald;
-  font-weight:300;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  color: rgba(204, 198, 198, 0.6);
 }
 
-.fixed {
-  position: fixed;
-  width: 100%;
-  z-index: 100;
-  background: #544943;
-  height: 75px;
-  text-align: center;
-
-}
-#fixed {
-  position: relative;
-  height: 100px;
+.container-fixed {
   margin: 0 auto;
-  top: 0px;
-
-}
-.block-price{
-  padding: 0;
-  text-align: right;
+  position: fixed;
+  z-index: 100;
+  background: #302927;
 }
 
 /* line 24, ../sass/login.scss */
@@ -153,8 +140,8 @@ body {
 .table > thead > tr.info > th,
 .table > tbody > tr.info > th,
 .table > tfoot > tr.info > th {
-  background: #96916d;
-  border-radius: 0 0 4px 4px;
+  background: #191412;
+  border-radius: 0 0 15px 15px;
 }
 
 /* line 63, ../sass/gridview.scss */
@@ -183,6 +170,10 @@ body {
   background: #302927;
 }
 
+/* line 84, ../sass/gridview.scss */
+.divWork {
+  background: #302927;
+}
 
 /* line 87, ../sass/gridview.scss */
 .srok {
@@ -192,22 +183,21 @@ body {
 /* line 90, ../sass/gridview.scss */
 .headerTable {
   display: none;
-  background: #b3ae84;
-
 }
 
 /* line 94, ../sass/gridview.scss */
 .titleCaption, .titleTable {
-  color: #453e3c;
+  color: #736a50;
   position: relative;
 }
 
 /* line 98, ../sass/gridview.scss */
 .titleTable {
   font-size: 24px;
-  margin-top: 20px;
-  margin-left: 40px;
-  font-weight: 300;
+  margin-top: 41px;
+  margin-bottom: 8px;
+  margin-left: 15px;
+  float: left;
 }
 /* line 105, ../sass/gridview.scss */
 .titleTable:nth-of-type(3) {
@@ -222,34 +212,13 @@ body {
 /* line 113, ../sass/gridview.scss */
 .zakazSearch .zakaz-search input {
   position: relative;
-  top: 41px;
+  top: 40px;
   left: -56px;
-  height: 39px;
+  height: 30px;
   border-radius: 16px 0 0 19px;
   background: #302927;
-  font-size: 14px;
-  border: 1px solid rgb(133, 124, 97);
-}
-
-
-
-.zakazSearch .zakaz-search input::-webkit-input-placeholder {
-  color: #857c61;
-
-}
-
-/* line 510, ../sass/gridview.scss */
-.zakaz-shop .zakazSearch input {
-  left: 50px;
-  width: 170px;
-  background: rgba(179, 174, 132, 0);
-}
-
-/* line 510, ../sass/gridview.scss */
-.zakaz-index .zakazSearch input {
-  left: 50px;
-  width: 170px;
-  background: rgba(179, 174, 132, 0);
+  font-size: 11px;
+  border: 1px solid rgba(204, 198, 198, 0.6);
 }
 /* line 122, ../sass/gridview.scss */
 .zakazSearch .zakaz-search input:focus {
@@ -260,14 +229,14 @@ body {
 /* line 128, ../sass/gridview.scss */
 .zakazSearch .zakaz-search button {
   margin-top: -5px;
-  height: 39px;
-  width: 50px;
-  padding: 0 23px 0 12px;
+  height: 30px;
+  padding: 0 23px 0 13px;
   margin-left: 98px;
-  border-radius: 0 26px 26px 0;
+  border-radius: 0 16px 16px 0;
   color: rgba(204, 198, 198, 0.6);
-  background: #857c61;
-  border: 1px solid #857c61;
+  background: #3a3331;
+  border: 1px solid rgba(204, 198, 198, 0.6);
+  border-left: 1px solid #3a3331;
 }
 /* line 139, ../sass/gridview.scss */
 .zakazSearch .zakaz-search button:hover {
@@ -336,6 +305,14 @@ body {
 .tr202 {
   width: 159px;
 }
+/* line 170, ../sass/gridview.scss */
+.tr210 {
+  width: 210px;
+}
+/* line 170, ../sass/gridview.scss */
+.tr250 {
+  width: 250px;
+}
 
 /* line 171, ../sass/gridview.scss */
 .header {
@@ -364,35 +341,35 @@ body {
 
 /* line 176, ../sass/gridview.scss */
 .table .trTablePass {
-  background: #b3ae84;
+  background: #802c2c;
 }
 
 /* line 179, ../sass/gridview.scss */
-/*.table thead {
-  background: #b3ae84;
-}*/
+.table thead {
+  background: #302927;
+}
 
 /* line 182, ../sass/gridview.scss */
 .table .trNew {
   font-weight: bold;
-  color: #191412;
+  color: #EEF915;
 }
 
 .table .trNewUpdate {
   font-weight: bold;
-  color: #191412;
+  color: #EEF915;
 }
 .table .trNewMaster {
   font-weight: bold;
-  color: #191412;
+  color: #EEF915;
 }
 .table .trNewMaster {
   font-weight: bold;
-  color: #191412;
+  color: #EEF915;
 }
-.table .trNewDesign {
+.table .trNewDisain {
   font-weight: bold;
-  color: #191412;
+  color: #EEF915;
 }
 
 /* line 186, ../sass/gridview.scss */
@@ -421,7 +398,7 @@ body {
 
 /* line 203, ../sass/gridview.scss */
 .anketaZakaz {
-  color: #453e49;
+  color: rgba(204, 198, 198, 0.6);
   /*padding-left: 23px;*/
   padding: initial;
   margin-top: 1px;
@@ -430,40 +407,38 @@ body {
 /* line 208, ../sass/gridview.scss */
 .anketaZakaz div {
   margin-bottom: 7px;
-  line-height: 14px;
 }
 /* line 210, ../sass/gridview.scss */
 .anketaZakaz div:nth-of-type(4) {
-
-  margin-bottom: 2px;
+  margin-top: -7px;
 }
 /* line 213, ../sass/gridview.scss */
 .anketaZakaz div:nth-of-type(5) {
-  margin-top: 0px;
+  margin-top: -7px;
 }
 /* line 217, ../sass/gridview.scss */
 .anketaZakaz .anketaZakaz_from {
-  font-weight: 400;
+  font-weight: 900;
   color: #3a3331;
 }
 
 /* line 222, ../sass/gridview.scss */
 .linePrice {
-  margin-top: 12px;
-  border-bottom: 1px solid rgb(133, 124, 97);
+  margin-top: 13px;
+  border-bottom: 1px solid rgba(48, 41, 39, 0.3);
   position: relative;
-  left: 6px;
-}
-.oplata-zakaz{
-  margin-top: 10px;
+  left: -18px;
+  top: -10px;
+  width: 228px;
 }
 
 /* line 230, ../sass/gridview.scss */
 .responsible {
   color: rgba(204, 198, 198, 0.6);
   margin-top: 1px;
-  padding-right: 0px;
-  padding-left: 19px;
+  padding-left: 15px;
+  float: right;
+  width: 254px;
 }
 /* line 237, ../sass/gridview.scss */
 .responsible a:hover {
@@ -471,10 +446,10 @@ body {
 }
 /* line 241, ../sass/gridview.scss */
 .responsible .responsible_person {
-  font-weight: 400;
+  font-weight: 900;
   color: #3a3331;
-  margin: 0;
-  margin-bottom: 0;
+  margin-left: -1px;
+  margin-right: 20px;
 }
 /* line 248, ../sass/gridview.scss */
 .responsible .namePrice:nth-of-type(1) {
@@ -489,19 +464,36 @@ body {
 /* line 257, ../sass/gridview.scss */
 .responsible .price {
   font-weight: 100;
-  color: #453e49;
-  text-align: left;
-  padding-left: 7px;
+  color: rgba(204, 198, 198, 0.6);
+  margin-right: 0;
+  margin-left: 36px;
+  float: left;
+}
+/* line 263, ../sass/gridview.scss */
+.responsible .price:nth-of-type(1) {
+  margin-left: 18px;
+}
+/* line 266, ../sass/gridview.scss */
+.responsible .price:nth-of-type(2) {
+  margin-left: 64px;
+}
+/* line 269, ../sass/gridview.scss */
+.responsible .price:nth-of-type(3) {
+  margin-right: 27px;
+  margin-left: 0;
+  float: right;
 }
 /* line 275, ../sass/gridview.scss */
 .responsible .statusZakaz {
+  width: 155px;
+  top: -15px;
+  left: 64px;
   position: relative;
   font-size: 15px;
   background: #446505;
-  font-weight: 400;
+  font-weight: bold;
   color: white;
   text-align: center;
-  left: 6px;
 }
 /* line 286, ../sass/gridview.scss */
 .responsible .declined {
@@ -526,22 +518,24 @@ body {
 
 /* line 303, ../sass/gridview.scss */
 .zakazFile {
-  color: #453e49;
-  padding-left: 0;
+  color: rgba(204, 198, 198, 0.6);
+  padding-left: 20px;
   margin-top: 1px;
-  padding-right: 0;
-  text-align: right;
   width: 52px;
 }
-
+/* line 308, ../sass/gridview.scss */
+.zakazFile div {
+  margin-left: -28px;
+}
 /* line 310, ../sass/gridview.scss */
 .zakazFile div .zakazFile_block-number {
-  font-weight: 400;
+  font-weight: 900;
   color: #3a3331;
 }
 /* line 314, ../sass/gridview.scss */
 .zakazFile div div {
   text-align: right;
+  width: 69px;
 }
 
 /* line 320, ../sass/gridview.scss */
@@ -551,7 +545,7 @@ table {
 
 /* line 324, ../sass/gridview.scss */
 thead {
-  border: 1px solid #b3ae84;
+  border: 1px solid #302927;
 }
 
 /* line 328, ../sass/gridview.scss */
@@ -566,19 +560,15 @@ thead a {
 
 /* line 336, ../sass/gridview.scss */
 .table tbody > tr {
-  border: 1px solid #b3ae84;
-  border-left-color: #b3ae84;
-  border-right-color: #b3ae84;
-  font-size: 14px;
+  border: 1px solid #302927;
 }
 /* line 339, ../sass/gridview.scss */
 .table .textTr {
-  color: #210510;
-  font-size: 13px;
+  color: rgba(204, 198, 198, 0.6);
 }
-.table .textTrDes{
-  color: #210510;
-  font-size: 16px;
+
+.table .textPerTr {
+  color: #ccc6c6;
 }
 
 /* line 345, ../sass/gridview.scss */
@@ -594,26 +584,48 @@ thead a {
 /* line 353, ../sass/gridview.scss */
 .table-bordered tbody tr .zakazInfo {
   margin-top: 1px;
-  margin-bottom: 18px;
-  padding-left: 0px;
   /* Track */
   /* Handle */
 }
 /* line 355, ../sass/gridview.scss */
 .table-bordered tbody tr .zakazInfo .divInform {
   overflow-y: auto;
-  height: 160px;
-  font-size: 15px;
-  background: #b3ae84;
-  color: #3c3331;
+  height: 133px;
+  background: #736a50;
+  color: #191412;
   border-radius: 8px;
   padding: 5px 18px 0 17px;
-  border-top: 4px solid #b3ae84;
-  border-right: 4px solid #b3ae84;
-  border-left: 1px solid #b3ae84;
-  border-bottom: 14px solid #b3ae84;
+  border-top: 4px solid #736a50;
+  border-right: 4px solid #736a50;
+  border-left: 1px solid #736a50;
+  border-bottom: 14px solid #736a50;
 }
-
+/* line 367, ../sass/gridview.scss */
+.table-bordered tbody tr .zakazInfo .comment-zakaz {
+  overflow-y: auto;
+  height: 75px;
+  margin-top: 5px;
+  color: #3a3331;
+  background: #191412;
+  border-radius: 8px;
+  padding: 9px 18px 0 17px;
+  border-left: 0 solid #191412;
+  border-top: 0 solid #191412;
+  border-right: 3px solid #191412;
+  border-bottom: 27px solid #191412;
+}
+/* line 380, ../sass/gridview.scss */
+.table-bordered tbody tr .zakazInfo .nextComment {
+  cursor: pointer;
+}
+/* line 383, ../sass/gridview.scss */
+.table-bordered tbody tr .zakazInfo .CommentForm {
+  visibility: hidden;
+}
+/* line 386, ../sass/gridview.scss */
+.table-bordered tbody tr .zakazInfo .CommentForm-visible {
+  visibility: visible;
+}
 /* line 389, ../sass/gridview.scss */
 .table-bordered tbody tr .zakazInfo ::-webkit-scrollbar {
   width: 4px;
@@ -633,63 +645,6 @@ thead a {
 }
 /* line 407, ../sass/gridview.scss */
 .table-bordered tbody tr .zakazInfo ::-webkit-scrollbar-thumb:window-inactive {
-  background: #3a3331;
-}
-/* line 353, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment {
-  margin-top: 1px;
-  margin-bottom: 18px;
-  padding-left: 0px;
-  /* Track */
-  /* Handle */
-}
-
-/* line 367, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment .comment-zakaz {
-  overflow-y: auto;
-  height: 160px;
-  font-size: 12px;
-  color: #3a3331;
-  background: #968b6d;
-  border-radius: 8px;
-  padding: 9px 18px 0 17px;
-  border-left: 0 solid #968b6d;
-  border-top: 0 solid #968b6d;
-  border-right: 3px solid #968b6d;
-  border-bottom: 27px solid #968b6d;
-}
-/* line 380, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment .nextComment {
-  cursor: pointer;
-}
-/* line 383, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment .CommentForm {
-  visibility: hidden;
-}
-/* line 386, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment .CommentForm-visible {
-  visibility: visible;
-}
-
-/* line 389, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment ::-webkit-scrollbar {
-  width: 4px;
-}
-/* line 394, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-}
-/* line 401, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment ::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: #3a3331;
-  -webkit-box-shadow: inset 0 0 5px #3a3331;
-}
-/* line 407, ../sass/gridview.scss */
-.table-bordered tbody tr .orderComment ::-webkit-scrollbar-thumb:window-inactive {
   background: #3a3331;
 }
 /* line 411, ../sass/gridview.scss */
@@ -746,28 +701,29 @@ thead a {
 
 /* line 454, ../sass/gridview.scss */
 .table-bordered > tbody .trTable {
-  border-bottom: 1px solid #9c9b6c;
+  border-bottom: 1px solid #423836;
 }
 /* line 458, ../sass/gridview.scss */
 .table-bordered > tbody .trSrok:hover {
-  background: #96916d;
+  background: #3c3432;
 }
 /* line 463, ../sass/gridview.scss */
-.table-bordered > tbody .trSrok:hovermal:hover {
-  background: #96916d;
+.table-bordered > tbody .trNormal:hover {
+  background: #3c3432;
 }
 
 /* line 468, ../sass/gridview.scss */
 .footerView {
-  border-top: 1px solid rgb(133, 124, 97);
+  border-top: 1px solid rgba(48, 41, 39, 0.3);
   width: 95.5%;
   margin-left: 22px;
   position: relative;
+  top: -28px;
 }
 
 /* line 476, ../sass/gridview.scss */
 .footer-view-zakaz {
-  padding-top: 4px;
+  margin-top: -22px;
 }
 
 /* line 481, ../sass/gridview.scss */
@@ -776,7 +732,7 @@ thead a {
 }
 /* line 485, ../sass/gridview.scss */
 .zakaz-index .success-ispol {
-  color: #446505;
+  color: #d6ff87;
 }
 /* line 488, ../sass/gridview.scss */
 .zakaz-index .userCommit {
@@ -789,7 +745,7 @@ thead a {
 .zakaz-index .comment {
   width: 443px;
   float: left;
-  color: #505050;
+  color: #ffffff;
 }
 /* line 499, ../sass/gridview.scss */
 .zakaz-index .dateCommit {
@@ -798,16 +754,14 @@ thead a {
 
 /* line 505, ../sass/gridview.scss */
 .zakaz-shop .zakazSearch .shopSearch {
-  margin-top: -13px;
-  margin-left: 220px;
+  margin-top: -45px;
+  margin-left: 158px;
   font-size: 11px;
 }
-
-/* line 505, ../sass/gridview.scss */
-.zakaz-index .zakazSearch .shopSearch {
-  margin-top: -13px;
-  margin-left: 220px;
-  font-size: 11px;
+/* line 510, ../sass/gridview.scss */
+.zakaz-shop .zakazSearch input {
+  left: 5px;
+  width: 168px;
 }
 /* line 515, ../sass/gridview.scss */
 .zakaz-shop .shopZakaz {
@@ -815,7 +769,7 @@ thead a {
 }
 /* line 519, ../sass/gridview.scss */
 .zakaz-shop .zakazFile .table {
-  background: #96916d;
+  background: #191412;
 }
 
 /* line 524, ../sass/gridview.scss */
@@ -850,12 +804,10 @@ thead a {
 .nav > li > a:hover, .nav > li > a:focus {
   background: #191412;
 }
-.border-button-menu{
-  border-left: 1px solid #544943;
-}
+
 /* line 550, ../sass/gridview.scss */
 .nav-pills > li > a {
-  /*border-left: 1px solid #544943;*/
+  border-radius: 26px;
 }
 
 /* line 554, ../sass/gridview.scss */
@@ -1017,17 +969,16 @@ thead a {
 
 /* line 192, ../sass/button.scss */
 .action {
-  /* padding-left: 13px; */
-  /* padding-right: 13px; */
-  text-align: center;
-  font-size: 12px;
+  padding-left: 13px;
+  padding-right: 13px;
+  font-size: 11px;
   border: none;
-  background: #b3ae84;
-  /* border-radius: 26px; */
-  color: #3f3934;
+  background: #3a3331;
+  border-radius: 26px;
+  color: #736a50;
   padding-top: 3px;
   padding-bottom: 2px;
-  /* text-decoration: none; */
+  text-decoration: none;
   outline: 0;
 }
 /* line 204, ../sass/button.scss */
@@ -1038,10 +989,10 @@ thead a {
 
 /* line 209, ../sass/button.scss */
 .actionCancel {
-  width: 60px;
+  width: 78px;
   position: relative;
-  left: 6px;
-  top: 4px;
+  left: 66px;
+  top: -1px;
 }
 /* line 34, ../sass/button.scss */
 .actionCancel:hover {
@@ -1051,10 +1002,10 @@ thead a {
 
 /* line 212, ../sass/button.scss */
 .actionApprove {
-  width: 60px;
+  left: 64px;
+  top: -1px;
+  width: 79px;
   position: relative;
-  right: -6px;
-  top: 4px;
 }
 /* line 44, ../sass/button.scss */
 .actionApprove:hover {
@@ -1098,11 +1049,11 @@ thead a {
 
 /* line 225, ../sass/button.scss */
 .todoist {
-  margin-left: 114px;
+  margin-left: 111px;
 }
 
 /* line 229, ../sass/button.scss */
-.zakaz-index .modalDesign {
+.zakaz-index .modalDisain {
   float: right;
 }
 
@@ -1110,12 +1061,6 @@ thead a {
 .ispolShop a {
   color: #446505;
   text-decoration: none;
-}
-
-.ispolShop{
-  background: #b3ae84;
-  border-radius: 20px 20px;
-  margin-top: 20px;
 }
 
 /* line 241, ../sass/button.scss */
@@ -1161,32 +1106,25 @@ thead a {
 
 /* line 261, ../sass/button.scss */
 .notification {
-  float: left;
+  float: right;
   /*position: relative;*/
   /*  right: 100px;*/
   top: 30px;
 }
 /* line 266, ../sass/button.scss */
 .notification .notification-icon {
-  background: #857c61;
+  background: #3a3331;
   padding: 8px;
   border-radius: 19px;
   font-size: 13px;
   padding-bottom: 3px;
   cursor: pointer;
-  margin-top: 7px;
 }
 /* line 274, ../sass/button.scss */
 .notification .newNotification {
   color: green;
 }
-.notification-menu{
 
-  padding-left: 0px;
-}
-.dropdown:hover > .dropdown-menu {
-  display: block;
-}
 /* line 280, ../sass/button.scss */
 .footer-view-zakaz .done:hover {
   border: none;
@@ -1197,15 +1135,19 @@ thead a {
 .footer-view-zakaz a {
   padding-left: 13px;
   padding-right: 13px;
-  /* float: right; */
-  margin-top: 4px;
-  margin-right: 0px;
-  font-size: 13px;
-  border-radius: 2px;
-   background: #b3ae84;
-/*  border: 1px solid #b3ae84;*/
-  font-weight: 300;
-  color: #3a3331;
+  float: right;
+  margin-top: -10px;
+  margin-right: 18px;
+  font-size: 11px;
+  background: #3a3331;
+  border-radius: 26px;
+  color: #736a50;
+  background: none;
+  /* border: 1px solid #3a3331;
+   color: #3a3331;*/
+  border: 1px solid #fbfbfb;
+  color: #fbfbfb;
+  margin-top: 1px;
   float: none;
 }
 /* line 23, ../sass/button.scss */
@@ -1340,7 +1282,7 @@ thead a {
   width: 600px;
 }
 #modalZakazupdate .modal-content .modal-body {
-  height:  800px;
+  height:  600px;
   width: 600px;
 }
 
@@ -1437,7 +1379,7 @@ thead a {
   border: none;
 }
 /* line 104, ../sass/input.scss */
-.form-group .help-block {
+  .form-group .help-block {
   color: rgba(171, 100, 24, 0.99);
 }
 
@@ -1597,25 +1539,28 @@ thead a {
   float: right;
 }
 
-
+/* line 37, ../sass/style.scss */
+body {
+  background: #302927;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
 
 /* line 41, ../sass/style.scss */
 .logout {
   /*float: right;*/
-
-  background: #857c61;
+  font-size: 11px;
+  background: #3a3331;
   border-radius: 26px;
   color: #736a50;
-  /* position: relative;*/
+ /* position: relative;*/
   /*  left: -74px;*/
   top: 30px;
-  height: 39px;
+  height: 30px;
 }
 /* line 51, ../sass/style.scss */
 .logout span {
   padding-left: 9px;
-  font-size: 14px;
-  color: #333333
+  font-size: 12px;
 }
 /* line 55, ../sass/style.scss */
 .logout .exit {
@@ -1630,30 +1575,28 @@ thead a {
 
 /* line 65, ../sass/style.scss */
 .wrap .logo {
-  background-image: url("../img/логотип_3.png");
+  background-image: url("../img/holland.png");
   background-repeat: no-repeat;
-  background-position: 0px 23px;
-  background-size: 56px;
-  width: 88px;
-  height: 69px;
+  background-position: 63px 32px;
+  background-size: 98px;
+  width: 168px;
+  height: 58px;
   float: left;
 }
 /* line 74, ../sass/style.scss */
 .menu-vidget .headerNav {
   /*  margin-top: -26px;
     margin-left: 426px;*/
-  font-size: 14px;
-  background: rgb(133, 124, 97);
+  font-size: 11px;
+  background: #3a3331;
   border-radius: 26px;
   color: #736a50;
-  width: 335px;
-  height: 39px;
-  float: right;
+  width: 506px;
+  height: 36px;
 }
-
 /* line 84, ../sass/style.scss */
 .menu-vidget .headerNav li a {
-  color: rgb(58, 51, 49);
+  color: rgba(204, 198, 198, 0.6);
   padding-right: 3px;
 }
 /* line 87, ../sass/style.scss */
@@ -1661,7 +1604,6 @@ thead a {
   color: rgba(204, 198, 198, 0.6);
   background: #3a3331;
   padding-left: 1px;
-  margin-top: 2px;
   font-size: 11px;
   font-weight: 700;
 }
@@ -1691,22 +1633,18 @@ thead a {
 .menu-vidget .nav-pills > li.active > a {
   background-color: #736a50;
   color: #302927;
-
 }
 
-#w34{
-  margin-right: 60px;
-  padding-left: 6px;
-}
+
 /* line 123, ../sass/style.scss */
 .titleMain {
-  font-size: 23px;
-  font-weight: 400;
-  color: rgb(179, 174, 132);
+  font-size: 27px;
+  font-weight: 700;
+  color: rgba(204, 198, 198, 0.6);
   margin-top: 19px;
+  margin-left: 181px;
   position: relative;
-  float: left;
-  top: 6px;
+  top: 14px;
 }
 
 /* line 132, ../sass/style.scss */
@@ -1900,9 +1838,11 @@ thead a {
   text-align:center;
 }
 .kv-grid-table {
-  color: black;
+  color: white;
 }
-
+.menu-vidget{
+  top:30px;
+}
 
 /*!* line 124, ../sass/button.scss *!*/
 .menu-mobile .btn-group {
@@ -1968,105 +1908,7 @@ thead a {
   margin-top: 15px !important;
 }
 .mt-2 {
-  margin-top: 20px !important;
-}
-
-
-/*----------Стиль для вспылающих сообщений-------------*/
-
-.message
-{
-  -webkit-background-size: 40px 40px;
-  -moz-background-size: 40px 40px;
-  background-size: 40px 40px;
-  background-image: -webkit-gradient(linear, left top, right bottom,
-  color-stop(.25, rgba(255, 255, 255, .05)), color-stop(.25, transparent),
-  color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .05)),
-  color-stop(.75, rgba(255, 255, 255, .05)), color-stop(.75, transparent),
-  to(transparent));
-  background-image: -webkit-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-  transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-  transparent 75%, transparent);
-  background-image: -moz-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-  transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-  transparent 75%, transparent);
-  background-image: -ms-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-  transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-  transparent 75%, transparent);
-  background-image: -o-linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-  transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-  transparent 75%, transparent);
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, .05) 25%, transparent 25%,
-  transparent 50%, rgba(255, 255, 255, .05) 50%, rgba(255, 255, 255, .05) 75%,
-  transparent 75%, transparent);
-
-  -moz-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-  -webkit-box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-  box-shadow: inset 0 -1px 0 rgba(255,255,255,.4);
-  width: 100%;
-  border: 1px solid;
-  color: #fff;
-  padding: 15px;
-  position: fixed;
-  _position: absolute;
-  text-shadow: 0 1px 0 rgba(0,0,0,.5);
-  -webkit-animation: animate-bg 5s linear infinite;
-  -moz-animation: animate-bg 5s linear infinite;
-}
-
-.info
-{
-  background-color: #4ea5cd;
-  border-color: #3b8eb5;
-}
-
-.error
-{
-  background-color: #de4343;
-  border-color: #c43d3d;
-}
-
-.warning
-{
-  background-color: #eaaf51;
-  border-color: #d99a36;
-}
-
-.success
-{
-  background-color: #61b832;
-  border-color: #55a12c;
-}
-
-.message h3
-{
-  margin: 0 0 5px 0;
-}
-
-.message p
-{
-  margin: 0;
-}
-
-@-webkit-keyframes animate-bg
-{
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -80px 0;
-  }
-}
-
-
-@-moz-keyframes animate-bg
-{
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: -80px 0;
-  }
+  margin-top: 30px !important;
 }
 
 
@@ -2117,10 +1959,18 @@ thead a {
   position: relative;
   top: 7px;
 }
+
 .iconHolland {
   background-image: url("../img/favicon.png");
   background-repeat: no-repeat;
   width: 50px;
   height: 14px;
   float: right;
+}
+.analyticsOrderTable table thead {
+    background-color: rgba(51, 122, 183, 0.6);
+}
+
+.analyticsCourierTable table thead {
+    background-color: rgba(51, 122, 183, 0.6);
 }

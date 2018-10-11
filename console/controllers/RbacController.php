@@ -25,9 +25,9 @@ class RbacController extends Controller
         $auth->add($updateOwnZakaz);
         $auth->addChild($updateOwnZakaz, $updateZakaz);
 
-        $seeDisain = $auth->createPermission('seeDisain');
-        $seeDisain->description = 'Виднеется меню Дизайнера';
-        $auth->add($seeDisain);
+        $seeDesign = $auth->createPermission('seeDesign');
+        $seeDesign->description = 'Виднеется меню Дизайнера';
+        $auth->add($seeDesign);
 
 		$seeAllIspol = $auth->createPremission('seeAllIspol');
 		$seeAllIspol->descriptio = 'Виднеются всем кроме Админу';
@@ -68,7 +68,7 @@ class RbacController extends Controller
         $admin = $auth->createRole('admin');
         $auth->add($admin);
         $auth->addChild($admin, $seeAdmin);
-        $auth->addChild($admin, $seeDisain);
+        $auth->addChild($admin, $seeDesign);
         $auth->addChild($admin, $seeAdop);
         $auth->addChild($admin, $seeCourier);
 
@@ -86,12 +86,12 @@ class RbacController extends Controller
 		$auth->addChild($master, $seeAllIspol);
         $auth->addChild($master, $todoist);
 
-        $disain = $auth->createRole('disain');
-        $auth->add($disain);
-        $auth->addChild($disain, $seeDisain);
-        $auth->addChild($disain, $seeIspol);
-		$auth->addChild($disain, $seeAllIspol);
-        $auth->addChild($disain, $todoist);
+        $design = $auth->createRole('design');
+        $auth->add($design);
+        $auth->addChild($design, $seeDesign);
+        $auth->addChild($design, $seeIspol);
+		$auth->addChild($design, $seeAllIspol);
+        $auth->addChild($design, $todoist);
 
         $courier = $auth->createRole('courier');
         $auth->add($courier);
@@ -109,7 +109,7 @@ class RbacController extends Controller
         $prog = $auth->createRole('program');
         $auth->add($prog);
         $auth->addChild($prog, $admin);
-        $auth->addChild($prog, $disain);
+        $auth->addChild($prog, $design);
         $auth->addChild($prog, $master);
         $auth->addChild($prog, $shop);
         $auth->addChild($prog, $courier);
@@ -120,7 +120,7 @@ class RbacController extends Controller
 		$auth->assign($system, User::USER_SYSTEM);
         $auth->assign($courier, User::USER_COURIER);
         $auth->assign($admin, User::USER_ADMIN);
-        $auth->assign($disain, User::USER_DISAYNER);
+        $auth->assign($design, User::USER_DISAYNER);
         $auth->assign($master, User::USER_MASTER);
         $auth->assign($shop, 2);
         $auth->assign($shop, 6);

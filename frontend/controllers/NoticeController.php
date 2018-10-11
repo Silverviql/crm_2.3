@@ -19,7 +19,7 @@ class NoticeController extends Controller
                     [
                         'actions' => ['create'],
                         'allow' => true,
-                        'roles' => ['shop', 'admin', 'master', 'disain'],
+                        'roles' => ['shop', 'admin', 'master', 'design'],
                     ],
                 ],
             ],

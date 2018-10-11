@@ -236,7 +236,7 @@ use yii\helpers\ArrayHelper;
               <p>Заказ не олпачен, звони магазину.</p> 
                   <?php else: ?>
                     <?= $form->field($model, 'status')->dropDownList([
-                Zakaz::STATUS_DISAIN => 'Дизайнер',
+                Zakaz::STATUS_DESIGN => 'Дизайнер',
                 Zakaz::STATUS_MASTER => 'Мастер',
                 Zakaz::STATUS_AUTSORS => 'Аутсорс',
                 ],
@@ -255,7 +255,7 @@ use yii\helpers\ArrayHelper;
                  
                  <?php endif ?>
               <?php if(($model->status ==  Zakaz::STATUS_MASTER and $model->term_accept == null ) or
-                     ($model->status ==  Zakaz::STATUS_DISAIN and $model->term_accept == null) or
+                     ($model->status ==  Zakaz::STATUS_DESIGN and $model->term_accept == null) or
                      ($model->status ==  Zakaz::STATUS_AUTSORS and $model->term_accept == null) ):?>
                     <?= $form->field($model, 'term_accept')->hiddenInput(['value' => $model->srok])->label(false) ?>
               <?php endif ?>

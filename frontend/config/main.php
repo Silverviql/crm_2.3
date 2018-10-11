@@ -64,7 +64,7 @@ return [
              'rules' => [
 				'admin' => 'zakaz/admin',
 				'view/<id:\d+>' => 'zakaz/view',
-				'disain' => 'zakaz/disain',
+				'design' => 'zakaz/design',
 				'master' => 'zakaz/master',
 				'shop' => 'zakaz/shop',
 				'courier' => 'courier/index',

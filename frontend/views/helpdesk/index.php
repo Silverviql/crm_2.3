@@ -18,7 +18,7 @@ $this->title = 'Все поломки';
 <div class="helpdesk-index">
 
     <p>
-        <?php if (Yii::$app->user->can('disain')): ?>
+        <?php if (Yii::$app->user->can('design')): ?>
          <div class="button-dropmenu">
         <!--<?= Html::a('+', ['create'], ['class' => 'buttonAdd btn-group'])?>-->
         <?php echo ButtonDropdown::widget([
@@ -38,7 +38,7 @@ $this->title = 'Все поломки';
         </div>
         <?php endif ?>
        	<?php if(!(Yii::$app->user->can('system'))):?>
-            <?php if (!Yii::$app->user->can('disain')): ?>
+            <?php if (!Yii::$app->user->can('design')): ?>
              <div class="button-dropmenu">
             <?php echo ButtonDropdown::widget([
                 'label' => '+',
@@ -62,7 +62,7 @@ $this->title = 'Все поломки';
                         [
                             'label' => 'Закупки',
                             'url' => ['custom/create'],
-                            'visible' => !Yii::$app->user->can('disain'),
+                            'visible' => !Yii::$app->user->can('design'),
                         ],
                         [
                             'label' => '',

@@ -26,7 +26,7 @@ $this->title = 'Управляющий';
             <div class="col-lg-3">
                 <h2><?=Html::encode('Дизайнер') ?></h2>
                 <p>
-                    <?= Html::a('Дизайнер', ['/zakaz/disain'], ['class' => 'btn btn-success']) ?>
+                    <?= Html::a('Дизайнер', ['/zakaz/design'], ['class' => 'btn btn-success']) ?>
                 </p>
             </div>
 

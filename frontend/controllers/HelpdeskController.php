@@ -31,7 +31,7 @@ class HelpdeskController extends Controller
 					[
     					'actions' => ['index', 'create', 'approved', 'declined-help'],
     					'allow' => true,
-    					'roles' => ['admin', 'disain', 'master', 'system', 'zakup', 'shop', 'manager'],
+    					'roles' => ['admin', 'design', 'master', 'system', 'zakup', 'shop', 'manager'],
 					],
                     [
                         'actions' => ['overdue'],

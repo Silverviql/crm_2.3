@@ -16,8 +16,8 @@ $this->title = 'Help Desk';
 		'options' => ['class' => 'nav nav-pills'],
 		'items' => [
 		['label' => 'Администратор', 'url' => ['zakaz/admin'], 'visible' => Yii::$app->user->can('seeAdmin')],
-		['label' => 'Дизайнер', 'url' => ['zakaz/disain'], 'visible' => Yii::$app->user->can('disain')],
-		['label' => 'Готовые заказы', 'url' => ['zakaz/ready'], 'visible' => Yii::$app->user->can('disain')],
+		['label' => 'Дизайнер', 'url' => ['zakaz/design'], 'visible' => Yii::$app->user->can('design')],
+		['label' => 'Готовые заказы', 'url' => ['zakaz/ready'], 'visible' => Yii::$app->user->can('design')],
 		['label' => 'Мастер', 'url' => ['zakaz/master'], 'visible' => Yii::$app->user->can('master')],
 		['label' => 'Прием заказов', 'url' => ['zakaz/shop'], 'visible' => Yii::$app->user->can('seeShop')],
 		['label' => 'Закрытые заказы', 'url' => ['zakaz/archive'], 'visible' => Yii::$app->user->can('seeAdmin')],
@@ -33,7 +33,7 @@ $this->title = 'Help Desk';
 		['label' => 'Задачник', 'url' => ['todoist/shop'], 'visible' =>Yii::$app->user->can('seeAllIspol')],
 		['label' => 'Запросы на товар', 'url' => ['custom/index'], 'visible' => Yii::$app->user->can('zakup')],
 		['label' => 'Help Desk', 'url' => ['helpdesk/index'], 'visible' => Yii::$app->user->can('zakup')],
-		['label' => 'Help Desk', 'url' => ['helpdesk/index'], 'visible' => Yii::$app->user->can('disain')],
+		['label' => 'Help Desk', 'url' => ['helpdesk/index'], 'visible' => Yii::$app->user->can('design')],
 		],
 	]); ?>
 

@@ -54,17 +54,17 @@ class ZakazSearch extends Zakaz
                 $query->andWhere(['status' => Zakaz::STATUS_SUC_MASTER, 'action' => 1]);
                 $sort = ['srok' => SORT_ASC];
                 break;
-            case 'disain':
-                $query->andWhere(['status' => [Zakaz::STATUS_DISAIN,Zakaz::STATUS_DECLINED_DISAIN], 'statusDisain' => [Zakaz::STATUS_DISAINER_NEW, Zakaz::STATUS_DISAINER_WORK, Zakaz::STATUS_DISAINER_DECLINED], 'action' => 1]);
+            case 'design':
+                $query->andWhere(['status' => [Zakaz::STATUS_DESIGN,Zakaz::STATUS_DECLINED_DESIGN], 'statusDesign' => [Zakaz::STATUS_DESIGNER_NEW, Zakaz::STATUS_DESIGNER_WORK, Zakaz::STATUS_DESIGNER_DECLINED], 'action' => 1]);
                 $sort = ['srok' => SORT_ASC];
                 break;
-            case 'disainSoglas':
-                $query->andWhere(['status' => Zakaz::STATUS_DISAIN, 'statusDisain' => Zakaz::STATUS_DISAINER_SOGLAS, 'action' => 1])
-                ->orWhere(['status' => Zakaz::STATUS_SUC_DISAIN, 'action' => 1]);
+            case 'designSoglas':
+                $query->andWhere(['status' => Zakaz::STATUS_DESIGN, 'statusDesign' => Zakaz::STATUS_DESIGNER_SOGLAS, 'action' => 1])
+                ->orWhere(['status' => Zakaz::STATUS_SUC_DESIGN, 'action' => 1]);
                 $sort = ['srok' => SORT_ASC];
                 break;
             case 'shopWork':
-                $query->andWhere(['id_shop' => Yii::$app->user->id, 'action' => 1, 'status' => [Zakaz::STATUS_DISAIN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DISAIN, Zakaz::STATUS_DECLINED_DISAIN, Zakaz::STATUS_DECLINED_MASTER, Zakaz::STATUS_NEW, Zakaz::STATUS_ADOPTED]]);
+                $query->andWhere(['id_shop' => Yii::$app->user->id, 'action' => 1, 'status' => [Zakaz::STATUS_DESIGN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DESIGN, Zakaz::STATUS_DECLINED_DESIGN, Zakaz::STATUS_DECLINED_MASTER, Zakaz::STATUS_NEW, Zakaz::STATUS_ADOPTED]]);
                 $sort = ['data' => SORT_DESC];
                 break;
             case 'shopExecute':
@@ -72,7 +72,7 @@ class ZakazSearch extends Zakaz
                 $sort = ['data' => SORT_DESC];
                 break;
             case 'admin':
-                $query->andWhere(['status' => [Zakaz::STATUS_DISAIN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DISAIN, Zakaz::STATUS_DECLINED_DISAIN, Zakaz::STATUS_DECLINED_MASTER], 'action' => 1]);
+                $query->andWhere(['status' => [Zakaz::STATUS_DESIGN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DESIGN, Zakaz::STATUS_DECLINED_DESIGN, Zakaz::STATUS_DECLINED_MASTER], 'action' => 1]);
              /*   $sort = ['status' => SORT_DESC];*/
                 break;
             case 'adminWork':
@@ -147,16 +147,16 @@ class ZakazSearch extends Zakaz
         switch ($role) {
             case 'shopWork':
                 if (Yii::$app->user->id == User::USER_MANAGER) {
-                    $query->andWhere(['id_shop' => $id, 'action' => 1, 'status' => [Zakaz::STATUS_DISAIN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DISAIN, Zakaz::STATUS_DECLINED_DISAIN, Zakaz::STATUS_DECLINED_MASTER, Zakaz::STATUS_NEW, Zakaz::STATUS_ADOPTED]]);
+                    $query->andWhere(['id_shop' => $id, 'action' => 1, 'status' => [Zakaz::STATUS_DESIGN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DESIGN, Zakaz::STATUS_DECLINED_DESIGN, Zakaz::STATUS_DECLINED_MASTER, Zakaz::STATUS_NEW, Zakaz::STATUS_ADOPTED]]);
                     $sort = ['data' => SORT_DESC];
                 } else {
-                    $query->andWhere(['id_shop' => Yii::$app->user->id, 'action' => 1, 'status' => [Zakaz::STATUS_DISAIN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DISAIN, Zakaz::STATUS_DECLINED_DISAIN, Zakaz::STATUS_DECLINED_MASTER, Zakaz::STATUS_NEW, Zakaz::STATUS_ADOPTED]]);
+                    $query->andWhere(['id_shop' => Yii::$app->user->id, 'action' => 1, 'status' => [Zakaz::STATUS_DESIGN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DESIGN, Zakaz::STATUS_DECLINED_DESIGN, Zakaz::STATUS_DECLINED_MASTER, Zakaz::STATUS_NEW, Zakaz::STATUS_ADOPTED]]);
                     $sort = ['data' => SORT_DESC];
                 }
                 break;
             case 'shopExecute':
                 if (Yii::$app->user->id == User::USER_MANAGER) {
-                    $query->andWhere(['id_shop' => $id, 'action' => 1, 'status' => [Zakaz::STATUS_DISAIN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DISAIN, Zakaz::STATUS_DECLINED_DISAIN, Zakaz::STATUS_DECLINED_MASTER, Zakaz::STATUS_NEW, Zakaz::STATUS_ADOPTED]]);
+                    $query->andWhere(['id_shop' => $id, 'action' => 1, 'status' => [Zakaz::STATUS_DESIGN, Zakaz::STATUS_MASTER, Zakaz::STATUS_AUTSORS, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_SUC_DESIGN, Zakaz::STATUS_DECLINED_DESIGN, Zakaz::STATUS_DECLINED_MASTER, Zakaz::STATUS_NEW, Zakaz::STATUS_ADOPTED]]);
                     $sort = ['data' => SORT_DESC];
                 } else {
                     $query->andWhere(['id_shop' => Yii::$app->user->id, 'action' => 1, 'status' => Zakaz::STATUS_EXECUTE]);

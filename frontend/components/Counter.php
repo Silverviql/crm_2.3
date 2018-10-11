@@ -34,8 +34,8 @@ class Counter extends Widget
 
         if (Yii::$app->user->can('shop')){
             $this->view->params['scoreZakazShop'] = $zakaz->andWhere(['id_sotrud' => Yii::$app->user->id, 'action' => 1])->count();
-        } elseif (Yii::$app->user->can('disain')){
-            $this->view->params['scoreDisain'] = $zakaz->andWhere(['status' => [Zakaz::STATUS_DISAIN, Zakaz::STATUS_SUC_DISAIN, Zakaz::STATUS_DECLINED_DISAIN], 'action' => 1])->count();
+        } elseif (Yii::$app->user->can('design')){
+            $this->view->params['scoreDesign'] = $zakaz->andWhere(['status' => [Zakaz::STATUS_DESIGN, Zakaz::STATUS_SUC_DESIGN, Zakaz::STATUS_DECLINED_DESIGN], 'action' => 1])->count();
         } elseif (Yii::$app->user->can('master')){
             $this->view->params['scoreMaster'] = $zakaz->andWhere(['status' => [Zakaz::STATUS_MASTER, Zakaz::STATUS_SUC_MASTER, Zakaz::STATUS_DECLINED_MASTER], 'action' => 1])->count();
         } elseif (Yii::$app->user->can('admin')){
@@ -58,7 +58,7 @@ class Counter extends Widget
             $this->view->params['scoreHelp'] = $helpdesk->andWhere(['id_user' => Yii::$app->user->id, 'status' => [Helpdesk::STATUS_NEW,Helpdesk::STATUS_CHECKING,Helpdesk::STATUS_DECLINED]])->count();
         }
         if (Yii::$app->user)
-        $this->view->params['scoreCustomZakup'] = $custom->andWhere(['action' => 0])->count();
+            $this->view->params['scoreCustomZakup'] = $custom->andWhere(['action' => 0])->count();
         $this->view->params['scoreCustom'] = $custom->andWhere(['id_user' => Yii::$app->user->id, 'action' => 0])->count();
     }
 
@@ -68,26 +68,34 @@ class Counter extends Widget
     public function run()
     {
         return Nav::widget([
-        'options' => ['class' => 'nav nav-pills headerNav'],
-        'items' => [
-            ['label' => 'Заказы <span class="badge pull-right">'.$this->view->params['scoreZakazAdmin'].'</span>', 'encode' => false, 'url' => ['zakaz/admin'], 'visible' => Yii::$app->user->can('seeAdmin')],
-            ['label' => 'Заказы <span class="badge pull-right">'.$this->view->params['scoreZakazShop'].'</span>', 'encode' => false, 'url' => ['zakaz/shop'], 'visible' => Yii::$app->user->can('seeShop')],
-            ['label' => 'Заказы <span class="badge pull-right">'.$this->view->params['scoreDisain'].'</span>', 'encode' => false, 'url' => ['zakaz/disain'], 'visible' => Yii::$app->user->can('disain')],
-            ['label' => 'Заказы <span class="badge pull-right">'.$this->view->params['scoreMaster'].'</span>', 'encode' => false, 'url' => ['zakaz/master'], 'visible' => Yii::$app->user->can('master')],
-            ['label' => 'Доставки <span class="badge pull-right">'.$this->view->params['scoreShipping'].'</span>', 'encode' => false, 'url' => ['courier/index'], 'visible' => Yii::$app->user->can('courier')],
-            ['label' => 'Задачи <span class="badge pull-right">'.$this->view->params['scoreTodoistAdmin'].'</span>', 'url' => ['todoist/index'], 'encode' => false, 'visible' => Yii::$app->user->can('admin')],
-            ['label' => 'Поломки <span class="badge pull-right">'.$this->view->params['scoreHelp'].'</span>', 'encode' => false, 'url' => ['helpdesk/index'], 'visible' => !(Yii::$app->user->can('manager') or Yii::$app->user->can('courier'))],
-            ['label' => 'Закупки <span class="badge pull-right">'.$this->view->params['scoreCustom'].'</span>', 'encode' => false, 'url' => ['custom/adop'], 'visible' => Yii::$app->user->can('seeAdop')],
-            ['label' => 'Доставки <span class="badge pull-right">'.$this->view->params['scoreShippingAdmin'].'</span>', 'encode' => false, 'url' => ['courier/shipping'], 'visible' => Yii::$app->user->can('admin')],
-            ['label' => 'Закупки <span class="badge pull-right">'.$this->view->params['scoreCustomZakup'].'</span>', 'encode' => false,'url' => ['custom/index'], 'visible' => Yii::$app->user->can('zakup')],
-            ['label' => 'Задачи <span class="badge pull-right">'.$this->view->params['scoreTodoist'].'</span>', 'encode' => false,'url' => ['todoist/shop'], 'visible' => !Yii::$app->user->can('seeManager')],
-            ['label' => 'Управляющий', 'encode' => false,'url' => ['site/manager'], 'visible' => Yii::$app->user->can('manager')],
-            ['label' => 'Персонал', 'encode' => false,'url' => ['personnel/shifts'], 'visible' => Yii::$app->user->can('manager')],
-            ['label' => 'Партнеры', 'url' => ['partners/index'], 'visible' => Yii::$app->user->can('admin')],
-            ['label' => 'Аналитика админская', 'url' => ['site/analytics'], 'visible' => Yii::$app->user->can('manager')],
-            ['label' => 'Отчет закрытия кассы', 'url' => ['cashbox/index'], 'visible' => Yii::$app->user->can('manager')],
-            ['label' => 'Аналитика заказов', 'url' => ['/analytics'], 'visible' => Yii::$app->user->can('manager')],
-        ],
-    ]);
+            'options' => ['class' => 'nav nav-pills headerNav'],
+            'items' => [
+                ['label' => 'Главная', 'encode' => false,'url' => ['site/manager'], 'visible' => Yii::$app->user->can('manager')],
+                ['label' => 'Заказы <span class="badge pull-right">'.$this->view->params['scoreZakazAdmin'].'</span>', 'encode' => false, 'url' => ['zakaz/admin'],'options' => ['class' => 'border-button-menu'],  'visible' => Yii::$app->user->can('seeAdmin')],
+                ['label' => 'Заказы <span class="badge pull-right">'.$this->view->params['scoreZakazShop'].'</span>', 'encode' => false, 'url' => ['zakaz/shop'],'options' => ['class' => 'border-button-menu'],  'visible' => Yii::$app->user->can('seeShop')],
+                ['label' => 'Заказы <span class="badge pull-right">'.$this->view->params['scoreDesign'].'</span>', 'encode' => false, 'url' => ['zakaz/design'], 'options' => ['class' => 'border-button-menu'], 'visible' => Yii::$app->user->can('design')],
+                ['label' => 'Заказы <span class="badge pull-right">'.$this->view->params['scoreMaster'].'</span>', 'encode' => false, 'url' => ['zakaz/master'], 'options' => ['class' => 'border-button-menu'], 'visible' => Yii::$app->user->can('master')],
+                ['label' => 'Доставки <span class="badge pull-right">'.$this->view->params['scoreShipping'].'</span>', 'encode' => false, 'url' => ['courier/index'],'options' => ['class' => 'border-button-menu'],  'visible' => Yii::$app->user->can('courier')],
+                ['label' => 'Задачи <span class="badge pull-right">'.$this->view->params['scoreTodoistAdmin'].'</span>', 'url' => ['todoist/index'],'options' => ['class' => 'border-button-menu'],  'encode' => false, 'visible' => Yii::$app->user->can('admin')],
+                ['label' => 'Поломки <span class="badge pull-right">'.$this->view->params['scoreHelp'].'</span>', 'encode' => false, 'url' => ['helpdesk/index'],'options' => ['class' => 'border-button-menu'],  'visible' => !(Yii::$app->user->can('manager') or Yii::$app->user->can('courier'))],
+                ['label' => 'Закупки <span class="badge pull-right">'.$this->view->params['scoreCustom'].'</span>', 'encode' => false, 'url' => ['custom/adop'],'options' => ['class' => 'border-button-menu'],  'visible' => Yii::$app->user->can('seeAdop')],
+                ['label' => 'Доставки <span class="badge pull-right">'.$this->view->params['scoreShippingAdmin'].'</span>', 'encode' => false, 'url' => ['courier/shipping'], 'options' => ['class' => 'border-button-menu'], 'visible' => Yii::$app->user->can('admin')],
+                ['label' => 'Закупки <span class="badge pull-right">'.$this->view->params['scoreCustomZakup'].'</span>', 'encode' => false,'url' => ['custom/index'], 'options' => ['class' => 'border-button-menu'],  'visible' => Yii::$app->user->can('zakup')],
+                ['label' => 'Задачи ', 'encode' => false,'url' => ['todoist/shop'], 'options' => ['class' => 'border-button-menu'], 'visible' => !Yii::$app->user->can('seeManager')],
+                ['label' => 'Аналитика', 'url' => ['site/analytics'],'options' => ['class' => 'border-button-menu'],  'visible' => Yii::$app->user->can('manager')],
+                ['label' => 'Персонал', 'encode' => false,'url' => ['personnel/shifts'], 'options' => ['class' => 'border-button-menu'], 'visible' => Yii::$app->user->can('manager')],
+                ['label' => 'Отчеты', 'url' => ['cashbox/index'],'options' => ['class' => 'border-button-menu'], 'visible' => Yii::$app->user->can('manager')],
+                ['label' => 'Партнеры',  'url' => ['partners/index'], 'options' => ['class' => 'border-button-menu'], 'visible' => Yii::$app->user->can('admin')],
+                /* [
+                     'label' => 'Dropdown',
+                     'items' => [
+                         ['label' => 'Level 1 - Dropdown A', 'url' => '#'],
+                         '<li class="divider"></li>',
+                         '<li class="dropdown-header">Dropdown Header</li>',
+                         ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
+                     ],
+                 ],*/
+            ],
+        ]);
     }
 }

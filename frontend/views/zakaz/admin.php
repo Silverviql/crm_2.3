@@ -17,12 +17,14 @@ use yii\widgets\Pjax;
 /** @var $dataProviderWork yii\data\ActiveDataProvider */
 /** @var $dataProviderIspol yii\data\ActiveDataProvider*/
 
-$this->title = 'Вce заказы';
+$this->title = 'ВСЕ ЗАКАЗЫ';
 ?>
-<?php Pjax::begin(['id' => 'pjax-container']); ?>
+<?php /*Pjax::begin(['id' => 'pjax-container']); */?>
 
 <div class="zakaz-index">
-    <div class="button-dropmenu">
+    <div class="container">
+        <div class="row">
+            <div class="button-dropmenu">
         <?php echo ButtonDropdown::widget([
         'label' => '+',
         'options' => [
@@ -74,15 +76,15 @@ $this->title = 'Вce заказы';
             ]
         ]
     ]); ?>
-    </div>
-        <?php //echo $this->render('_search', ['model' => $searchModel]);?>
-    <div class="col-lg-12 divWork">
-            <h3 class="titleTable">В работе</h3>
-            <div class="col-lg-2 zakazSearch">
-                <?php echo $this->render('_searchadmin', ['model' => $searchModel]);?>
             </div>
-    </div>
-    <div class="col-lg-12">
+                <div class="col-lg-6 shopZakaz"></div>
+                <div class="col-lg-6 zakazSearch">
+                    <?php echo $this->render('_search', ['model' => $searchModel]);?>
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-lg-9 orderList">
+                <h3 class="titleTable">В работе</h3>
         <?= GridView::widget([
         'dataProvider' => $dataProviderWork,
         'floatHeader' => true,
@@ -257,19 +259,15 @@ $this->title = 'Вce заказы';
 //                    Zakaz::STATUS_EXECUTE => 'success',
 //                    Zakaz::STATUS_ADOPTED => 'warning',
 //                    Zakaz::STATUS_REJECT => 'danger',
-//                    Zakaz::STATUS_SUC_DISAIN => 'success',
+//                    Zakaz::STATUS_SUC_DESIGN => 'success',
 //                    Zakaz::STATUS_SUC_MASTER => 'success',
 //                ],
 //                'contentOptions' => ['class' => 'border-right'],
 //            ],
         ],
     ]); ?>
-    </div>
-    <div class="col-lg-12">
-        <h3 class="titleTable">На исполнении</h3>
-    </div>
-    <div class="col-lg-12">
-    <?= GridView::widget([
+            <h3 class="titleTable">На исполнении</h3>
+                 <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'floatHeader' => true,
         'headerRowOptions' => ['class' => 'headerTable'],
@@ -406,12 +404,8 @@ $this->title = 'Вce заказы';
             ],
         ],
     ]); ?>
-    </div>
-    <div class="col-lg-12">
-        <h3 class="titleTable">На закрытие</h3>
-    </div>
-    <div class="col-lg-12">
-        <?= GridView::widget([
+            <h3 class="titleTable">На закрытие</h3>
+             <?= GridView::widget([
         'dataProvider' => $dataProviderIspol,
         'floatHeader' => true,
         'headerRowOptions' => ['class' => 'headerTable'],
@@ -536,8 +530,12 @@ $this->title = 'Вce заказы';
             ]
         ],
     ]); ?> 
-    <?php Pjax::end(); ?>
+   <!-- --><?php /*Pjax::end(); */?>
+        </div>
+        <div class="col-lg-3"></div>
+        </div>
     </div>
+</div>
     <?php Modal::begin([
         'id' => 'declinedModal',
         'header' => '<h2>Укажите причину отказа:</h2>',

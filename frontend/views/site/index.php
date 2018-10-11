@@ -18,8 +18,8 @@ $this->title = 'Главная страница';
         <?php if (Yii::$app->user->can('shop')): ?>
             <?= Html::a(Html::encode('ОК'), ['zakaz/shop'], ['class' => 'btn btn-lg action']) ?>
         <?php endif; ?>
-        <?php if (Yii::$app->user->can('disain')): ?>
-            <?= Html::a(Html::encode('ОК'), ['zakaz/disain'], ['class' => 'btn btn-lg action']) ?>
+        <?php if (Yii::$app->user->can('design')): ?>
+            <?= Html::a(Html::encode('ОК'), ['zakaz/design'], ['class' => 'btn btn-lg action']) ?>
         <?php endif; ?>
         <?php if (Yii::$app->user->can('master')): ?>
             <?= Html::a(Html::encode('ОК'), ['zakaz/master'], ['class' => 'btn btn-lg action']) ?>

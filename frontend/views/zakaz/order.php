@@ -74,7 +74,7 @@ use yii\widgets\MaskedInput;
     </div>
     <div class="responsible">
         <div class="responsible_person-status">
-                <?php if ($model->status == Zakaz::STATUS_DECLINED_DISAIN or $model->status == Zakaz::STATUS_DECLINED_MASTER){
+                <?php if ($model->status == Zakaz::STATUS_DECLINED_DESIGN or $model->status == Zakaz::STATUS_DECLINED_MASTER){
                     echo '<div class="statusZakaz declinedIspol">Отклонено</div>
 <div class="declinedIspol_div">
 <span class="responsible_person">По причине:</span><br>'.$model->declined.'</div>';
@@ -83,7 +83,7 @@ use yii\widgets\MaskedInput;
             </div>
             <span class="responsible_person">Статус:</span>
             <div class="responsible_person-status">
-                <?php if ($model->status == Zakaz::STATUS_SUC_DISAIN or $model->status == Zakaz::STATUS_SUC_MASTER){
+                <?php if ($model->status == Zakaz::STATUS_SUC_DESIGN or $model->status == Zakaz::STATUS_SUC_MASTER){
                     echo '<div class="statusZakaz">Выполнено</div>';
                 } elseif ($model->renouncement != null){
                     echo '<div class="statusZakaz declined">Отказ от клиента</div>

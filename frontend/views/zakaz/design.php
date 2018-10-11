@@ -27,13 +27,13 @@ $this->title = 'Все заказы';
         'pjax' => true,
         'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
         'rowOptions' => function($model){
-           /* if ($model->statusDisain == Zakaz::STATUS_DISAINER_NEW) {
-                return ['class' => 'trTable trNormal trNewDisain'];
+           /* if ($model->statusDesign == Zakaz::STATUS_DESIGNER_NEW) {
+                return ['class' => 'trTable trNormal trNewDesign'];
             }*/
              if ($model->srok < date('Y-m-d H:i:s')  ) {
-                return ['class' => 'trTable trTablePass italic trNewDisain'];
+                return ['class' => 'trTable trTablePass italic trNewDesign'];
             }else {
-                return ['class' => 'trTable trNormal trNewDisain'];
+                return ['class' => 'trTable trNormal trNewDesign'];
             }
         },
         'striped' => false,
@@ -120,7 +120,7 @@ $this->title = 'Все заказы';
                 'contentOptions' => ['class' => 'textTr tr70'],
             ],
             [
-                'attribute' => 'statusDisainName',
+                'attribute' => 'statusDesignName',
                 'contentOptions' => ['class' => 'border-right textTr tr90'],
             ],
         ],
@@ -134,8 +134,8 @@ $this->title = 'Все заказы';
         'pjax' => true,
         'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
         'rowOptions' => function($model){
-            if ($model->statusDisain == Zakaz::STATUS_DISAINER_NEW) {
-                return ['class' => 'trTable trNormal trNewDisain'];
+            if ($model->statusDesign == Zakaz::STATUS_DESIGNER_NEW) {
+                return ['class' => 'trTable trNormal trNewDesign'];
             } else {
                 return ['class' => 'trTable trNormal'];
             }
@@ -224,11 +224,11 @@ $this->title = 'Все заказы';
                 'contentOptions' => ['class' => 'textTr tr70'],
             ],
             [
-                'attribute' => 'statusDisainName',
+                'attribute' => 'statusDesignName',
                 'contentOptions' => function($model) {
-                    if ($model->status == Zakaz::STATUS_SUC_DISAIN) {
+                    if ($model->status == Zakaz::STATUS_SUC_DESIGN) {
                         return ['class' => 'border-right textTr tr90 success-ispol'];
-                    } elseif($model->status == Zakaz::STATUS_DECLINED_DISAIN) {
+                    } elseif($model->status == Zakaz::STATUS_DECLINED_DESIGN) {
 
                         return ['class' => 'border-right textTr tr90'];
                     }
@@ -242,7 +242,7 @@ $this->title = 'Все заказы';
     <?php echo Nav::widget([
         'options' => ['class' => 'nav nav-pills footerNav'],
         'items' => [
-            ['label' => 'Архив', 'url' => ['zakaz/ready'], 'visible' => Yii::$app->user->can('disain')],
+            ['label' => 'Архив', 'url' => ['zakaz/ready'], 'visible' => Yii::$app->user->can('design')],
         ],
     ]); ?>
 </div>

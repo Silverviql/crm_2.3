@@ -82,8 +82,8 @@ $this->title = $model->prefics;
                 'visible' => $model->maket != null
             ],
             [
-                'attribute' => 'statusDisainName',
-                'visible' => Yii::$app->user->can('seeDisain') && $model->statusDisain != null,
+                'attribute' => 'statusDesignName',
+                'visible' => Yii::$app->user->can('seeDesign') && $model->statusDesign != null,
                 'label' => 'Статус у дизайнера',
             ],
         ],

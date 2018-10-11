@@ -35,7 +35,7 @@ class ZakazController extends Controller
             ],
             // 'caching' => [
             //     'class' => 'yii\filters\HttpCache',
-            //     'only' => ['admin', 'shop', 'master', 'disain'],
+            //     'only' => ['admin', 'shop', 'master', 'design'],
             //     'lastModified' => function(){
             //         return Zakaz::find()->max('date_update');
             //     }
@@ -61,12 +61,12 @@ class ZakazController extends Controller
                     [
                         'actions' => ['update'],
                         'allow' => true,
-                        'roles' => ['admin', 'disain', 'master', 'program', 'shop'],
+                        'roles' => ['admin', 'design', 'master', 'program', 'shop'],
                     ],
                     [
                         'actions' => ['view'],
                         'allow' => true,
-                        'roles' => ['admin', 'disain', 'master', 'program', 'shop', 'zakup', 'system', 'manager'],
+                        'roles' => ['admin', 'design', 'master', 'program', 'shop', 'zakup', 'system', 'manager'],
                     ],
                     [
                         'actions' => ['check'],
@@ -74,9 +74,9 @@ class ZakazController extends Controller
                         'roles' => ['master', 'program'],
                     ],
                     [
-                        'actions' => ['uploadedisain'],
+                        'actions' => ['uploadedesign'],
                         'allow' => true,
-                        'roles' => ['disain', 'program'],
+                        'roles' => ['design', 'program'],
                     ],
                     [
                         'actions' => ['close'],
@@ -99,9 +99,9 @@ class ZakazController extends Controller
                         'roles' => ['shop', 'program', 'manager'],
                     ],
                     [
-                        'actions' => ['disain'],
+                        'actions' => ['design'],
                         'allow' => true,
-                        'roles' => ['disain', 'program', 'manager'],
+                        'roles' => ['design', 'program', 'manager'],
                     ],
                     [
                         'actions' => ['master'],
@@ -131,7 +131,7 @@ class ZakazController extends Controller
                     [
                         'actions' => ['ready'],
                         'allow' => true,
-                        'roles' => ['disain', 'program'],
+                        'roles' => ['design', 'program'],
                     ],
                     [
                         'actions' => ['adopted'],
@@ -139,9 +139,9 @@ class ZakazController extends Controller
                         'roles' => ['admin', 'program'],
                     ],
                     [
-                        'actions' => ['adopdisain'],
+                        'actions' => ['adopdesign'],
                         'allow' => true,
-                        'roles' => ['disain', 'program'],
+                        'roles' => ['design', 'program'],
                     ],
                     [
                         'actions' => ['adopmaster'],
@@ -149,9 +149,9 @@ class ZakazController extends Controller
                         'roles' => ['master', 'program'],
                     ],
                     [
-                        'actions' => ['statusdisain'],
+                        'actions' => ['statusdesign'],
                         'allow' => true,
-                        'roles' => ['disain', 'program'],
+                        'roles' => ['design', 'program'],
                     ],
                     [
                         'actions' => ['zakazedit'],
@@ -186,7 +186,7 @@ class ZakazController extends Controller
                     [
                         'actions' => ['reconcilation'],
                         'allow' => true,
-                        'roles' => ['disain']
+                        'roles' => ['design']
                     ]
                 ],
             ],
@@ -290,7 +290,7 @@ class ZakazController extends Controller
                 $model->save();
                 Yii::$app->session->addFlash('update', 'Успешно создан заказ '.$model->prefics);
                 try{
-                    if($model->status == Zakaz::STATUS_DISAIN){
+                    if($model->status == Zakaz::STATUS_DESIGN){
                         $user = User::findOne(['id' => User::USER_DISAYNER]);
                         if($user->telegram_chat_id){
                     /*        \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);*/
@@ -333,9 +333,9 @@ class ZakazController extends Controller
             if (isset($model->file)) {
                 $model->upload('update', $id);
             }
-            if ($model->status == Zakaz::STATUS_DISAIN or $model->status == Zakaz::STATUS_MASTER or Zakaz::STATUS_AUTSORS) {
-                if($model->status == Zakaz::STATUS_DISAIN){
-                    $model->statusDisain = Zakaz::STATUS_DISAINER_NEW;
+            if ($model->status == Zakaz::STATUS_DESIGN or $model->status == Zakaz::STATUS_MASTER or Zakaz::STATUS_AUTSORS) {
+                if($model->status == Zakaz::STATUS_DESIGN){
+                    $model->statusDesign = Zakaz::STATUS_DESIGNER_NEW;
                     $model->id_unread = 0;
                 } elseif($model->status == Zakaz::STATUS_MASTER){
                     $model->statusMaster = Zakaz::STATUS_MASTER_NEW;
@@ -351,7 +351,7 @@ class ZakazController extends Controller
                 print_r($model->getErrors());
                 Yii::$app->session->addFlash('errors', 'Произошла ошибка!');
             } else {
-                if($model->status == Zakaz::STATUS_DISAIN && $user->telegram_chat_id != null){
+                if($model->status == Zakaz::STATUS_DESIGN && $user->telegram_chat_id != null){
                     /*\Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);*/
                 }
                 $model->save();
@@ -402,11 +402,11 @@ class ZakazController extends Controller
     }
 
     /**
-     * Disain fulfilled zakaz
+     * Design fulfilled zakaz
      * @param $id
      * @return string
      */
-    public function actionUploadedisain($id)
+    public function actionUploadedesign($id)
     {
         $model = $this->findModel($id);
         $user = User::findOne(['id' => 5]);
@@ -417,8 +417,8 @@ class ZakazController extends Controller
             if (isset($model->file)) {
                 $model->uploadeFile;
             }
-            $model->status = Zakaz::STATUS_SUC_DISAIN;
-            $model->statusDisain = Zakaz::STATUS_DISAINER_PROCESS;
+            $model->status = Zakaz::STATUS_SUC_DESIGN;
+            $model->statusDesign = Zakaz::STATUS_DESIGNER_PROCESS;
             $model->id_unread = true;
             if ($model->save()) {
                 if (isset($model->file)) {
@@ -430,7 +430,7 @@ class ZakazController extends Controller
                 }catch (Exception $e){
                     $e->getMessage();
                 }
-                return $this->redirect(['disain', 'id' => $id]);
+                return $this->redirect(['design', 'id' => $id]);
             } else {
                 print_r($model->getErrors());
                 Yii::$app->session->addFlash('errors', 'Произошла ошибка!');
@@ -499,14 +499,14 @@ class ZakazController extends Controller
     }
 
     /**
-     * New zakaz become in status wokr for disain
+     * New zakaz become in status wokr for design
      * @param $id
      * @return \yii\web\Response
      */
-    public function actionAdopdisain($id)
+    public function actionAdopdesign($id)
     {
         $model = $this->findModel($id);
-        $model->statusDisain = Zakaz::STATUS_DISAINER_WORK;
+        $model->statusDesign = Zakaz::STATUS_DESIGNER_WORK;
         $model->save();
     }
 
@@ -543,8 +543,8 @@ class ZakazController extends Controller
     }
 
     /**
-     * Zakaz the disainer
-     * if success then redirected zakaz/disain
+     * Zakaz the designer
+     * if success then redirected zakaz/design
      * @param $id
      * @return \yii\web\Response
      */
@@ -552,13 +552,13 @@ class ZakazController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->statusDisain == Zakaz::STATUS_DISAINER_SOGLAS) {
-            $model->statusDisain = Zakaz::STATUS_DISAINER_WORK;
+        if ($model->statusDesign == Zakaz::STATUS_DESIGNER_SOGLAS) {
+            $model->statusDesign = Zakaz::STATUS_DESIGNER_WORK;
         } else {
-            $model->statusDisain = Zakaz::STATUS_DISAINER_SOGLAS;
+            $model->statusDesign = Zakaz::STATUS_DESIGNER_SOGLAS;
         }
         if ($model->save()) {
-            return $this->redirect(['disain']);
+            return $this->redirect(['design']);
         } else {
             print_r($model->getErrors());
         }
@@ -595,12 +595,12 @@ class ZakazController extends Controller
         ]);
     }
 
-    /** All fulfilled disain */
+    /** All fulfilled design */
     public function actionReady()
     {
         $searchModel = new ZakazSearch();
         $dataProvider = new ActiveDataProvider([
-            'query' => Zakaz::find()->andWhere(['status' => Zakaz::STATUS_SUC_DISAIN, 'action' => 1]),
+            'query' => Zakaz::find()->andWhere(['status' => Zakaz::STATUS_SUC_DESIGN, 'action' => 1]),
             'sort' => ['defaultOrder' => ['srok' => SORT_DESC]]
         ]);
         $notification = $this->findNotification();
@@ -613,14 +613,14 @@ class ZakazController extends Controller
     }
 
     /**
-     * Disain internal status zakaz
+     * Design internal status zakaz
      * @param $id
      * @return \yii\web\Response
      */
-    public function actionStatusdisain($id)
+    public function actionStatusdesign($id)
     {
         $model = $this->findModel($id);
-        $model->statusDisain = Zakaz::STATUS_DISAINER_WORK;
+        $model->statusDesign = Zakaz::STATUS_DESIGNER_WORK;
         $model->save();
 
         return $this->redirect(['view', 'id' => $model->id_zakaz]);
@@ -674,18 +674,18 @@ class ZakazController extends Controller
     }
 
     /**
-     * All zakaz existing in Disain
+     * All zakaz existing in Desgin
      * @return string
      */
-    public function actionDisain()
+    public function actionDesign()
     {
         $searchModel = new ZakazSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, 'disain');
-        $dataProviderSoglas = $searchModel->search(Yii::$app->request->queryParams, 'disainSoglas');
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, 'design');
+        $dataProviderSoglas = $searchModel->search(Yii::$app->request->queryParams, 'designSoglas');
         $notification = $this->findNotification();
         $dataProvider->pagination = false;
 
-        return $this->render('disain', [
+        return $this->render('design', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
             'dataProviderSoglas' => $dataProviderSoglas,
@@ -789,7 +789,7 @@ class ZakazController extends Controller
     /** END view role */
     /** START Block admin in gridview */
     /**
-     * Zakaz deckined admin and in db setup STATUS_DECLINED_DISAIN or STATUS_DECLINED_MASTER
+     * Zakaz deckined admin and in db setup STATUS_DECLINED_DESIGN or STATUS_DECLINED_MASTER
      * if success then redirected view admin
      * @param $id
      * @return string|\yii\web\Response
@@ -798,7 +798,7 @@ class ZakazController extends Controller
     {
         $model = $this->findModel($id);
         $model->scenario = Zakaz::SCENARIO_DECLINED;
-        if ($model->status == Zakaz::STATUS_SUC_DISAIN) {
+        if ($model->status == Zakaz::STATUS_SUC_DESIGN) {
             $user_id = User::USER_DISAYNER;
         } else {
             $user_id = User::USER_MASTER;
@@ -807,9 +807,9 @@ class ZakazController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
-                if ($model->status == Zakaz::STATUS_SUC_DISAIN) {
-                    $model->status = Zakaz::STATUS_DECLINED_DISAIN;
-                    $model->statusDisain = Zakaz::STATUS_DISAINER_DECLINED;
+                if ($model->status == Zakaz::STATUS_SUC_DESIGN) {
+                    $model->status = Zakaz::STATUS_DECLINED_DESIGN;
+                    $model->statusDesign = Zakaz::STATUS_DESIGNER_DECLINED;
                     $model->id_unread = 0;
                 } else {
                     $model->status = Zakaz::STATUS_DECLINED_MASTER;
@@ -851,9 +851,9 @@ class ZakazController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
-                if ($model->status == Zakaz::STATUS_DISAIN or $model->status == Zakaz::STATUS_MASTER or $model->status == Zakaz::STATUS_AUTSORS) {
-                    if ($model->status == Zakaz::STATUS_DISAIN) {
-                        $model->statusDisain = Zakaz::STATUS_DISAINER_NEW;
+                if ($model->status == Zakaz::STATUS_DESIGN or $model->status == Zakaz::STATUS_MASTER or $model->status == Zakaz::STATUS_AUTSORS) {
+                    if ($model->status == Zakaz::STATUS_DESIGN) {
+                        $model->statusDesign = Zakaz::STATUS_DESIGNER_NEW;
                         $model->id_unread = 0;
                         $user_id = User::USER_DISAYNER;
                     } elseif ($model->status == Zakaz::STATUS_MASTER) {
@@ -865,7 +865,7 @@ class ZakazController extends Controller
                     }
                 }
                 if ($model->save()) {
-                    if($model->status == Zakaz::STATUS_DISAIN){
+                    if($model->status == Zakaz::STATUS_DESIGN){
                         $user = User::findOne(['id' => $user_id]);
                         try{
                             Yii::$app->session->addFlash('update', 'Работа была принята');

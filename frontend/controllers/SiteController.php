@@ -106,7 +106,7 @@ class SiteController extends Controller
     {
 //        $routes = [
 //            'shop' => ['zakaz/shop'],
-//            'disain' => ['zakaz/disain'],
+//            'design' => ['zakaz/design'],
 //            'master' => ['zakaz/master'],
 //            'admin' => ['zakaz/admin'],
 //            'courier' => ['courier/index'],
@@ -145,8 +145,8 @@ class SiteController extends Controller
                 return $this->redirect(['zakaz/admin']);
             } else  if (Yii::$app->user->can('shop')){
                 return $this->redirect(['zakaz/shop']);
-            } else  if (Yii::$app->user->can('disain')){
-                return $this->redirect(['zakaz/disain']);
+            } else  if (Yii::$app->user->can('design')){
+                return $this->redirect(['zakaz/design']);
             } else  if (Yii::$app->user->can('master')){
                 return $this->redirect(['zakaz/master']);
             } else  if (Yii::$app->user->can('system')){

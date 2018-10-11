@@ -29,7 +29,7 @@ use yii\db\ActiveRecord;
  * @property string $maket
  * @property integer $time
  * @property integer $id_autsors
- * @property integer $statusDisain
+ * @property integer $statusDesign
  * @property integer $statusMaster
  * @property integer $restoring
  * @property string $name
@@ -58,20 +58,20 @@ class Zakaz extends ActiveRecord
     const STATUS_NEW = 0;
     const STATUS_EXECUTE = 1;
     const STATUS_ADOPTED = 2;
-    const STATUS_DISAIN = 3;
-    const STATUS_SUC_DISAIN = 4;
+    const STATUS_DESIGN = 3;
+    const STATUS_SUC_DESIGN = 4;
     const STATUS_REJECT = 5;
     const STATUS_MASTER = 6;
     const STATUS_SUC_MASTER = 7;
     const STATUS_AUTSORS = 8;
-    const STATUS_DECLINED_DISAIN = 9;
+    const STATUS_DECLINED_DESIGN = 9;
     const STATUS_DECLINED_MASTER = 10;
 
-    const STATUS_DISAINER_NEW = 0;
-    const STATUS_DISAINER_WORK = 1;
-    const STATUS_DISAINER_SOGLAS = 2;
-    const STATUS_DISAINER_PROCESS = 3;
-    const STATUS_DISAINER_DECLINED = 4;
+    const STATUS_DESIGNER_NEW = 0;
+    const STATUS_DESIGNER_WORK = 1;
+    const STATUS_DESIGNER_SOGLAS = 2;
+    const STATUS_DESIGNER_PROCESS = 3;
+    const STATUS_DESIGNER_DECLINED = 4;
 
     const STATUS_MASTER_NEW = 0;
     const STATUS_MASTER_WORK = 1;
@@ -94,7 +94,7 @@ class Zakaz extends ActiveRecord
         return [
             self::SCENARIO_DECLINED => ['declined', 'required'],
             self::SCENARIO_DEFAULT => ['srok', 'number', 'description', 'phone', 'id_sotrud', 'id_shop', 'sotrud_name', 'status', 'id_tovar', 'oplata', 'fact_oplata', 'number',
-            'id_autsors','statusDisain', 'statusMaster', 'img', 'id_shipping', 'id_tovar', 'id_unread', 'information', 'data', 'prioritet', 'phone', 'email', 'name', 'maket',
+            'id_autsors','statusDesign', 'statusMaster', 'img', 'id_shipping', 'id_tovar', 'id_unread', 'information', 'data', 'prioritet', 'phone', 'email', 'name', 'maket',
             'time', 'temporary_img', 'temporary_maket', 'date_update','restoring','interior'],
         ];
     }
@@ -120,8 +120,8 @@ class Zakaz extends ActiveRecord
         return [
             [['srok', 'number', 'description', 'phone'], 'required', 'on' => self::SCENARIO_DEFAULT],
             ['declined', 'required', 'message' => 'Введите причину отказа', 'on'=> self::SCENARIO_DECLINED],
-            [['id_zakaz', 'id_tovar', 'minut', 'time', 'number', 'status', 'action', 'id_sotrud', 'id_shop', 'phone', 'id_shipping' ,'prioritet', 'id_autsors','statusDisain', 'statusMaster', 'id_unread', 'date_update','restoring'], 'integer'],
-            [['srok', 'data', 'data-start-disain','date_close'], 'safe'],
+            [['id_zakaz', 'id_tovar', 'minut', 'time', 'number', 'status', 'action', 'id_sotrud', 'id_shop', 'phone', 'id_shipping' ,'prioritet', 'id_autsors','statusDesign', 'statusMaster', 'id_unread', 'date_update','restoring'], 'integer'],
+            [['srok', 'data', 'data-start-design','date_close'], 'safe'],
             [['oplata', 'fact_oplata'], 'filter', 'filter' => function($value){
                 return str_replace(' ', '', $value);
             }],
@@ -165,7 +165,7 @@ class Zakaz extends ActiveRecord
             'time' => 'Рекомендуемое время',
             'maket' => 'Макет дизайнера',
             'id_autsors' => 'Id Autsors',
-            'statusDisain' => 'Этап',
+            'statusDesign' => 'Этап',
             'statusMaster' => 'Этап',
             'file' => 'Файл',
             'information' => 'Дополнительная информация',
@@ -221,9 +221,9 @@ class Zakaz extends ActiveRecord
             self::STATUS_NEW => 'Новый',
             self::STATUS_EXECUTE => 'Исполнен',
             self::STATUS_ADOPTED => 'Принят',
-            self::STATUS_DISAIN => 'Дизайнер',
-            self::STATUS_SUC_DISAIN => 'Дизайнер',
-            self::STATUS_DECLINED_DISAIN => 'Дизайнер',
+            self::STATUS_DESIGN => 'Дизайнер',
+            self::STATUS_SUC_DESIGN => 'Дизайнер',
+            self::STATUS_DECLINED_DESIGN => 'Дизайнер',
             self::STATUS_REJECT => 'Отклонен',
             self::STATUS_MASTER => 'Мастер',
             self::STATUS_SUC_MASTER => 'Мастер',
@@ -247,19 +247,19 @@ class Zakaz extends ActiveRecord
     {
         return ArrayHelper::getValue(self::getPrioritetArray(), $this->prioritet);
     }
-    public static function getStatusDisainArray()
+    public static function getStatusDesignArray()
     {
         return [
-            self::STATUS_DISAINER_NEW => 'Новый',
-            self::STATUS_DISAINER_WORK => 'В работе',
-            self::STATUS_DISAINER_SOGLAS => 'Согласование',
-            self::STATUS_DISAINER_PROCESS => 'На проверке',
-            self::STATUS_DISAINER_DECLINED => 'Отклонен',
+            self::STATUS_DESIGNER_NEW => 'Новый',
+            self::STATUS_DESIGNER_WORK => 'В работе',
+            self::STATUS_DESIGNER_SOGLAS => 'Согласование',
+            self::STATUS_DESIGNER_PROCESS => 'На проверке',
+            self::STATUS_DESIGNER_DECLINED => 'Отклонен',
         ];
     }
-    public function getStatusDisainName()
+    public function getStatusDesignName()
     {
-        return ArrayHelper::getValue(self::getStatusDisainArray(), $this->statusDisain);
+        return ArrayHelper::getValue(self::getStatusDesignArray(), $this->statusDesign);
     }
     public static function getStatusMasterArray()
     {

@@ -44,7 +44,7 @@ class TodoistController extends Controller
 					[
     					'actions' => ['shop'],
     					'allow' => true,
-    					'roles' => ['shop', 'zakup', 'master', 'disain', 'program', 'courier', 'system', 'manager'],
+    					'roles' => ['shop', 'zakup', 'master', 'design', 'program', 'courier', 'system', 'manager'],
 					],
 					[
     					'actions' => ['close', 'create', 'update', 'declined', 'accept', 'todoist-detail', 'appoint'],

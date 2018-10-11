@@ -13,14 +13,14 @@ use app\models\User;
 /* @var $shipping app\models\Courier */
 ?>
 
-
-<div class="view-zakaz" style="color: black">
-	<div class="col-lg-2 anketaZakaz">
+<div class="">
+<div class="col-lg-2 view-zakaz" style="color: black">
+	<div class=" anketaZakaz">
         <span class="anketaZakaz_from">От:</span>
         <div><?= date('d M H:i',strtotime($model->data)) ?></div>
 
-        <span class="anketaZakaz_from">Автор:</span>
-        <div><?= $model->idSotrud->name ?></div>
+<!--        <span class="anketaZakaz_from">Автор:</span>
+        <div><?/*= $model->idSotrud->name */?></div>-->
         
         <?php if ($model->sotrud_name != null): ?>
         <span class="anketaZakaz_from">Сотрудник:</span>
@@ -34,10 +34,12 @@ use app\models\User;
         <div><?= $model->email ?></div>
 	    </div>
     </div>
-	<div class="col-lg-7 zakazInfo">
+	<div class="col-lg-4 zakazInfo">
         <div class="divInform">
         <?= $model->information ?>
         </div>
+    </div>
+    <div  class="col-lg-3 orderComment">
         <?php $comment = Comment::find()->where(['id_zakaz' => $model->id_zakaz])->orderBy('id DESC')->limit(6)->all(); ?>
         <div class="comment-zakaz">
             <?php if (count($comment) != 0): ?>
@@ -90,18 +92,18 @@ use app\models\User;
 			],
 		]) ?>
 	</div>
-    <div class="responsible">
-        <?php if (Yii::$app->user->can('disain')): ?>
-            <?php if ($model->status == Zakaz::STATUS_DISAIN && $model->statusDisain == Zakaz::STATUS_DISAINER_WORK): ?>
+    <div class="col-lg-2 responsible">
+        <?php if (Yii::$app->user->can('design')): ?>
+            <?php if ($model->status == Zakaz::STATUS_DESIGN && $model->statusDesign == Zakaz::STATUS_DESIGNER_WORK): ?>
             Согласование с клиентом: <?= Html::a('Отправить', ['reconcilation', 'id' => $model->id_zakaz], ['class' => 'action']) ?>
             <?php endif ?>
-            <?php if ($model->status == Zakaz::STATUS_DISAIN && $model->statusDisain == Zakaz::STATUS_DISAINER_SOGLAS): ?>
+            <?php if ($model->status == Zakaz::STATUS_DESIGN && $model->statusDesign == Zakaz::STATUS_DESIGNER_SOGLAS): ?>
                 Согласование с клиентом: <?= Html::a('Снять', ['reconcilation', 'id' => $model->id_zakaz], ['class' => 'action']) ?>
             <?php endif ?>
         <?php endif ?>
         <?php if (Yii::$app->user->can('seeIspol')): ?>
             <div class="responsible_person-status">
-                <?php if ($model->status == Zakaz::STATUS_DECLINED_DISAIN or $model->status == Zakaz::STATUS_DECLINED_MASTER){
+                <?php if ($model->status == Zakaz::STATUS_DECLINED_DESIGN or $model->status == Zakaz::STATUS_DECLINED_MASTER){
                     echo '<div class="statusZakaz declinedIspol">Отклонено</div>
 <div class="declinedIspol_div">
 <span class="responsible_person">По причине:</span><br>'.$model->declined.'</div>';
@@ -109,17 +111,17 @@ use app\models\User;
                 ?>
             </div>
         <?php endif ?>
-        <?php if (Yii::$app->user->can('admin')): ?>
-        <span class="responsible_person">Статус:</span>
+        <?php if (Yii::$app->user->can('manager')): ?>
+<!--        <span class="responsible_person">Статус:</span>-->
         <div class="responsible_person-status">
-            <?php if ($model->status == Zakaz::STATUS_SUC_DISAIN or $model->status == Zakaz::STATUS_SUC_MASTER){
+            <?php if ($model->status == Zakaz::STATUS_SUC_DESIGN or $model->status == Zakaz::STATUS_SUC_MASTER){
                 echo '<div class="statusZakaz">Выполнено</div>
 <div>'
                     .Html::submitButton('Принять', ['class' => 'action actionApprove', 'value' => Url::to(['zakaz/accept', 'id' => $model->id_zakaz])]).' '
                     .Html::submitButton('Отклонить', ['class' => 'action actionCancel', 'value' => Url::to(['zakaz/declined', 'id' => $model->id_zakaz])]).'
 </div>';
             }
-            elseif($model->status == Zakaz::STATUS_DECLINED_DISAIN or $model->status == Zakaz::STATUS_DECLINED_MASTER){
+            elseif($model->status == Zakaz::STATUS_DECLINED_DESIGN or $model->status == Zakaz::STATUS_DECLINED_MASTER){
                 echo '<div class="statusZakaz declined">Отклонено</div>
 <div class="declined_div">
 <span class="responsible_person">По причине:</span><br>'.$model->declined.'</div>';
@@ -140,17 +142,29 @@ use app\models\User;
         <?php endif ?>
         <div class="linePrice"></div>
         <div class="oplata-zakaz">
-            <span class="responsible_person namePrice">Оплачено:</span>
-            <span class="responsible_person namePrice">К доплате:</span>
-            <span class="responsible_person namePrice">Всего:</span>
-            <div class="responsible_person price"><?= number_format($model->fact_oplata, 0, ',', ' ').'р.' ?></div>
-            <div class="responsible_person price"><?php if($model->oplata != null){?>
-                <?php echo number_format($model->oplata - $model->fact_oplata, 0, ',', ' ').'р.'; ?>
-            <?php } ?></div>
-            <div class="responsible_person price"><?= number_format($model->oplata, 0, ',', ' ').'р.' ?></div>
+            <div class="col-lg-6 block-price">
+                <span class="responsible_person">Оплачено:</span>
+                <span class="responsible_person">К доплате:</span>
+                <span class="responsible_person">Всего:</span>
+            </div>
+            <div class="col-lg-6 block-price">
+                <p class="responsible_person price"><?= number_format($model->fact_oplata, 0, ',', ' ').'р.' ?></p>
+                <p class="responsible_person price"><?php
+                    if($model->oplata != null){
+                        echo number_format($model->oplata - $model->fact_oplata,
+                                0, ',', ' ').'р.'; }
+                    else{
+                        echo number_format(0, 0, ',', ' ').'р.';
+                    } ?></p>
+                <p class="responsible_person price "><?= number_format($model->oplata, 0, ',', ' ').'р.' ?></p>
+            </div>
         </div>
     </div>
+</div>
+<div class="">
     <div class="col-lg-12 footerView"></div>
+</div>
+<div class="">
     <div class="col-lg-12 footer-view-zakaz">
         <?php if (($model->status == Zakaz::STATUS_MASTER or $model->status == Zakaz::STATUS_DECLINED_MASTER) && Yii::$app->user->can('master')): ?>
             <?= Html::a('Готово', ['check', 'id' => $model->id_zakaz], ['class' => 'btn btn- done']) ?>
@@ -196,11 +210,11 @@ use app\models\User;
 
             Modal::end(); ?>
         <?php endif ?>
-        <?php if (($model->status == Zakaz::STATUS_DISAIN or $model->status == Zakaz::STATUS_DECLINED_DISAIN) && Yii::$app->user->can('disain')): ?>
-            <?= Html::submitButton('Заказ исполнен', ['class' => 'action modalDisain', 'value' => Url::to(['uploadedisain', 'id' => $model->id_zakaz])]) ?>
+        <?php if (($model->status == Zakaz::STATUS_DESIGN or $model->status == Zakaz::STATUS_DECLINED_DESIGN) && Yii::$app->user->can('design')): ?>
+            <?= Html::submitButton('Заказ исполнен', ['class' => 'action modalDesign', 'value' => Url::to(['uploadedesign', 'id' => $model->id_zakaz])]) ?>
         <?php endif ?>
-        <?php if (($model->status == Zakaz::STATUS_SUC_DISAIN or $model->status == Zakaz::STATUS_DECLINED_DISAIN) && Yii::$app->user->can('disain')): ?>
-        <?= Html::submitButton('Изменить макет', ['class' => 'action modalDisain', 'value' => Url::to(['uploadedisain', 'id' => $model->id_zakaz])]) ?>
+        <?php if (($model->status == Zakaz::STATUS_SUC_DESIGN or $model->status == Zakaz::STATUS_DECLINED_DESIGN) && Yii::$app->user->can('design')): ?>
+        <?= Html::submitButton('Изменить макет', ['class' => 'action modalDesign', 'value' => Url::to(['uploadedesign', 'id' => $model->id_zakaz])]) ?>
         <?php endif ?>
         <?php if (!Yii::$app->user->can('seeIspol')): ?>
           <?php if ( $model->action !== 0 ): ?>
@@ -210,14 +224,15 @@ use app\models\User;
         <?= Html::a('Полный просмотр', ['view', 'id' => $model->id_zakaz], ['class' => 'btn action']) ?>
 <!--            --><?//= Html::a('Чек', ['#'], ['class' => 'btn btn-xs', 'style' => 'float: right;margin-right: 71px;'])?>
     </div>
+</div>
     <?php
 $user = Yii::$app->user->id;
 $script = <<<JS
 $('body').on('click', '.nextComment', function () {
            let id = $(this).data('id');
            let offset = $(this).data('offset');
-           console.log(window.location.origin+'/frontend/web//comment/pagination?id='+id+'&offset='+offset);
-           $.get(window.location.origin+'/frontend/web/comment/pagination?id='+id+'&offset='+offset)
+           console.log(window.location.origin+'/comment/pagination?id='+id+'&offset='+offset);
+           $.get(window.location.origin+'/comment/pagination?id='+id+'&offset='+offset)
                .done(res => {
                     console.log(res);
                    res = JSON.parse(res);

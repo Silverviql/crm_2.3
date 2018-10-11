@@ -25,7 +25,7 @@ class m170327_071607_zakaz extends Migration
                 'img' => $this->string(100),
                 'maket' => $this->string(50),
 				'time' => $this->integer(),
-                'statusDisain' => $this->integer(),
+                'statusDesign' => $this->integer(),
                 'data_start_disain' => $this->datetime(),
                 'name' => $this->string(50),
                 'phone' => $this->integer(11),
