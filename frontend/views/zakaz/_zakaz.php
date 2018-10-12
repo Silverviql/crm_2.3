@@ -39,7 +39,8 @@ use app\models\User;
         <?= $model->information ?>
         </div>
     </div>
-    <div  class="col-lg-3 orderComment">
+    <div  class="col-lg-2 orderComment">
+          <span class="CommentOrder">Комментарии:</span>
         <?php $comment = Comment::find()->where(['id_zakaz' => $model->id_zakaz])->orderBy('id DESC')->limit(6)->all(); ?>
         <div class="comment-zakaz">
             <?php if (count($comment) != 0): ?>
@@ -63,13 +64,13 @@ use app\models\User;
         </div>';
                 ?>
             <?php endforeach; ?>
-            <span class="nextComment" data-id="<?= $model->id_zakaz ?>" data-offset="1">Показать еще</span>
+            <span class="nextComment" data-id="<?= $model->id_zakaz ?>" data-offset="1">Показать еще...</span>
             <?php else: ?>
-                <span>Комментариев нет</span>
+                <span class="no-comments">Комментариев нет...</span>
             <?php endif; ?>
         </div>
     </div>
-	<div class="col-lg-1 zakazFile">
+	<div class="col-lg-2 zakazFile">
         <div class="zakazFile_block">
             <span class="zakazFile_block-number">Кол-во:</span>
             <div><?= $model->number ?></div>
@@ -111,7 +112,7 @@ use app\models\User;
                 ?>
             </div>
         <?php endif ?>
-        <?php if (Yii::$app->user->can('manager')): ?>
+        <?php if (Yii::$app->user->can('admin')): ?>
 <!--        <span class="responsible_person">Статус:</span>-->
         <div class="responsible_person-status">
             <?php if ($model->status == Zakaz::STATUS_SUC_DESIGN or $model->status == Zakaz::STATUS_SUC_MASTER){
@@ -237,7 +238,7 @@ $('body').on('click', '.nextComment', function () {
                     console.log(res);
                    res = JSON.parse(res);
                    if (res.length === 0){
-                       $(this).parent('.comment-zakaz').append('Комментариев нет');
+                       $(this).parent('.comment-zakaz').append('Комментариев нет...');
                        $(this).remove();
                    } else {
                         let com = res.map(comment => {
@@ -265,7 +266,7 @@ $('body').on('click', '.nextComment', function () {
                             '</div>'
                            });
                        $(this).parent('.comment-zakaz').append(com.join(' ')+
-                       '<span class="nextComment" data-id="'+id+'" data-offset="'+offset + 1 +'">Показать еще</span>');
+                       '<span class="nextComment" data-id="'+id+'" data-offset="'+offset + 1 +'">Показать еще...</span>');
                        $(this).remove();
                        console.log(res)   
                    }

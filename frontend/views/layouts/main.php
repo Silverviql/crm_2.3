@@ -91,17 +91,23 @@ AppAsset::register($this);
                                 'options' => ['class' => 'nav nav-pills headerNav'],
                                 'items' => [
                                     [
-                                        'label' => 'Управляющий',
+                                        'label' => Yii::$app->user->identity->name,
                                         'items' => [
                                             ['label' => 'Настройки', 'url' => ['/site/setting','id' => Yii::$app->user->identity->id]],
                                             '<li class="divider"></li>',
                                             '<li class="dropdown-header">Dropdown Header</li>',
                                             ['label' => 'Контакты', 'url' => '/personnel/index'],
-                                            ['label' => 'Отчет по закрытию кассы', 'url' => '/cashbox/creat', 'visible' => Yii::$app->user->can('shop')],
+                                            ['label' => 'Отчет по закрытию кассы', 'url' => '/cashbox/create',
+                                                'visible' => Yii::$app->user->can('shop')],
                                             ['label' => 'Инфорстенд', 'url' => '/site/index'],
                                         ],
                                     ],
-                                    ['label' => 'Выход', 'encode' => false,'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']],
+                                    [
+                                        'label'=>' <span class="glyphicon glyphicon-off exit"></span>',
+                                        'class' => 'btn btn-link logout',
+                                        'encode' => false,'url' => ['/site/logout'],
+                                        'linkOptions' => ['data-method' => 'post']
+                                    ],
                                 ],
                             ]);
                         }
