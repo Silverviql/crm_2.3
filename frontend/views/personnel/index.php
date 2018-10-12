@@ -66,6 +66,10 @@ $this->title = 'Контакты';
                 'contentOptions' => ['class' => 'textPerTr tr100'],
             ],
             [
+                'attribute' => 'email',
+                'contentOptions' => ['class' => 'textPerTr tr100'],
+            ],
+            [
                 'attribute' => 'store',
                 'contentOptions' => ['class' => 'textPerTr tr50'],
             ],

@@ -19,6 +19,7 @@ use yii\helpers\ArrayHelper;
  * @property integer $shedule
  * @property string $password
  * @property integer $bonus
+ * @property integer $email
  *
  * @property Financy[] $financies
  * @property PersonnelPosition[] $personnelPositions
@@ -45,9 +46,9 @@ class Personnel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['last_name', 'name', 'phone'], 'required'],
+            [['last_name', 'name', 'phone','email'], 'required'],
             [['action', 'bonus', 'shedule'], 'integer'],
-            [['last_name', 'name', 'patronymic', 'store'], 'string', 'max' => 50],
+            [['last_name', 'name', 'patronymic', 'store','email'], 'string', 'max' => 50],
             [['job_duties', 'password'], 'string', 'max' => 86],
             [['phone'], 'string', 'max' => 15],
         ];
@@ -65,6 +66,7 @@ class Personnel extends \yii\db\ActiveRecord
             'patronymic' => 'Отчество',
             'nameSotrud' => 'Фамилия и имя отчество',
             'phone' => 'Телефон',
+            'email' => 'Почта',
             'store' => 'Магазин',
             'action' => 'Action',
             'job_duties' => 'Должностные обязанности',
