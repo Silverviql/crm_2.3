@@ -95,6 +95,24 @@ $dataProviderCourier = new ActiveDataProvider([
                     return null;
                 }
             ],
+            [
+                'header'=>'Сколько дней',
+                'value'=>function ($model) {
+                    return  (strtotime ($model->date_performed)-strtotime ($model->term_accept))/(60*60*24);
+                },
+                'width'=>'150px',
+                'hAlign'=>'right',
+                'format'=>['decimal', 0 ],
+                'contentOptions' =>['style'=>'color:black;'],
+            ],
+            [
+                'attribute' => 'restoring',
+                'contentOptions' =>['style'=>'color:black;'],
+            ],
+            [
+                'attribute' => 'prioritet',
+                'contentOptions' =>['style'=>'color:black;'],
+            ],
         ],
     ]);;?>
     </div>

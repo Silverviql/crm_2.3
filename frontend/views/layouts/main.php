@@ -88,7 +88,7 @@ AppAsset::register($this);
 
                             PopoverX::end();*/
                            echo Nav::widget([
-                                'options' => ['class' => 'nav nav-pills headerNav'],
+                                'options' => ['class' => 'nav nav-pills headerDropdownMenu'],
                                 'items' => [
                                     [
                                         'label' => Yii::$app->user->identity->name,

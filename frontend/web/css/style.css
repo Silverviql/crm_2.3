@@ -155,7 +155,7 @@ body {
 .table > tbody > tr.info > th,
 .table > tfoot > tr.info > th {
   background: #96916d;
-  border-radius: 0 0 4px 4px;
+  border-radius: 0 0 8px 8px;
 }
 
 /* line 63, ../sass/gridview.scss */
@@ -246,12 +246,7 @@ body {
   background: rgba(179, 174, 132, 0);
 }
 
-/* line 510, ../sass/gridview.scss */
-.zakaz-index .zakazSearch input {
-  left: 50px;
-  width: 170px;
-  background: rgba(179, 174, 132, 0);
-}
+
 /* line 122, ../sass/gridview.scss */
 .zakazSearch .zakaz-search input:focus {
   background: rgba(204, 198, 198, 0.6);
@@ -282,15 +277,16 @@ body {
 /* line 149, ../sass/gridview.scss */
 .border-left {
   width: 10px;
-/*  border-radius: 19px 0px 0px 19px;*/
   border: none;
+  border-radius: 8px 0 0 0;
 }
 
 /* line 155, ../sass/gridview.scss */
 .border-right {
   width: 90px;
-/*  border-radius: 0px 19px 18px 0px;*/
+
   border: none;
+    border-radius: 0 8px 0 0;
 }
 
 /* line 161, ../sass/gridview.scss */
@@ -580,7 +576,9 @@ thead a {
 .table .textTrDes{
   color: #210510;
   font-size: 16px;
+  padding-top: 5px;
 }
+
 
 /* line 345, ../sass/gridview.scss */
 .table-bordered tbody tr td {
@@ -755,15 +753,19 @@ thead a {
   border: 1px solid #544943;
 }
 .table-bordered > tbody .trShipping {
-  border: 1px solid #544943;
+    border-bottom: 1px solid #9c9b6c;
+    /* border: 1px solid #b3ae84; */
+    border-left-color: #b3ae84;
+    border-right-color: #b3ae84;
+    font-size: 14px;
 }
 /* line 454, ../sass/gridview.scss */
 .table-bordered > tbody .trTable {
-  border-bottom: 1px solid #9c9b6c;
-  border: 1px solid #b3ae84;
-  border-left-color: #b3ae84;
-  border-right-color: #b3ae84;
-  font-size: 14px;
+    border-bottom: 1px solid #9c9b6c;
+    /* border: 1px solid #b3ae84; */
+    border-left-color: #b3ae84;
+    border-right-color: #b3ae84;
+    font-size: 14px;
 }
 /* line 458, ../sass/gridview.scss */
 .table-bordered > tbody .trSrok:hover {
@@ -787,15 +789,30 @@ thead a {
   padding-top: 4px;
 }
 
-/* line 481, ../sass/gridview.scss */
+/*!* line 481, ../sass/gridview.scss *!
 .zakaz-index .detail-view tbody {
   background: #191412;
 }
-/* line 485, ../sass/gridview.scss */
+!* line 485, ../sass/gridview.scss *!
 .zakaz-index .success-ispol {
   color: #446505;
 }
-
+!* line 505, ../sass/gridview.scss *!
+.zakaz-index .zakazSearch .shopSearch {
+    margin-top: -13px;
+    margin-left: 220px;
+    font-size: 11px;
+}
+!* line 229, ../sass/button.scss *!
+.zakaz-index .modalDesign {
+    float: right;
+}
+!* line 510, ../sass/gridview.scss *!
+.zakaz-index .zakazSearch input {
+    left: 50px;
+    width: 170px;
+    background: rgba(179, 174, 132, 0);
+}*/
 .orderComment .userCommit {
   color: #b3ae84;
 }
@@ -821,12 +838,7 @@ thead a {
   font-size: 11px;
 }
 
-/* line 505, ../sass/gridview.scss */
-.zakaz-index .zakazSearch .shopSearch {
-  margin-top: -13px;
-  margin-left: 220px;
-  font-size: 11px;
-}
+
 /* line 515, ../sass/gridview.scss */
 .order-table .shopZakaz {
   margin-top: 1px;
@@ -1111,10 +1123,9 @@ thead a {
   color: white;
 }
 
-/* line 221, ../sass/button.scss */
+/*  Кнопка назначить в форме заказа*/
 .appoint {
-  top: -16px;
-  left: 139px;
+
 }
 
 /* line 225, ../sass/button.scss */
@@ -1122,10 +1133,7 @@ thead a {
   margin-left: 114px;
 }
 
-/* line 229, ../sass/button.scss */
-.zakaz-index .modalDesign {
-  float: right;
-}
+
 
 /* line 234, ../sass/button.scss */
 .ispolShop a {
@@ -1620,33 +1628,37 @@ thead a {
 
 
 
-/* line 41, ../sass/style.scss */
+/*!* line 41, ../sass/style.scss *!
 .logout {
-  /*float: right;*/
-
+  !*float: right;*!
   background: #857c61;
   border-radius: 26px;
   color: #736a50;
-  /* position: relative;*/
-  /*  left: -74px;*/
+  !* position: relative;*!
+  !*  left: -74px;*!
   top: 30px;
   height: 39px;
 }
-/* line 51, ../sass/style.scss */
+!* line 51, ../sass/style.scss *!
 .logout span {
   padding-left: 9px;
   font-size: 14px;
   color: #333333
 }
-/* line 55, ../sass/style.scss */
+!* line 55, ../sass/style.scss *!
 .logout .exit {
   color: #802c2c;
 }
-/* line 58, ../sass/style.scss */
+!* line 58, ../sass/style.scss *!
 .logout:hover {
   color: rgba(204, 198, 198, 0.6);
   text-decoration: none;
   background: #191412;
+}*/
+
+.textSrok{
+    text-align: left;
+    padding-left: 13px;
 }
 
 /* line 65, ../sass/style.scss */
@@ -1660,6 +1672,12 @@ thead a {
   float: left;
 }
 
+.headerDropdownMenu .dropdown .dropdown-toggle{
+    color: #b3ae84;
+}
+.headerDropdownMenu .exit{
+    color: #ea2c57;
+}
 /* line 74, ../sass/style.scss */
 .menu-vidget .headerNav {
   /*  margin-top: -26px;

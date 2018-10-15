@@ -10,7 +10,7 @@ use unclead\multipleinput\TabularInput;
 /* @var $searchModel app\models\CustomSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Все запросы';?>
+$this->title = 'ВСЕ ЗАПРОСЫ';?>
 <div class="custom-index">
 
     <?php $form = ActiveForm::begin([

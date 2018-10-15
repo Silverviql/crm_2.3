@@ -13,7 +13,7 @@ use yii\helpers\Url;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $dataProviderAlien yii\data\ActiveDataProvider */
 
-$this->title = 'Все задачи';
+$this->title = 'ВСЕ ЗАДАЧИ';
 ?>
 <div class="todoist-index">
     <p>

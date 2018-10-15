@@ -13,7 +13,7 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $dataProviderSoglas yii\data\ActiveDataProvider */
 
-$this->title = 'Все заказы';
+$this->title = 'ВСЕ ЗАКАЗЫ';
 ?>
 <?php Pjax::begin(['id' => 'pjax-container']); ?>
 
@@ -102,7 +102,8 @@ $this->title = 'Все заказы';
                             'attribute' => 'description',
                             'value' => function($model){
                                 return StringHelper::truncate($model->description, 100);
-                            }
+                            },
+                             'contentOptions' => ['class' => 'textTrDes'],
                         ],
                         [
                             'attribute' => 'oplata',
@@ -205,7 +206,8 @@ $this->title = 'Все заказы';
                             'attribute' => 'description',
                             'value' => function($model){
                                 return StringHelper::truncate($model->description, 100);
-                            }
+                            },
+                            'contentOptions' => ['class' => 'textTrDes '],
                         ],
                         [
                             'attribute' => 'oplata',

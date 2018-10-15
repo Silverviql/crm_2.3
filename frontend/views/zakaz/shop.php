@@ -14,7 +14,7 @@ use yii\bootstrap\ButtonDropdown;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $dataProviderExecute yii\data\ActiveDataProvider */
 
-$this->title = 'Все заказы';
+$this->title = 'ВСЕ ЗАКАЗЫ';
 ?>
 <?php Pjax::begin(); ?>
 
@@ -149,7 +149,7 @@ $this->title = 'Все заказы';
                 [
                     'attribute' => 'description',
                     'value' => function($model){
-                        return StringHelper::truncate($model->description, 100);
+                        return StringHelper::truncate($model->description, 80);
                     }
                 ],
                 [
@@ -257,7 +257,7 @@ $this->title = 'Все заказы';
             [
                 'attribute' => 'description',
                 'value' => function($model){
-                    return StringHelper::truncate($model->description, 100);
+                    return StringHelper::truncate($model->description, 80);
                 }
             ],
             [

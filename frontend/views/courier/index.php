@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\CourierSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Все доставки';
+$this->title = 'ВСЕ ДОСТАВКИ';
 ?>
 <?php Pjax::begin(); ?>
 <div class="courier-index">

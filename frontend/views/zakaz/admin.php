@@ -17,7 +17,7 @@ use yii\widgets\Pjax;
 /** @var $dataProviderWork yii\data\ActiveDataProvider */
 /** @var $dataProviderIspol yii\data\ActiveDataProvider*/
 
-$this->title = 'Все заказы';
+$this->title = 'ВСЕ ЗАКАЗЫ';
 ?>
 <?php /*Pjax::begin(['id' => 'pjax-container']); */?>
 
@@ -138,7 +138,7 @@ $this->title = 'Все заказы';
             [
                 'attribute' => '',
                 'format' => 'raw',
-                'contentOptions' => ['class' => 'tr20'],
+                'contentOptions' => ['class' => 'tr50'],
                 'value' => function($model){
                     if ($model->prioritet == 2) {
                         return '<i class="fa fa-circle fa-red" aria-hidden="true" title="Важно/Брак в заказе"></i>';
@@ -157,9 +157,9 @@ $this->title = 'Все заказы';
                 'hAlign' => GridView::ALIGN_RIGHT,
                 'contentOptions' => function($model) {
                     if ($model->status == Zakaz::STATUS_NEW){
-                        return ['class' => 'tr100 srok'];
+                        return ['class' => 'tr100 srok textSrok '];
                     } else {
-                        return ['class' => 'textTr tr100 srok'];
+                        return ['class' => 'textTr tr100 srok textSrok'];
                     }
                 },
             ],
@@ -184,7 +184,7 @@ $this->title = 'Все заказы';
             [
                 'attribute' => 'description',
                 'value' => function($model){
-                    return StringHelper::truncate($model->description, 100);
+                    return StringHelper::truncate($model->description, 65);
                 }
             ],
             [
@@ -309,7 +309,7 @@ $this->title = 'Все заказы';
             [
                 'attribute' => '',
                 'format' => 'raw',
-                'contentOptions' => ['class' => 'tr20'],
+                'contentOptions' => ['class' => 'tr50'],
                 'value' => function($model){
                     if ($model->prioritet == 2) {
                         return '<i class="fa fa-circle fa-red" aria-hidden="true" title="Важно/Брак в заказе"></i>';
@@ -326,7 +326,7 @@ $this->title = 'Все заказы';
                 'format' => ['datetime', 'php:d M H:i'],
                 'value' => 'srok',
                 'hAlign' => GridView::ALIGN_RIGHT,
-                'contentOptions' => ['class' => 'textTr tr100 srok'],
+                'contentOptions' => ['class' => 'textTr tr100 srok textSrok'],
             ],
             [
                 'attribute' => 'minut',
@@ -343,7 +343,7 @@ $this->title = 'Все заказы';
             [
                 'attribute' => 'description',
                 'value' => function($model){
-                    return StringHelper::truncate($model->description, 100);
+                    return StringHelper::truncate($model->description, 65);
                 },
             ],
             [
@@ -441,7 +441,7 @@ $this->title = 'Все заказы';
                     [
                         'attribute' => '',
                         'format' => 'raw',
-                        'contentOptions' => ['class' => 'tr20'],
+                        'contentOptions' => ['class' => 'tr50'],
                         'value' => function($model){
                             if ($model->prioritet == 2) {
                                 return '<i class="fa fa-circle fa-red" aria-hidden="true" title="Важно/Брак в заказе"></i>';
@@ -458,7 +458,7 @@ $this->title = 'Все заказы';
                         'format' => ['datetime', 'php:d M H:i'],
                         'value' => 'srok',
                         'hAlign' => GridView::ALIGN_RIGHT,
-                        'contentOptions' => ['class' => 'textTr tr100 srok'],
+                        'contentOptions' => ['class' => 'textTr tr100 srok textSrok'],
                     ],
                     [
                         'attribute' => 'minut',
@@ -475,7 +475,7 @@ $this->title = 'Все заказы';
                     [
                         'attribute' => 'description',
                         'value' => function($model){
-                            return StringHelper::truncate($model->description, 100);
+                            return StringHelper::truncate($model->description, 65);
                         }
                     ],
                     [

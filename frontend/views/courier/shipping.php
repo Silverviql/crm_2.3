@@ -10,7 +10,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\CourierSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Все доставки';
+$this->title = 'ВСЕ ДОСТАВКИ';
 ?>
 <?php Pjax::begin(); ?>
 <div class="order-table">
@@ -78,7 +78,7 @@ $this->title = 'Все доставки';
                     'pjax' => true,
                     'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
                     'striped' => false,
-                    'rowOptions' => ['class' => 'trShipping srok trNormal'],
+                    'rowOptions' => ['class' => 'trShipping srok trNormal '],
                     'columns' => [
                         [
                             'attribute' => 'date',

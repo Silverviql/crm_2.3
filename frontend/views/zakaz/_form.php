@@ -254,11 +254,6 @@ use yii\helpers\ArrayHelper;
                 ['prompt' => 'Выберите приоритет'])->label(false) ?>
                  
                  <?php endif ?>
-              <?php if(($model->status ==  Zakaz::STATUS_MASTER and $model->term_accept == null ) or
-                     ($model->status ==  Zakaz::STATUS_DESIGN and $model->term_accept == null) or
-                     ($model->status ==  Zakaz::STATUS_AUTSORS and $model->term_accept == null) ):?>
-                    <?= $form->field($model, 'term_accept')->hiddenInput(['value' => $model->srok])->label(false) ?>
-              <?php endif ?>
             </div>
             <?php endif ?>
             <?php if (Yii::$app->user->can('shop')): ?>

@@ -43,6 +43,8 @@ use yii\db\ActiveRecord;
  * @property string $date_update
  * @property string $date_close
  * @property integer $interior
+ * @property string $term_accept
+ * @property string $date_performed
  *
  * @property Courier[] $couriers
  * @property Todoist[] $todoists
@@ -121,7 +123,7 @@ class Zakaz extends ActiveRecord
             [['srok', 'number', 'description', 'phone'], 'required', 'on' => self::SCENARIO_DEFAULT],
             ['declined', 'required', 'message' => 'Введите причину отказа', 'on'=> self::SCENARIO_DECLINED],
             [['id_zakaz', 'id_tovar', 'minut', 'time', 'number', 'status', 'action', 'id_sotrud', 'id_shop', 'phone', 'id_shipping' ,'prioritet', 'id_autsors','statusDesign', 'statusMaster', 'id_unread', 'date_update','restoring'], 'integer'],
-            [['srok', 'data', 'data-start-design','date_close'], 'safe'],
+            [['srok', 'data', 'data-start-design','date_close','term_accept','date_performed'], 'safe'],
             [['oplata', 'fact_oplata'], 'filter', 'filter' => function($value){
                 return str_replace(' ', '', $value);
             }],
@@ -181,6 +183,8 @@ class Zakaz extends ActiveRecord
             'search' => 'Search',
             'date_close' => 'Дата закрытия',
             'interior' => 'Внутренний заказ',
+            'term_accept'=> 'Подтвержденный админом срок',
+            'date_performed'=> 'Дата исполненого'
         ];
     }
 

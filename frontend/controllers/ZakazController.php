@@ -532,6 +532,7 @@ class ZakazController extends Controller
     {
         $model = $this->findModel($id);
         $model->status = Zakaz::STATUS_EXECUTE;
+        $model-> date_performed = date('Y-m-d H:i:s');
         $model->id_unread = 0;
         if ($model->save()) {
             Yii::$app->session->addFlash('update', 'Выполнен заказ №'.$model->prefics);
@@ -771,7 +772,7 @@ class ZakazController extends Controller
         $dataProviderIspol  ->sort->defaultOrder['srok']=SORT_ASC;
         $dataProviderNew->pagination = false;
         $dataProviderWork->pagination = false;
-      /*  $dataProviderIspol->pagination = false;*/
+        $dataProviderIspol->pagination = false;
         $dataProvider->pagination = false;
 
 
@@ -852,6 +853,7 @@ class ZakazController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($model->validate()) {
                 if ($model->status == Zakaz::STATUS_DESIGN or $model->status == Zakaz::STATUS_MASTER or $model->status == Zakaz::STATUS_AUTSORS) {
+                    $model->term_accept = $model->srok;
                     if ($model->status == Zakaz::STATUS_DESIGN) {
                         $model->statusDesign = Zakaz::STATUS_DESIGNER_NEW;
                         $model->id_unread = 0;

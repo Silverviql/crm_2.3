@@ -12,7 +12,7 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var $dataProviderSoglas yii\data\ActiveDataProvider */
 
-$this->title = 'Все поломки';
+$this->title = 'ВСЕ ПОЛОМКИ';
 ?>
 <?php Pjax::begin(); ?>
 <div class="helpdesk-index">

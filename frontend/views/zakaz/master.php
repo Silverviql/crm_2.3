@@ -11,7 +11,7 @@ use yii\widgets\Pjax;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 /* @var  $comment app\models\Comment */
 
-$this->title = 'Все заказы';
+$this->title = 'ВСЕ ЗАКАЗЫ';
 ?>
 <?php Pjax::begin(['id' => 'pjax-container']); ?>
 

@@ -10,7 +10,7 @@ use dosamigos\chartjs\ChartJs;
 use yii\helpers\StringHelper;
 use yii\helpers\Url;
 
-$this->title = 'Управляющий';
+$this->title = 'УПРАВЛЯЮЩИЙ';
 ?>
 
 <div class="manager-index">

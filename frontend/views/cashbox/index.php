@@ -15,7 +15,7 @@ $dataProvider = new ActiveDataProvider([
     ],
 ]);
 
-$this->title = 'Отчет по кассам';
+$this->title = 'ОТЧЕТ ПО КАССАМ';
 
 ?>
 

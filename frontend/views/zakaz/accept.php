@@ -18,10 +18,6 @@ use yii\widgets\ActiveForm;
     Zakaz::STATUS_AUTSORS => 'Аутсорс',
 ])->label(false)?>
 
- <?php if($model->term_accept == null ):?>
-        <?= $form->field($model, 'term_accept')->hiddenInput(['value' => $model->srok])->label(false) ?>
-    <?php endif ?>
-
 <?= $form->field($model, 'id_autsors')->dropDownList(
     ArrayHelper::map(Partners::find()->all(), 'id', 'name'),
     [
