@@ -97,7 +97,8 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                             'attribute' => 'description',
                             'value' => function($model){
                                 return StringHelper::truncate($model->description, 100);
-                            }
+                            },
+                            'contentOptions' => ['class' => 'textTrDes '],
                         ],
                         [
                             'attribute' => 'oplata',
@@ -190,7 +191,8 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                                 'attribute' => 'description',
                                 'value' => function($model){
                                     return StringHelper::truncate($model->description, 100);
-                                }
+                                },
+                                'contentOptions' => ['class' => 'textTrDes '],
                             ],
                             [
                                 'attribute' => 'oplata',

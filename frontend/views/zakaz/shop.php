@@ -8,6 +8,7 @@ use kartik\grid\GridView;
 use yii\widgets\Pjax;
 use app\models\Zakaz;
 use yii\bootstrap\ButtonDropdown;
+use yii\bootstrap\Modal;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ZakazSearch */
@@ -81,7 +82,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 <h3 class="titleTable">Исполнено</h3>
         <?= GridView::widget([
             'dataProvider' => $dataProviderExecute,
-            'floatHeader' => true,
+            'floatHeader' => false,
             'headerRowOptions' => ['class' => 'headerTable'],
             'pjax' => true,
             'striped' => false,
@@ -150,7 +151,8 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                     'attribute' => 'description',
                     'value' => function($model){
                         return StringHelper::truncate($model->description, 80);
-                    }
+                    },
+                    'contentOptions' => ['class' => 'textTrDes '],
                 ],
                 [
                  'attribute' => 'interior',
@@ -184,12 +186,11 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 ]
             ],
         ]); ?>
-                <h3 class="titleTable">В работе</h3>
         <h3 class="titleTable">В работе</h3>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'floatHeader' => true,
+        'floatHeader' => false,
         'headerRowOptions' => ['class' => 'headerTable'],
         'pjax' => true,
         'striped' => false,
@@ -258,7 +259,8 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 'attribute' => 'description',
                 'value' => function($model){
                     return StringHelper::truncate($model->description, 80);
-                }
+                },
+                'contentOptions' => ['class' => 'textTrDes '],
             ],
             [
                  'attribute' => 'interior',
@@ -307,4 +309,10 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
         ],
     ]); ?>
 </div>
+<?php Modal::begin([
+    'id' => 'modalCashboxCreate',
+    'header' => '<h2>Отчет по кассе</h2>'
+]);
+echo '<div class="modalContent"></div>';
+Modal::end(); ?>
 

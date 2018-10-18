@@ -42,10 +42,6 @@ echo GridView::widget([
             'contentOptions' =>['style'=>'color:black;'],
         ],
         [
-            'attribute' => 'surname',
-            'contentOptions' =>['style'=>'color:black;'],
-        ],
-        [
             'attribute' => 'shop',
             'contentOptions' =>['style'=>'color:black;'],
         ],

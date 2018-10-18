@@ -534,6 +534,9 @@ class ZakazController extends Controller
         $model->status = Zakaz::STATUS_EXECUTE;
         $model-> date_performed = date('Y-m-d H:i:s');
         $model->id_unread = 0;
+        if($model-> term_accept == null){
+            $model->term_accept = $model->srok;
+        }
         if ($model->save()) {
             Yii::$app->session->addFlash('update', 'Выполнен заказ №'.$model->prefics);
             return $this->redirect(['admin']);

@@ -185,7 +185,8 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 'attribute' => 'description',
                 'value' => function($model){
                     return StringHelper::truncate($model->description, 65);
-                }
+                },
+                'contentOptions' => ['class' => 'textTrDes '],
             ],
             [
                  'attribute' => 'interior',
@@ -345,6 +346,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 'value' => function($model){
                     return StringHelper::truncate($model->description, 65);
                 },
+                'contentOptions' => ['class' => 'textTrDes '],
             ],
             [
                  'attribute' => 'interior',
@@ -476,7 +478,8 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                         'attribute' => 'description',
                         'value' => function($model){
                             return StringHelper::truncate($model->description, 65);
-                        }
+                        },
+                        'contentOptions' => ['class' => 'textTrDes '],
                     ],
                     [
                          'attribute' => 'interior',

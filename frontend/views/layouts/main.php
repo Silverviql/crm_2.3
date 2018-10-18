@@ -14,6 +14,7 @@ use common\widgets\Alert;
 use frontend\components\Counter;
 use yii\bootstrap\ButtonDropdown;
 use yii\bootstrap\Nav;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -29,7 +30,7 @@ AppAsset::register($this);
     <?php $this->registerLinkTag([
         'rel' => 'icon',
         'type' => 'image/x-icon',
-        'href' => '/frontend/web/favicon.ico',
+        'href' => 'image/favicon.ico',
     ]);?>
     <?php $notifModel = Notification::find();
     $notifications = $notifModel->where(['id_user' => Yii::$app->user->id, 'active' => true]);
@@ -46,16 +47,17 @@ AppAsset::register($this);
             <p>Управление заказами</p>
         </div>
     <?php endif ?>
+    <?php if (!Yii::$app->user->isGuest): ?>
     <div id="fixed">
         <div class="container fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-5 col-xs-2">
+                    <div class="col-lg-4 col-xs-2">
                         <?php if (!Yii::$app->user->isGuest): ?>
                         <div class="logo"></div>
                         <?php echo '<div class="titleMain ">'.Html::encode($this->title).'</div>' ?>
                     </div>
-                    <div class="col-lg-5 hidden-xs menu-vidget mt-2">
+                    <div class="col-lg-6 hidden-xs menu-vidget mt-2">
                         <?= Counter::widget() ?>
                     </div>
 
@@ -93,13 +95,17 @@ AppAsset::register($this);
                                     [
                                         'label' => Yii::$app->user->identity->name,
                                         'items' => [
-                                            ['label' => 'Настройки', 'url' => ['/site/setting','id' => Yii::$app->user->identity->id]],
-                                            '<li class="divider"></li>',
-                                            '<li class="dropdown-header">Dropdown Header</li>',
+                                           /* ['label' => 'Настройки', 'url' => ['/site/setting','id' => Yii::$app->user->identity->id]],  (телеграмм)*/
+                                         /*   '<li class="divider"></li>',*/
                                             ['label' => 'Контакты', 'url' => '/personnel/index'],
-                                            ['label' => 'Отчет по закрытию кассы', 'url' => '/cashbox/create',
-                                                'visible' => Yii::$app->user->can('shop')],
-                                            ['label' => 'Инфорстенд', 'url' => '/site/index'],
+                                            ['label' => 'Отчет по кассе', 'url' => '#',
+                                                'visible' => Yii::$app->user->can('shop'),
+                                                'options'=> [ 'class' => 'modalCashboxCreate-button','value' => Url::to('/cashbox/create'),
+                                                    'onclick' => 'return false',],
+
+
+                                            ],
+                                            ['label' => 'Информация', 'url' => '/site/index'],
                                         ],
                                     ],
                                     [
@@ -161,6 +167,7 @@ AppAsset::register($this);
 
         </div>
     </div>
+    <?php endif ?>
     <div class="container">
 
         <?= Breadcrumbs::widget([

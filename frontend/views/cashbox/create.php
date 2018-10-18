@@ -4,8 +4,8 @@
 /* @var $model app\models\Cashbox */
 
 $this->title = 'ОТЧЕТ ПО КАССЕ';
-$this->params['breadcrumbs'][] = ['label' => 'Отчет по кассе', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+/*$this->params['breadcrumbs'][] = ['label' => 'Отчет по кассе', 'url' => ['index']];*/
+/*$this->params['breadcrumbs'][] = $this->title;*/
 ?>
 <div class="partners-create">
 

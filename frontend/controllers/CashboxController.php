@@ -43,15 +43,21 @@ class CashboxController extends Controller
     {
 
         $model = new Cashbox();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->addFlash('update', 'Отчет успешно создан');
-            return $this->redirect(['zakaz/shop']);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if (!$model->save()) {
+                print_r($model->getErrors());
+                Yii::$app->session->addFlash('errors', 'Произошла ошибка!');
+            } else {
+                if (Yii::$app->request->isAjax) {
+                    $model->save();
+                    Yii::$app->session->addFlash('update', 'Отчет успешно создан');
+                }
+            }
         }
+        return $this->renderAjax('create', [
+            'model' => $model,
+        ]);
+
 
 
     }

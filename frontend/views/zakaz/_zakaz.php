@@ -14,7 +14,7 @@ use app\models\User;
 ?>
 
 <div class="">
-<div class="col-lg-2 view-zakaz" style="color: black">
+    <div class="col-lg-2 view-zakaz" style="color: black">
 	<div class=" anketaZakaz">
         <span class="anketaZakaz_from">От:</span>
         <div><?= date('d M H:i',strtotime($model->data)) ?></div>
@@ -70,11 +70,12 @@ use app\models\User;
             <?php endif; ?>
         </div>
     </div>
-	<div class="col-lg-2 zakazFile">
+	<div class="col-lg-1 zakazFile">
         <div class="zakazFile_block">
             <span class="zakazFile_block-number">Кол-во:</span>
             <div><?= $model->number ?></div>
         </div>
+        <div class="form_button_Layout">
 		<?= Detailview::widget([
 			'model' => $model,
 			'options' => ['class' => 'table detail-view'],
@@ -92,8 +93,9 @@ use app\models\User;
 				],
 			],
 		]) ?>
+        </div>
 	</div>
-    <div class="col-lg-2 responsible">
+    <div class="col-lg-3 responsible">
         <?php if (Yii::$app->user->can('design')): ?>
             <?php if ($model->status == Zakaz::STATUS_DESIGN && $model->statusDesign == Zakaz::STATUS_DESIGNER_WORK): ?>
             Согласование с клиентом: <?= Html::a('Отправить', ['reconcilation', 'id' => $model->id_zakaz], ['class' => 'action']) ?>
@@ -141,24 +143,24 @@ use app\models\User;
             ?>
         </div>
         <?php endif ?>
-        <div class="linePrice"></div>
-        <div class="oplata-zakaz">
-            <div class="col-lg-6 block-price">
-                <span class="responsible_person">Оплачено:</span>
-                <span class="responsible_person">К доплате:</span>
-                <span class="responsible_person">Всего:</span>
-            </div>
-            <div class="col-lg-6 block-price">
-                <p class="responsible_person price"><?= number_format($model->fact_oplata, 0, ',', ' ').'р.' ?></p>
-                <p class="responsible_person price"><?php
-                    if($model->oplata != null){
-                        echo number_format($model->oplata - $model->fact_oplata,
-                                0, ',', ' ').'р.'; }
-                    else{
-                        echo number_format(0, 0, ',', ' ').'р.';
-                    } ?></p>
-                <p class="responsible_person price "><?= number_format($model->oplata, 0, ',', ' ').'р.' ?></p>
-            </div>
+        <div class="col-lg-12 linePrice"></div>
+        <div class="col-lg-12 oplata-zakaz">
+                <div class="col-lg-6 block-price">
+                    <span class="responsible_person">Оплачено:</span>
+                    <span class="responsible_person">К доплате:</span>
+                    <span class="responsible_person">Всего:</span>
+                </div>
+                <div class="col-lg-6 block-price">
+                    <p class="responsible_person price"><?= number_format($model->fact_oplata, 0, ',', ' ').'р.' ?></p>
+                    <p class="responsible_person price"><?php
+                        if($model->oplata != null){
+                            echo number_format($model->oplata - $model->fact_oplata,
+                                    0, ',', ' ').'р.'; }
+                        else{
+                            echo number_format(0, 0, ',', ' ').'р.';
+                        } ?></p>
+                    <p class="responsible_person price "><?= number_format($model->oplata, 0, ',', ' ').'р.' ?></p>
+                </div>
         </div>
     </div>
 </div>

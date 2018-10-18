@@ -40,9 +40,9 @@ use app\models\User;
     </div>
     <?php endif ?> -->
 
-        <?php if (Yii::$app->user->can('admin')): ?>
+       <!-- <?php /*if (Yii::$app->user->can('admin')): */?>
 
-        <?= $form->field($model, 'id_sotrud')->dropDownList([
+        <?/*= $form->field($model, 'id_sotrud')->dropDownList([
             '2' => 'Московский',
             '5' => 'Админ',
             '6' => 'Пушкина',
@@ -51,10 +51,10 @@ use app\models\User;
             '16' => 'Карла Маркса',
         ],
             ['prompt' => 'Выберите магазин']
-        ) ?>
+        ) */?>
 
     </div>
-    <?php endif ?>
+    --><?php /*endif */?>
 
 
 

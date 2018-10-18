@@ -88,7 +88,7 @@ $this->title = 'ВСЕ ДОСТАВКИ';
                         ],
                         [
                             'attribute' => 'commit',
-                            'contentOptions'=>['style'=>'white-space: normal;'],
+                            'contentOptions'=>['style'=>'white-space: normal;','class' => 'textTrDes '],
                         ],
                         [
                             'attribute' => 'to',

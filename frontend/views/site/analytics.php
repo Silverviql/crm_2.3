@@ -12,7 +12,7 @@ use frontend\models\NumberColumn;
 $dataProvider = new ActiveDataProvider([
     'query' => \app\models\Zakaz::find()
         ->where('action <= 0') ->andWhere( 'date_close >= (CURDATE()-1) AND date_close < CURDATE()')
-        ->groupBy('date_close'),
+     /*   ->groupBy('date_close')*/,
     'pagination' => [
         'pageSize' => 10,
     ],

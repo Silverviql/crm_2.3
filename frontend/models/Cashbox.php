@@ -10,7 +10,6 @@ use yii\db\ActiveRecord;
  * @property integer $id
  * @property string $date
  * @property string $name
- * @property string $surname
  * @property string $shop
  * @property integer $cash_on_cashbox
  * @property integer $cash_on_check
@@ -20,6 +19,11 @@ use yii\db\ActiveRecord;
  * @property integer $refunds
  * @property integer $balance_in_cashbox
  * @property integer $attendance
+ * @property integer $boxberry_cash
+ * @property integer $number_checks
+ * @property  string $what_learned
+ * @property  string $what_want_learn
+ * @property  string $what_need_upgrade
  */
 class Cashbox  extends ActiveRecord
 {
@@ -39,10 +43,10 @@ class Cashbox  extends ActiveRecord
     {
         return [
             [['date'], 'safe'],
-            [['name', 'surname', 'shop', 'cash_on_cashbox', 'cash_on_check', 'non_cash', 'to_which_payment', 'refunds', 'balance_in_cashbox', 'attendance'], 'required'],
-            [['cash_on_cashbox', 'cash_on_check', 'non_cash', 'payment_from_cashbox', 'refunds', 'balance_in_cashbox', 'attendance'], 'integer'],
-            [['name', 'surname', 'shop'], 'string', 'max' => 50],
-            [['to_which_payment'], 'string', 'max' => 255],
+            [['name', 'shop','what_learned','what_want_learn','what_need_upgrade'], 'required'],
+            [['cash_on_cashbox', 'cash_on_check', 'non_cash', 'payment_from_cashbox', 'refunds', 'balance_in_cashbox', 'attendance', 'boxberry_cash', 'number_checks'], 'integer'],
+            [['name', 'shop'], 'string', 'max' => 50],
+            [['to_which_payment','what_learned','what_want_learn','what_need_upgrade'], 'string', 'max' => 255],
         ];
     }
 
@@ -54,8 +58,7 @@ class Cashbox  extends ActiveRecord
         return [
             'id' => 'ID',
             'date' => 'Время отправки',
-            'name' => 'Имя',
-            'surname' => 'Фамилия',
+            'name' => 'ФИО',
             'shop' => 'Вы закрываете магазин:',
             'cash_on_cashbox' => 'Наличные деньги в кассе (руб.):',
             'cash_on_check' => 'Наличная выручка по чеку (руб.):',
@@ -65,6 +68,11 @@ class Cashbox  extends ActiveRecord
             'refunds' => 'Возвраты: (руб.):',
             'balance_in_cashbox' => 'Остаток в кассе на завтрашнее утро (руб.):',
             'attendance' => 'Счетчик посещаемости',
+            'boxberry_cash' => 'Оплата Boxberry',
+            'number_checks' => 'Количество чеков',
+            'what_learned' => 'Чему я сегодня научится',
+            'what_want_learn' => 'Чему я хочу научиться ',
+            'what_need_upgrade' => 'Что нужно улучшить в магазине',
         ];
     }
     public static function getAll()

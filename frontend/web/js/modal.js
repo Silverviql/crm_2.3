@@ -5,6 +5,7 @@ $(document).ready(function() {
     modalView('.declinedHelp', '#declinedHelpModal');
     modalView('.draft', '#draftModal');
     modalView('.modalShipping-button', '#modalShipping');
+    modalView('.modalCashboxCreate-button', '#modalCashboxCreate');
     modalView('.financy', '#financeModel');
     bodyModalView('.createClient', '#modalCreateClient', '.modalContentClient');
     bodyModalView('.declinedTodoist', '#modalDeclinedTodoist', '.modalContent');

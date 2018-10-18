@@ -25,7 +25,6 @@ body {
 
 }
 .block-price{
-  padding: 0;
   text-align: right;
 }
 
@@ -53,57 +52,86 @@ body {
 
 /* line 44, ../sass/login.scss */
 .site-login .formLogin {
-  margin-top: 10%;
-  margin-left: 36%;
-  background: rgba(0, 0, 0, 0.16);
-  height: 284px;
-  padding-left: 48px;
-  padding-top: 42px;
-  border-radius: 16px;
+  margin-top: 40%;
+  background: rgb(153, 146, 101);
+  height: 284px;;
+  margin-left: 30px;
+  margin-right: 30px;
+  border-radius: 6px;
 }
 /* line 52, ../sass/login.scss */
 .site-login .formLogin .inputForm {
   outline: 0;
-  width: 86%;
-  padding-left: 3%;
+  width: 56%;
 }
 /* line 57, ../sass/login.scss */
-.site-login .formLogin input {
-  border-radius: 26px;
-  font-size: 11px;
+.site-login .formLogin .inputFormLogin {
+  border-radius: 2px;
+  font-size: 14px;
   height: 26px;
   color: #000;
+  display: block;
+  margin: 0 auto;
 }
+.field-loginform-username{
+  padding-top: 28px;
+  margin-bottom: 0px;
+}
+.field-loginform-password{
+  margin-bottom: 0px;
+}
+.field-loginform-rememberme{
+  margin-bottom: 0px;
+}
+.field-loginform-rememberme .checkbox{
+  margin: 0;
+}
+.field-loginform-rememberme .checkbox .help-block{
+  margin: 0;
+}
+.field-loginform-groupbutton{
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+.site-login .formLogin .inputFormPass {
+  border-radius: 2px;
+  font-size: 14px;
+  height: 26px;
+  color: #000;
+  display: block;
+  margin: 0 auto;
+}
+
 /* line 63, ../sass/login.scss */
 .site-login .formLogin p {
   width: 193px;
   padding-left: 10px;
-  padding-top: 3px;
+  height: 3px;
   font-size: 11px;
 }
 /* line 69, ../sass/login.scss */
 .site-login .formLogin label {
-  color: rgba(204, 198, 198, 0.6);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 33px;
   position: relative;
-  top: -20px;
-  left: 79px;
+  top: 0px;
+  left: 86px;
+  color: #544943;
 }
 /* line 77, ../sass/login.scss */
 .site-login .formLogin button {
-  width: 204px;
-  border-radius: 26px;
-  font-size: 11px;
-  height: 30px;
-  font-size: 11px;
+  width: 132px;
+  border-radius: 2px 2px 0 0;
+  font-size: 14px;
+  height: 36px;
   color: #999265;
-  background: #3a3331;
+  background: #544943;
   outline: 0;
   position: relative;
-  top: -33px;
-  left: -5px;
+  top: 2px;
   border: none;
+  display: block;
+  margin: 0 auto;
 }
 /* line 90, ../sass/login.scss */
 .site-login .formLogin button:hover {
@@ -111,16 +139,14 @@ body {
 }
 /* line 96, ../sass/login.scss */
 .site-login .has-error .help-block {
-  color: rgba(171, 100, 24, 0.99);
+  color: rgb(130, 2, 0);
 }
 /* line 100, ../sass/login.scss */
 .site-login .titleLogin {
   text-align: center;
-  position: relative;
-  top: -23px;
-  left: -18px;
   font-size: 27px;
-  font-weight: bold;
+  color: #544943;
+  padding-top: 40px;
 }
 
 /* line 109, ../sass/login.scss */
@@ -128,7 +154,6 @@ body {
   position: relative;
   top: -15px;
   text-align: center;
-  left: -22px;
   line-height: 14px;
 }
 /* line 115, ../sass/login.scss */
@@ -446,10 +471,12 @@ body {
 
 /* line 222, ../sass/gridview.scss */
 .linePrice {
+  position: absolute;
   margin-top: 12px;
   border-bottom: 1px solid rgb(133, 124, 97);
-  position: relative;
+  /* position: relative; */
   left: 6px;
+  top: 46px;
 }
 .oplata-zakaz{
   margin-top: 10px;
@@ -500,7 +527,6 @@ body {
   font-weight: 400;
   color: white;
   text-align: center;
-  left: 6px;
 }
 /* line 286, ../sass/gridview.scss */
 .responsible .declined {
@@ -537,10 +563,11 @@ body {
 .zakazFile div .zakazFile_block-number {
   font-weight: 400;
   color: #3a3331;
+  padding-right: 13px;
 }
 /* line 314, ../sass/gridview.scss */
 .zakazFile div div {
-  text-align: right;
+  text-align: center;
 }
 
 /* line 320, ../sass/gridview.scss */
@@ -589,6 +616,7 @@ thead a {
 .table-bordered tbody tr .zakaz-view-kartik {
   border-bottom: none;
   color: rgba(204, 198, 198, 0.6);
+  padding: 8px 11px 0px 0px;
 }
 /* line 353, ../sass/gridview.scss */
 .table-bordered tbody tr .zakazInfo {
@@ -615,11 +643,11 @@ thead a {
 
 /* line 389, ../sass/gridview.scss */
 .table-bordered tbody tr .zakazInfo ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 /* line 394, ../sass/gridview.scss */
 .table-bordered tbody tr .zakazInfo ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px #857c61;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
@@ -627,12 +655,12 @@ thead a {
 .table-bordered tbody tr .zakazInfo ::-webkit-scrollbar-thumb {
   -webkit-border-radius: 10px;
   border-radius: 10px;
-  background: #3a3331;
-  -webkit-box-shadow: inset 0 0 5px #3a3331;
+  background: #b3ae84;
+/*  -webkit-box-shadow: inset 0 0 5px #3a3331;*/
 }
 /* line 407, ../sass/gridview.scss */
 .table-bordered tbody tr .zakazInfo ::-webkit-scrollbar-thumb:window-inactive {
-  background: #3a3331;
+  background: #b3ae84;
 }
 /* line 353, ../sass/gridview.scss */
 .table-bordered tbody tr .orderComment {
@@ -641,6 +669,9 @@ thead a {
   padding-left: 0px;
   /* Track */
   /* Handle */
+}
+.form_button_Layout{
+  padding-top: 23px;
 }
 
 .CommentOrder{
@@ -694,7 +725,7 @@ thead a {
 }
 /* line 407, ../sass/gridview.scss */
 .table-bordered tbody tr .orderComment ::-webkit-scrollbar-thumb:window-inactive {
-  background: #3a3331;
+  background: #b3ae84;
 }
 /* line 411, ../sass/gridview.scss */
 .table-bordered tbody tr .detail-view {
@@ -846,7 +877,7 @@ thead a {
 /* line 519, ../sass/gridview.scss */
 .order-table .zakazFile .table {
   background: #96916d;
-  height: 144px;
+  /*height: 144px;*/
   margin-bottom: 0px;
 }
 
@@ -968,7 +999,7 @@ thead a {
   top: 85%;
   z-index: 1;
   float: right;
-  left: 86%;
+  left: 74%;
 }
 /* line 130, ../sass/button.scss */
 .button-dropmenu .btn-group .dropdown-menu {
@@ -1071,9 +1102,9 @@ thead a {
 
 /* line 209, ../sass/button.scss */
 .actionCancel {
-  width: 60px;
+  width: 95px;
   position: relative;
-  left: 6px;
+
   top: 4px;
 }
 /* line 34, ../sass/button.scss */
@@ -1084,9 +1115,8 @@ thead a {
 
 /* line 212, ../sass/button.scss */
 .actionApprove {
-  width: 60px;
+  width: 95px;
   position: relative;
-  right: -6px;
   top: 4px;
 }
 /* line 44, ../sass/button.scss */
@@ -1130,7 +1160,7 @@ thead a {
 
 /* line 225, ../sass/button.scss */
 .todoist {
-  margin-left: 114px;
+  margin-left: 125px;
 }
 
 
@@ -1215,6 +1245,11 @@ thead a {
 }
 .dropdown:hover > .dropdown-menu {
   display: block;
+}
+.dropdown-menu {
+  margin: 0;
+  min-width: 0;
+  background: #b3ae84;
 }
 /* line 280, ../sass/button.scss */
 .footer-view-zakaz .done:hover {
@@ -1373,6 +1408,60 @@ thead a {
   width: 600px;
 }
 
+#modalCashboxCreate .modal-content .modal-header {
+  color: #b3ae84;
+}
+#modalCashboxCreate .modal-content .action {
+  font-size: 24px;
+  font-weight: 100;
+  width: 219px;
+  height: 86px;
+  border: 2px solid #928d8a;
+  border-radius: 2px;
+  width: 86%;
+  background: rgba(0, 0, 0, 0.2);
+  color: #928d8a;
+  margin-top: 25px;
+}
+#modalCashboxCreate .modal-content .form-group input {
+  font-size: 24px;
+  height: 38px;
+  border-radius: 2px;
+}
+#modalCashboxCreate .modal-content{
+  background: rgba(48, 41, 39, 0.786);
+}
+
+
+#modalCashboxCreate .modal-content .modal-body {
+  height:  600px;
+  width: 600px;
+
+}
+#modalCashboxCreate .modal-content .form-group .inputForm {
+  width: 90%;
+}
+#modalCashboxCreate .modal-content .form-group .textareaForm {
+  height: 86px;
+  font-size: 16px;
+  border-radius: 2px;
+  resize: none; /* Запрещаем изменять размер */
+}
+#modalCashboxCreate .close {
+  color: #736a50;
+  font-size: 40px;
+  opacity: 1;
+  font-weight: 100;
+  text-shadow: 0 0 0;
+  outline: none;
+}
+
+.textareaCashbox .form-group textarea::-webkit-input-placeholder {
+  color: #191412;
+  font-size: 20px;
+}
+
+
 /* line 50, ../sass/modal.scss */
 .footer-view-zakaz .modal-content {
   width: 61%;
@@ -1391,23 +1480,31 @@ thead a {
 
 /* line 51, ../sass/input.scss */
 #login-form input {
-  padding-left: 5%;
+  text-align: center;
 }
 
 /* line 55, ../sass/input.scss */
 #autsors {
   display: none;
 }
+.cashboxForm .form-group{
+  margin-bottom: 5px;
+}
+
+.inputFormLogin .form-group{
+  margin-bottom: 0px;
+}
 
 /* line 59, ../sass/input.scss */
 .form-group input {
   border-radius: 26px;
-  font-size: 11px;
-  height: 26px;
+  font-size: 17px;
+  height: 25px;
   color: #000;
   background: #736a50;
   border: none;
   outline: 0;
+
 }
 /* line 67, ../sass/input.scss */
 .form-group input::-webkit-inner-spin-button {
@@ -1460,8 +1557,8 @@ thead a {
 /* line 101, ../sass/input.scss */
 .form-group .inputForm {
   outline: 0;
-  width: 86%;
-  padding-left: 3%;
+  width: 65%;
+ /* padding-left: 3%;*/
   background: #736a50;
   border: none;
 }
@@ -1678,6 +1775,10 @@ thead a {
 .headerDropdownMenu .exit{
     color: #ea2c57;
 }
+
+.dropdown-menu > li > a{
+  outline: none;
+}
 /* line 74, ../sass/style.scss */
 .menu-vidget .headerNav {
   /*  margin-top: -26px;
@@ -1686,7 +1787,7 @@ thead a {
   background: rgb(133, 124, 97);
   border-radius: 26px;
   color: #736a50;
-  width: 335px;
+/*  width: 335px;*/
   height: 39px;
   float: right;
   margin-right: 60px;
