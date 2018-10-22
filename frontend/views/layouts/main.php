@@ -52,12 +52,12 @@ AppAsset::register($this);
         <div class="container fixed">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-4 col-xs-2">
+                    <div class="col-lg-3 col-xs-2">
                         <?php if (!Yii::$app->user->isGuest): ?>
                         <div class="logo"></div>
                         <?php echo '<div class="titleMain ">'.Html::encode($this->title).'</div>' ?>
                     </div>
-                    <div class="col-lg-6 hidden-xs menu-vidget mt-2">
+                    <div class="col-lg-7 hidden-xs menu-vidget mt-2">
                         <?= Counter::widget() ?>
                     </div>
 
@@ -189,16 +189,17 @@ AppAsset::register($this);
         } ?>
         <?= $content ?>
     </div>
+    <?php if (Yii::$app->user->isGuest): ?>
+        <footer class="footer">
+            <div class="footerLogin">
+                <img src="img/logo.png" title="Logo">
+                <div>Сеть магазинов</div>
+                <div>&copy Holland <?php echo date('Y') ?></div>
+            </div>
+        </footer>
+    <?php endif ?>
 </div>
-<?php if (Yii::$app->user->isGuest): ?>
-    <footer>
-        <div class="footerLogin">
-            <img src="img/logo.png" title="Logo">
-            <div>Сеть магазинов</div>
-            <div>&copy Holland <?php echo date('Y') ?></div>
-        </div>
-    </footer>
-<?php endif ?>
+
 
 <?php $this->endBody() ?>
 </body>

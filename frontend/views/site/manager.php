@@ -47,9 +47,9 @@ $this->title = 'УПРАВЛЯЮЩИЙ';
     <div class="col-lg-12">
         <div class="row">
             <div class="col-lg-3">
-                <h2><?=Html::encode('Сиб') ?></h2>
+                <h2><?=Html::encode('Сис. Админ') ?></h2>
                 <p>
-                    <?= Html::a('Сиб', ['/zakaz/manager', 'id' => 9], ['class' => 'btn btn-success']) ?>
+                    <?= Html::a('Сис. Админ', ['/helpdesk/index'], ['class' => 'btn btn-success']) ?>
                 </p>
             </div>
 
@@ -86,6 +86,12 @@ $this->title = 'УПРАВЛЯЮЩИЙ';
                 <h2><?=Html::encode('Калин') ?></h2>
                 <p>
                     <?= Html::a('Калин', ['/zakaz/manager', 'id' => 17], ['class' => 'btn btn-success']) ?>
+                </p>
+            </div>
+            <div class="col-lg-3">
+                <h2><?=Html::encode('Сиб') ?></h2>
+                <p>
+                    <?= Html::a('Сиб', ['/zakaz/manager', 'id' => 9], ['class' => 'btn btn-success']) ?>
                 </p>
             </div>
             <div class="col-lg-3">

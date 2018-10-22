@@ -156,7 +156,7 @@ $this->title = 'ВСЕ ПОЛОМКИ';
                 'value' => 'idUser.name',
                 'contentOptions' => ['class' => 'textTr tr90'],
                 'hAlign' => GridView::ALIGN_RIGHT,
-                'visible' => Yii::$app->user->can('system'),
+                'visible' => [Yii::$app->user->can('system') or Yii::$app->user->can('manager')],
             ],
 //            [
 //                'attribute' => '',
@@ -176,9 +176,9 @@ $this->title = 'ВСЕ ПОЛОМКИ';
                 'format' => 'raw',
                 'contentOptions' => function($model){
                     if ($model->status == Helpdesk::STATUS_CHECKING){
-                        return Yii::$app->user->can('system') ? ['class' => 'textTr successHelp tr90'] : ['class' => 'border-right successHelp textTr'];
+                        return [Yii::$app->user->can('system') or Yii::$app->user->can('manager')] ? ['class' => 'textTr successHelp tr90'] : ['class' => 'border-right successHelp textTr'];
                         } else {
-                        return Yii::$app->user->can('system') ? ['class' => 'textTr tr90'] : ['class' => 'border-right textTr'];
+                        return [Yii::$app->user->can('system') or Yii::$app->user->can('manager')] ? ['class' => 'textTr tr90'] : ['class' => 'border-right textTr'];
                     }
                 },
                 'hAlign' => GridView::ALIGN_LEFT,
@@ -260,7 +260,7 @@ $this->title = 'ВСЕ ПОЛОМКИ';
                 'value' => 'idUser.name',
                 'contentOptions' => ['class' => 'textTr tr90'],
                 'hAlign' => GridView::ALIGN_RIGHT,
-                'visible' => Yii::$app->user->can('system'),
+                'visible' => [Yii::$app->user->can('system') or Yii::$app->user->can('manager')],
             ],
             [
                 'attribute' => '',
@@ -269,7 +269,7 @@ $this->title = 'ВСЕ ПОЛОМКИ';
                 'value' => function($model){
                     return $model->status == Helpdesk::STATUS_CHECKING ? Html::a('Принять', ['approved', 'id' => $model->id]).''.Html::a('Отклонить', ['#'], ['class' => 'declinedHelp', 'value' => Url::to(['declined-help', 'id' => $model->id])]) : '';
                 },
-                'visible' => !Yii::$app->user->can('system')
+                'visible' => ![Yii::$app->user->can('system') or Yii::$app->user->can('manager')]
             ],
             [
                 'attribute' => 'sotrud',
@@ -280,9 +280,9 @@ $this->title = 'ВСЕ ПОЛОМКИ';
                 'format' => 'raw',
                 'contentOptions' => function($model){
                     if ($model->status == Helpdesk::STATUS_CHECKING){
-                        return Yii::$app->user->can('system') ? ['class' => 'textTr successHelp tr90'] : ['class' => 'border-right successHelp textTr'];
+                        return [Yii::$app->user->can('system') or Yii::$app->user->can('manager')] ? ['class' => 'textTr successHelp tr90'] : ['class' => 'border-right successHelp textTr'];
                     } else {
-                        return Yii::$app->user->can('system') ? ['class' => 'textTr tr90'] : ['class' => 'border-right textTr'];
+                        return [Yii::$app->user->can('system') or Yii::$app->user->can('manager')] ? ['class' => 'textTr tr90'] : ['class' => 'border-right textTr'];
                     }
                 },
                 'hAlign' => GridView::ALIGN_LEFT,
@@ -306,7 +306,7 @@ $this->title = 'ВСЕ ПОЛОМКИ';
                 'value' => function() {
                     return '';
                 },
-                'visible' => Yii::$app->user->can('system')
+                'visible' =>[Yii::$app->user->can('system') or Yii::$app->user->can('manager')]
             ],
         ],
     ]); ?>

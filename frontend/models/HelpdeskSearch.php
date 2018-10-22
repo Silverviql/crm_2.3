@@ -41,11 +41,11 @@ class HelpdeskSearch extends Helpdesk
     public function search($params, $status)
     {
         $query = Helpdesk::find();
-        if (Yii::$app->user->can('system') && $status == 'work'){
+        if ([Yii::$app->user->can('system') or Yii::$app->user->can('manager')]&& $status == 'work'){
             $query = $query->where(['status' => [Helpdesk::STATUS_NEW, Helpdesk::STATUS_DECLINED]]);
-        } elseif(Yii::$app->user->can('system') && $status == 'soglas'){
+        } elseif([Yii::$app->user->can('system') or Yii::$app->user->can('manager')] && $status == 'soglas'){
             $query = $query->where(['status' => Helpdesk::STATUS_CHECKING]);
-        } elseif(!Yii::$app->user->can('system') && $status == 'work') {
+        } elseif(![Yii::$app->user->can('system') or Yii::$app->user->can('manager')] && $status == 'work') {
             $query = $query->where(['id_user' => Yii::$app->user->id, 'status' => [Helpdesk::STATUS_NEW, Helpdesk::STATUS_DECLINED]]);
         } else {
             $query = $query->where(['id_user' => Yii::$app->user->id, 'status' => Helpdesk::STATUS_CHECKING]);

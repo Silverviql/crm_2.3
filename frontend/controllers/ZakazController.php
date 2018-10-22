@@ -16,6 +16,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\data\ActiveDataProvider;
 use yii\web\UploadedFile;
+use yii\helpers\Json;
 /**
  * ZakazController implements the CRUD actions for Zakaz model.
  */
@@ -287,34 +288,35 @@ class ZakazController extends Controller
                 print_r($model->getErrors());
                 Yii::$app->session->addFlash('errors', 'Произошла ошибка!');
             } else {
-                $model->save();
-                Yii::$app->session->addFlash('update', 'Успешно создан заказ '.$model->prefics);
-                try{
-                    if($model->status == Zakaz::STATUS_DESIGN){
-                        $user = User::findOne(['id' => User::USER_DISAYNER]);
-                        if($user->telegram_chat_id){
-                    /*        \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);*/
+                if (Yii::$app->request->isAjax) {
+                    $model->save();
+                    Yii::$app->session->addFlash('update', 'Успешно создан заказ ' . $model->prefics);
+                   /*       try {
+                        if ($model->status == Zakaz::STATUS_DESIGN) {
+                            $user = User::findOne(['id' => User::USER_DISAYNER]);
+                            if ($user->telegram_chat_id) {
+                                       \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);
+                            }
                         }
-                    }
-                    if($user->telegram_chat_id){
-                    /* \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Создан заказ '.$model->prefics.' '.$model->description);   */
-                    }
-                }catch (Exception $e){
-                    $e->getMessage();
+                        if ($user->telegram_chat_id) {
+                             \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Создан заказ '.$model->prefics.' '.$model->description);
+                        }
+                    } catch (Exception $e) {
+                        $e->getMessage();
+                    }*/
                 }
             }
-
-            if (Yii::$app->user->can('shop')) {
+                  /* if (Yii::$app->user->can('shop')) {
                 return $this->redirect(['shop']);
             } elseif (Yii::$app->user->can('admin')) {
                 return $this->redirect(['admin']);
-            }
+            }*/
         }
 
-        return $this->render('create', [
-            'model' => $model,
-            'notification' => $notification,
-        ]);
+            return $this->renderAjax('create', [
+                'model' => $model,
+                'notification' => $notification,
+            ]);
     }
 
     /**
@@ -351,20 +353,21 @@ class ZakazController extends Controller
                 print_r($model->getErrors());
                 Yii::$app->session->addFlash('errors', 'Произошла ошибка!');
             } else {
-                if($model->status == Zakaz::STATUS_DESIGN && $user->telegram_chat_id != null){
-                    /*\Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);*/
+                if (Yii::$app->request->isAjax) {
+                    /*      if ($model->status == Zakaz::STATUS_DESIGN && $user->telegram_chat_id != null) {
+                        \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);
+                    }*/
+                    $model->save();
+                    Yii::$app->session->addFlash('update', 'Успешно отредактирован заказ');
                 }
-                $model->save();
-                Yii::$app->session->addFlash('update', 'Успешно отредактирован заказ');
             }
-
-            if (Yii::$app->user->can('shop')) {
+            /*if (Yii::$app->user->can('shop')) {
                 return $this->redirect(['shop']);
             } elseif (Yii::$app->user->can('admin')) {
                 return $this->redirect(['admin']);
-            }
+            }*/
         }
-        return $this->render('update', [
+        return $this->renderAjax('update', [
             'model' => $model,
             'notification' => $notification,
         ]);

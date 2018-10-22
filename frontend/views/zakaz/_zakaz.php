@@ -221,7 +221,8 @@ use app\models\User;
         <?php endif ?>
         <?php if (!Yii::$app->user->can('seeIspol')): ?>
           <?php if ( $model->action !== 0 ): ?>
-        <?= Html::a('Редактировать', ['zakaz/update', 'id' => $model->id_zakaz], ['class' => 'btn btn-xs', 'style' => 'float: right;margin-right: 10px;'])?>
+                <?= Html::a('Редактировать', ['#'],['class' => 'btn action modalOrderUpdate-button','style' => 'float: right;margin-right: 0px;', 'value' => Url::to(['zakaz/update', 'id' => $model->id_zakaz]), 'onclick' => 'return false']) ?>
+      <!--  --><?/*= Html::a('Редактировать', ['zakaz/update', 'id' => $model->id_zakaz], ['class' => 'btn btn-xs', 'style' => 'float: right;margin-right: 10px;'])*/?>
         <?php endif ?>
         <?php endif ?>
         <?= Html::a('Полный просмотр', ['view', 'id' => $model->id_zakaz], ['class' => 'btn action']) ?>

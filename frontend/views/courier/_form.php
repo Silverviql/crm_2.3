@@ -15,6 +15,7 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'date')->widget(
             DatePicker::className(), [
+                 'options' => ['autocomplete' => 'off'],
                 'pluginOptions' => [
                     'autoclose' => true,
                     'startDate' => 'yyyy-mm-dd',

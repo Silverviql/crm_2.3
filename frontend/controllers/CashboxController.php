@@ -41,7 +41,6 @@ class CashboxController extends Controller
 
     public function actionCreate()
     {
-
         $model = new Cashbox();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if (!$model->save()) {
@@ -57,9 +56,6 @@ class CashboxController extends Controller
         return $this->renderAjax('create', [
             'model' => $model,
         ]);
-
-
-
     }
 
     protected function findModel($id)

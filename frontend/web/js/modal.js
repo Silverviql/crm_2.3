@@ -6,6 +6,8 @@ $(document).ready(function() {
     modalView('.draft', '#draftModal');
     modalView('.modalShipping-button', '#modalShipping');
     modalView('.modalCashboxCreate-button', '#modalCashboxCreate');
+    modalView('.modalOrderCreate-button', '#modalOrderCreate');
+    modalView('.modalOrderUpdate-button', '#modalOrderUpdate');
     modalView('.financy', '#financeModel');
     bodyModalView('.createClient', '#modalCreateClient', '.modalContentClient');
     bodyModalView('.declinedTodoist', '#modalDeclinedTodoist', '.modalContent');

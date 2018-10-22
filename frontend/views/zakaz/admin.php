@@ -34,7 +34,13 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
             'items' => [
                 [
                     'label' => 'Заказ',
-                    'url' => 'zakaz/create',
+                    'url' => '#',
+                    'options' => [
+                        'class' => 'modalOrderCreate-button',
+                        'value' => 'zakaz/create',
+                        'id' => $model->id_zakaz,
+                        'onclick' => 'return false'
+                    ]
                 ],
                 [
                     'label' => '',
@@ -44,7 +50,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                     ]
                 ],
                 [
-                    'label' => 'Закупки',
+                    'label' => 'Закупка',
                     'url' => 'custom/create'
                 ],
                 [
@@ -55,7 +61,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                     ]
                 ],
                 [
-                    'label' => 'Поломки',
+                    'label' => 'Поломка',
                     'url' => 'helpdesk/create'
                 ],
                 [
@@ -66,8 +72,15 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                     ]
                 ],
                 [
-                    'label' => 'Задачи',
+                    'label' => 'Задача',
                     'url' => 'todoist/create'
+                ],
+                [
+                    'label' => '',
+                    'options' => [
+                        'role' => 'presentation',
+                        'class' => 'divider'
+                    ]
                 ],
                      [
                     'label' => 'Доставка',
@@ -184,9 +197,11 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
             [
                 'attribute' => 'description',
                 'value' => function($model){
-                    return StringHelper::truncate($model->description, 65);
+                    return StringHelper::truncate($model->description, 53);
                 },
-                'contentOptions' => ['class' => 'textTrDes '],
+                'contentOptions' => function ($model){
+                    return ['class' => 'textTrDes', 'title' => $model->description];
+                },
             ],
             [
                  'attribute' => 'interior',
@@ -564,3 +579,16 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
         ],
     ]); ?>
 </div>
+<?php Modal::begin([
+    'id' => 'modalOrderCreate',
+    'header' => '<h2>Отчет по кассе</h2>'
+]);
+echo '<div class="modalContent"></div>';
+Modal::end(); ?>
+<?php Modal::begin([
+    'id' => 'modalOrderUpdate',
+    'header' => '<h2>Отчет по кассе</h2>'
+]);
+echo '<div class="modalContent"></div>';
+Modal::end(); ?>
+

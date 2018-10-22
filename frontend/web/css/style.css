@@ -32,7 +32,6 @@ body {
 .headerLogin {
   background: rgba(255, 255, 255, 0.04);
   height: 126px;
-  margin-top: 32px;
   padding: 18px 0px 0px 101px;
 }
 /* line 30, ../sass/login.scss */
@@ -52,7 +51,7 @@ body {
 
 /* line 44, ../sass/login.scss */
 .site-login .formLogin {
-  margin-top: 40%;
+  margin-top: 18%;
   background: rgb(153, 146, 101);
   height: 284px;;
   margin-left: 30px;
@@ -151,8 +150,6 @@ body {
 
 /* line 109, ../sass/login.scss */
 .footerLogin {
-  position: relative;
-  top: -15px;
   text-align: center;
   line-height: 14px;
 }
@@ -164,6 +161,7 @@ body {
 /* line 119, ../sass/login.scss */
 .footerLogin div {
   font-size: 11px;
+    color: #faffbd;
 }
 
 /* line 46, ../sass/gridview.scss */
@@ -193,6 +191,11 @@ body {
 /* line 69, ../sass/gridview.scss */
 .container {
   font-size: 14px;
+}
+
+.footer {
+    height: 80px;
+    padding-top: 7%
 }
 
 /* line 73, ../sass/gridview.scss */
@@ -1003,9 +1006,9 @@ thead a {
 }
 /* line 130, ../sass/button.scss */
 .button-dropmenu .btn-group .dropdown-menu {
-  top: -103px;
-  left: -27px;
-  font-size: 11px;
+  top: -107px;
+  left: -53px;
+  font-size: 14px;
   background: #302927;
   min-width: 92px;
   border: 2px solid rgba(204, 198, 198, 0.6);
@@ -1175,6 +1178,16 @@ thead a {
   background: #b3ae84;
   border-radius: 10px 10px;
   margin-top: 20px;
+}
+
+/* Вьюшка полного просмотра заказа.*/
+.vievOrder{
+    background: #b3ae84;
+    border-radius: 10px 10px;
+    margin-top: 20px;
+}
+.vievOrder .table{
+    color: black;
 }
 
 /* line 241, ../sass/button.scss */
@@ -1395,23 +1408,15 @@ thead a {
   padding-top: 0;
 }
 
-#modalZakazview .modal-content .modal-body {
+#modalOrderview .modal-content .modal-body {
   height: 500px;
 }
 
-#modalZakazcreate .modal-content .modal-body {
-  height:  600px;
-  width: 600px;
-}
-#modalZakazupdate .modal-content .modal-body {
-  height:  800px;
-  width: 600px;
-}
-
-#modalCashboxCreate .modal-content .modal-header {
+/* Модальное окно создание заказа*/
+#modalOrderCreate .modal-content .modal-header {
   color: #b3ae84;
 }
-#modalCashboxCreate .modal-content .action {
+#modalOrderCreate .modal-content .action {
   font-size: 24px;
   font-weight: 100;
   width: 219px;
@@ -1423,6 +1428,91 @@ thead a {
   color: #928d8a;
   margin-top: 25px;
 }
+#modalOrderCreate .modal-content .form-group input {
+  font-size: 24px;
+  height: 38px;
+  border-radius: 2px;
+}
+#modalOrderCreate .modal-content{
+  background: rgba(48, 41, 39, 0.786);
+}
+
+#modalOrderCreate .modal-dialog {
+  width: 1000px;
+}
+#modalOrderCreate .modal-content .modal-body {
+  height:  600px;
+
+}
+#modalOrderCreate .modal-content .form-group .inputForm {
+  width: 90%;
+}
+#modalOrderCreate .modal-content .form-group .textareaForm {
+  height: 86px;
+  font-size: 16px;
+  border-radius: 2px;
+  resize: none; /* Запрещаем изменять размер */
+}
+#modalOrderCreate .close {
+  color: #736a50;
+  font-size: 40px;
+  opacity: 1;
+  font-weight: 100;
+  text-shadow: 0 0 0;
+  outline: none;
+}
+
+/* Модальное окно редактирование заказа*/
+#modalOrderUpdate .modal-content .modal-header {
+  color: #b3ae84;
+}
+#modalOrderUpdate .modal-content .action {
+  font-size: 24px;
+  font-weight: 100;
+  width: 219px;
+  height: 86px;
+  border: 2px solid #928d8a;
+  border-radius: 2px;
+  width: 86%;
+  background: rgba(0, 0, 0, 0.2);
+  color: #928d8a;
+  margin-top: 25px;
+}
+#modalOrderUpdate .modal-content .form-group input {
+  font-size: 24px;
+  height: 38px;
+  border-radius: 2px;
+}
+#modalOrderUpdate .modal-content{
+  background: rgba(48, 41, 39, 0.786);
+}
+
+#modalOrderUpdate .modal-dialog {
+  width: 1000px;
+}
+#modalOrderUpdate .modal-content .modal-body {
+  height:  600px;
+
+}
+#modalOrderUpdate .modal-content .form-group .inputForm {
+  width: 90%;
+}
+#modalOrderUpdate .modal-content .form-group .textareaForm {
+  height: 86px;
+  font-size: 16px;
+  border-radius: 2px;
+  resize: none; /* Запрещаем изменять размер */
+}
+#modalOrderUpdate .close {
+  color: #736a50;
+  font-size: 40px;
+  opacity: 1;
+  font-weight: 100;
+  text-shadow: 0 0 0;
+  outline: none;
+}
+
+/* Модальное окно создания отчета по кассе*/
 #modalCashboxCreate .modal-content .form-group input {
   font-size: 24px;
   height: 38px;
@@ -1431,7 +1521,6 @@ thead a {
 #modalCashboxCreate .modal-content{
   background: rgba(48, 41, 39, 0.786);
 }
-
 
 #modalCashboxCreate .modal-content .modal-body {
   height:  600px;
@@ -1788,7 +1877,7 @@ thead a {
   border-radius: 26px;
   color: #736a50;
 /*  width: 335px;*/
-  height: 39px;
+  height: 40px;
   float: right;
   margin-right: 60px;
   padding-left: 6px;
@@ -1797,17 +1886,21 @@ thead a {
 /* line 84, ../sass/style.scss */
 .menu-vidget .headerNav li a {
   color: rgb(58, 51, 49);
-  padding-right: 3px;
+/*  padding-right: 3px;*/
+}
+.menu-vidget .nav-pills > li + li{
+    margin-left: 0px;
 }
 /* line 87, ../sass/style.scss */
 .menu-vidget .headerNav li a span {
   color: rgba(204, 198, 198, 0.6);
   background: #3a3331;
-  padding-left: 1px;
-  margin-top: 2px;
-  font-size: 11px;
-  font-weight: 700;
+    /* padding-left: 1px; */
+    margin-top: 2px;
+    font-size: 11px;
+    font-weight: 700;
 }
+
 /* line 94, ../sass/style.scss */
 .menu-vidget .headerNav li a:hover {
   color: #736a50;
@@ -1832,9 +1925,9 @@ thead a {
 }*/
 /* line 118, ../sass/style.scss */
 .menu-vidget .nav-pills > li.active > a {
-  background-color: #736a50;
+  background-color: #857c61;
   color: #302927;
-
+    border-radius: 9px 0 0 9px;
 }
 
 /* line 123, ../sass/style.scss */
@@ -1923,7 +2016,7 @@ thead a {
 }
 /* line 193, ../sass/style.scss */
 .zakaz-form .clientZakaz {
-  margin-left: -76px;
+  /*margin-left: -76px;*/
   height: 255px;
   border-top: 1px solid #736a50;
   border-bottom: 1px solid #736a50;

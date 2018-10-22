@@ -18,8 +18,9 @@ use yii\helpers\ArrayHelper;
 
 <div class="zakaz-form">
     <?php $form = ActiveForm::begin([
+        'id' => 'OrderForm',
         'options' => ['enctype' => 'multipart/form-data'],
-        'enableClientScript' => false,
+        /*'enableClientScript' => false,*/ //Из за него не работает валидация в модальном окне.
         'validateOnBlur' => false,
     ]); ?>
 
@@ -221,7 +222,7 @@ use yii\helpers\ArrayHelper;
                         'displayFormat' => 'php:d M Y H:i',
                         'saveFormat' => 'php:Y-m-d H:i:s',
                         'widgetOptions' => [
-                            'options' => ['placeholder' => 'Cрок']
+                            'options' => ['placeholder' => 'Cрок','autocomplete' => 'off']
                         ],
                     ])->label(false);?>
             </div>
@@ -294,3 +295,53 @@ use yii\helpers\ArrayHelper;
     </div>-->
     <?php ActiveForm::end(); ?>
 </div>
+<?php
+$js = <<<JS
+    $('#modalOrderCreate').on('beforeSubmit', 'form', function(){
+        alert('Напоминание создано!');
+	 var data = $(this).serialize();
+	 $.ajax({
+	    url: '/create/$model->id_zakaz', 
+	    type: 'POST',
+	    data: data,
+	   /* success: function(res){
+	       console.log(res);
+	    },*/
+	    error: function(){
+	       alert('Error!');
+	    }
+	 });
+	 $('#modalOrderCreate').off('beforeSubmit', 'form');
+	 $('#modalOrderCreate').modal('hide'); //закрытие модального окна.
+	 $('#modalOrderCreate'). removeAttr ('tabindex');
+	 return false;
+     });
+JS;
+$this->registerJs($js);
+
+?>
+<?php
+$js = <<<JS
+    $('#modalOrderUpdate').on('beforeSubmit', 'form', function(){
+        alert('Напоминание создано!');
+	 var data = $(this).serialize();
+	 $.ajax({
+	    url: '/update/$model->id_zakaz', 
+	    type: 'POST',
+	    data: data,
+	   /* success: function(res){
+	       console.log(res);
+	    },*/
+	    error: function(){
+	       alert('Error!');
+	    }
+	 });
+	 $('#modalOrderUpdate').off('beforeSubmit', 'form');
+	 $('#modalOrderUpdate').modal('hide'); //закрытие модального окна.
+	 $('#modalOrderUpdate'). removeAttr ('tabindex');
+	 return false;
+     });
+JS;
+$this->registerJs($js);
+
+?>
