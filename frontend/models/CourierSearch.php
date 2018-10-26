@@ -79,4 +79,5 @@ class CourierSearch extends Courier
 
         return $dataProvider;
     }
+
 }

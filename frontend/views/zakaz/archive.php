@@ -14,9 +14,9 @@ $this->title = 'Архив заказов';
 <div class="zakaz-index">
 
     <?php echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <div class="col-xs-12">
-    <?= GridView::widget([
+    <div class="row">
+        <div class="col-xs-12 col-md-12 orderTableBack">
+            <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'floatHeader' => true,
         'headerRowOptions' => ['class' => 'headerTable'],
@@ -117,5 +117,6 @@ $this->title = 'Архив заказов';
             ],
         ],
     ]); ?>  
+        </div>
     </div>
 </div>

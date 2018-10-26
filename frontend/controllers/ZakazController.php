@@ -288,29 +288,28 @@ class ZakazController extends Controller
                 print_r($model->getErrors());
                 Yii::$app->session->addFlash('errors', 'Произошла ошибка!');
             } else {
-                if (Yii::$app->request->isAjax) {
-                    $model->save();
-                    Yii::$app->session->addFlash('update', 'Успешно создан заказ ' . $model->prefics);
-                   /*       try {
-                        if ($model->status == Zakaz::STATUS_DESIGN) {
-                            $user = User::findOne(['id' => User::USER_DISAYNER]);
-                            if ($user->telegram_chat_id) {
-                                       \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);
-                            }
+                $model->save();
+                Yii::$app->session->addFlash('update', 'Успешно создан заказ '.$model->prefics);
+                try{
+                    if($model->status == Zakaz::STATUS_DISAIN){
+                        $user = User::findOne(['id' => User::USER_DISAYNER]);
+                        if($user->telegram_chat_id){
+                            /*        \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);*/
                         }
-                        if ($user->telegram_chat_id) {
-                             \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Создан заказ '.$model->prefics.' '.$model->description);
-                        }
-                    } catch (Exception $e) {
-                        $e->getMessage();
-                    }*/
+                    }
+                    if($user->telegram_chat_id){
+                        /* \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Создан заказ '.$model->prefics.' '.$model->description);   */
+                    }
+                }catch (Exception $e){
+                    $e->getMessage();
                 }
             }
-                  /* if (Yii::$app->user->can('shop')) {
+
+            if (Yii::$app->user->can('shop')) {
                 return $this->redirect(['shop']);
             } elseif (Yii::$app->user->can('admin')) {
                 return $this->redirect(['admin']);
-            }*/
+            }
         }
 
             return $this->renderAjax('create', [
@@ -348,24 +347,23 @@ class ZakazController extends Controller
                 
             }
             $model->validate();
-            $user = User::findOne(['id' => User::USER_DISAYNER]);
+            $user = User::findOne(['id' => User::USER_DESIGNER]);
             if (!$model->save()) {
                 print_r($model->getErrors());
                 Yii::$app->session->addFlash('errors', 'Произошла ошибка!');
             } else {
-                if (Yii::$app->request->isAjax) {
-                    /*      if ($model->status == Zakaz::STATUS_DESIGN && $user->telegram_chat_id != null) {
-                        \Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);
-                    }*/
-                    $model->save();
-                    Yii::$app->session->addFlash('update', 'Успешно отредактирован заказ');
+                if($model->status == Zakaz::STATUS_DISAIN && $user->telegram_chat_id != null){
+                    /*\Yii::$app->bot->sendMessage($user->telegram_chat_id, 'Назначен заказ '.$model->prefics.' '.$model->description);*/
                 }
+                $model->save();
+                Yii::$app->session->addFlash('update', 'Успешно отредактирован заказ');
             }
-            /*if (Yii::$app->user->can('shop')) {
+
+            if (Yii::$app->user->can('shop')) {
                 return $this->redirect(['shop']);
             } elseif (Yii::$app->user->can('admin')) {
                 return $this->redirect(['admin']);
-            }*/
+            }
         }
         return $this->renderAjax('update', [
             'model' => $model,
@@ -806,7 +804,7 @@ class ZakazController extends Controller
         $model = $this->findModel($id);
         $model->scenario = Zakaz::SCENARIO_DECLINED;
         if ($model->status == Zakaz::STATUS_SUC_DESIGN) {
-            $user_id = User::USER_DISAYNER;
+            $user_id = User::USER_DESIGNER;
         } else {
             $user_id = User::USER_MASTER;
         }
@@ -864,6 +862,7 @@ class ZakazController extends Controller
                         $model->statusDesign = Zakaz::STATUS_DESIGNER_NEW;
                         $model->id_unread = 0;
                         $user_id = User::USER_DISAYNER;
+                        $model->design_date = date('Y-m-d H:i:s');
                     } elseif ($model->status == Zakaz::STATUS_MASTER) {
                         $model->statusMaster = Zakaz::STATUS_MASTER_NEW;
                         $model->id_unread = 0;
@@ -871,6 +870,7 @@ class ZakazController extends Controller
                     } else {
                         $model->id_unread = 0;
                     }
+
                 }
                 if ($model->save()) {
                     if($model->status == Zakaz::STATUS_DESIGN){

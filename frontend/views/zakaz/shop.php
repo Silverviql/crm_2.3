@@ -32,7 +32,13 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
             'items' => [
                 [
                     'label' => 'Заказ',
-                    'url' => 'zakaz/create',
+                    'url' => '#',
+                    'options' => [
+                        'class' => 'modalOrderCreate-button',
+                        'value' => 'zakaz/create',
+                        'id' => $model->id_zakaz,
+                        'onclick' => 'return false'
+                    ]
                 ],
                 [
                     'label' => '',
@@ -73,12 +79,12 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
     ]); ?>
             </div>
             <div class="col-lg-6 shopZakaz"></div>
-            <div class="col-lg-6 zakazSearch">
+            <div class="col-lg-6 orderSearch">
                 <?php echo $this->render('_search', ['model' => $searchModel]);?>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-9 ispolShop">
+            <div class="col-lg-9 orderTableBack">
                 <h3 class="titleTable">Исполнено</h3>
         <?= GridView::widget([
             'dataProvider' => $dataProviderExecute,
@@ -86,7 +92,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
             'headerRowOptions' => ['class' => 'headerTable'],
             'pjax' => true,
             'striped' => false,
-            'tableOptions' => ['class' => 'table table-bordered tableSize'],
+            'tableOptions' => ['class' => 'table table-bordered '],
             'rowOptions' => ['class' => 'trTable srok trNormal'],
             'columns' => [
                 [
@@ -194,7 +200,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
         'headerRowOptions' => ['class' => 'headerTable'],
         'pjax' => true,
         'striped' => false,
-        'tableOptions' => ['class' => 'table table-bordered tableSize'],
+        'tableOptions' => ['class' => 'table table-bordered '],
         'rowOptions' => ['class' => 'trTable srok trNormal'],
         'columns' => [
             [
@@ -309,10 +315,22 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
         ],
     ]); ?>
 </div>
+<?php //Modal::begin([
+//    'id' => 'modalCashboxCreate',
+//    'header' => '<h2>Отчет по кассе</h2>'
+//]);
+//echo '<div class="modalContent"></div>';
+//Modal::end(); ?>
+
 <?php Modal::begin([
-    'id' => 'modalCashboxCreate',
-    'header' => '<h2>Отчет по кассе</h2>'
+    'id' => 'modalOrderCreate',
+    'header' => '<h2>Создание заказа</h2>'
 ]);
 echo '<div class="modalContent"></div>';
 Modal::end(); ?>
-
+<?php Modal::begin([
+    'id' => 'modalOrderUpdate',
+    'header' => '<h2>Редактирование заказа</h2>'
+]);
+echo '<div class="modalContent"></div>';
+Modal::end(); ?>

@@ -6,25 +6,25 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use yii\helpers\ArrayHelper;
 
-class AnalyticsSearch extends AnalyticsReport
+class AnalyticsSearch extends Zakaz
 
 {
     public $search;
+    public $date_from;
+    public $date_to;
 
-
-    public static function tableName()
-    {
-        return 'book';
-    }
 
     public function rules()
     {
-        return [
-            [['name', 'buy_amount', 'book_color'], 'required'],
-            [['buy_amount', 'book_color'], 'integer'],
-            [['name'], 'string', 'max' => 255],
-        ];
+        return ArrayHelper::merge(
+            [
+                [['date_from','date_to'],'date', 'format' => 'php:d-m-Y'],
+            ],
+            parent::rules()
+        );
+
     }
 
     public function scenarios()
@@ -34,26 +34,27 @@ class AnalyticsSearch extends AnalyticsReport
     }
     public function search()
     {
-        $query = AnalyticsReport::find();
+//        $query = Zakaz::find();
+//
+////      выборка по заказам за срок
+//        $dataProvider = new ActiveDataProvider([
+//            'query' => \app\models\Zakaz::find()
+//                ->where('action <= 0') ->andWhere(['>=', 'date_close', '2018-09-01 00:00:00'])->andWhere(['<=', 'date_close','2018-10-01 00:00:00']),
+//            'pagination' => [
+//                'pageSize' => 10,
+//            ],
+//        ]);
+//
+//        return $dataProvider;
+        $query = Zakaz::find();
+        $dataProvider = new ActiveDataProvider(
+            [
+                'query' => $query->where('action <= 0'),
+            ]);
 
-
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query,
-        ]);
-
+        $query->andFilterWhere(['>=','date_close', $this->date_from])
+            ->andFilterWhere(['<=','date_close', $this->date_to]);
         return $dataProvider;
     }
-
-    public function attributeLabels()
-    {
-        return [
-            'id' => 'ID',
-            'name' => 'Name',
-            'buy_amount' => 'Buy Amount',
-            'book_color' => 'AnalyticsReport Color',
-        ];
-    }
-
 }
 

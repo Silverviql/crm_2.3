@@ -20,18 +20,15 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
 <div class="order-table">
     <div class="container order">
         <div class="row">
-            <div class="col-lg-9 ispolShop">
+            <div class="col-lg-9 orderTableBack">
                 <h3 class="titleTable">В работе</h3>
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,
                     'floatHeader' => false,
                     'headerRowOptions' => ['class' => 'headerTable'],
                     'pjax' => true,
-                    'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
+                    'tableOptions' 	=> ['class' => 'table table-bordered '],
                     'rowOptions' => function($model){
-                       /* if ($model->statusDesign == Zakaz::STATUS_DESIGNER_NEW) {
-                            return ['class' => 'trTable trNormal trNewDesign'];
-                        }*/
                          if ($model->srok < date('Y-m-d H:i:s')  ) {
                             return ['class' => 'trTable trTablePass italic trNewDesign'];
                         }else {
@@ -134,7 +131,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                     'floatHeader' => false,
                     'headerRowOptions' => ['class' => 'headerTable'],
                     'pjax' => true,
-                    'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
+                    'tableOptions' 	=> ['class' => 'table table-bordered '],
                     'rowOptions' => function($model){
                         if ($model->statusDesign == Zakaz::STATUS_DESIGNER_NEW) {
                             return ['class' => 'trTable trNormal trNewDesign'];
@@ -245,7 +242,6 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
     </div>
 </div>
     <?php Pjax::end(); ?>
-</div>
 <div class="footerNav">
     <?php echo Nav::widget([
         'options' => ['class' => 'nav nav-pills footerNav'],

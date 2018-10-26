@@ -80,12 +80,12 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 ]); ?>
             </div>
             <div class="col-lg-6 shopZakaz"></div>
-            <div class="col-lg-6 zakazSearch">
+            <div class="col-lg-6 orderSearch">
                 <?php echo $this->render('_search', ['model' => $searchModel]);?>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-9 ispolShop">
+            <div class="col-lg-9 orderTableBack">
                 <h3 class="titleTable">Исполнено</h3>
                 <?= GridView::widget([
                     'dataProvider' => $dataProviderExecute,
@@ -93,7 +93,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                     'headerRowOptions' => ['class' => 'headerTable'],
                     'pjax' => true,
                     'striped' => false,
-                    'tableOptions' => ['class' => 'table table-bordered tableSize'],
+                    'tableOptions' => ['class' => 'table table-bordered '],
                     'rowOptions' => function($model){
                         if ($model->srok < date('Y-m-d H:i:s') && $model->status  != Zakaz::STATUS_NEW ) {
                             return ['class' => 'trTable trTablePass italic trSrok'];
@@ -200,7 +200,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                     'headerRowOptions' => ['class' => 'headerTable'],
                     'pjax' => true,
                     'striped' => false,
-                    'tableOptions' => ['class' => 'table table-bordered tableSize'],
+                    'tableOptions' => ['class' => 'table table-bordered '],
                     'rowOptions' => ['class' => 'trTable trSrok trNormal'],
 
                     'columns' => [

@@ -15,6 +15,8 @@ use frontend\components\Counter;
 use yii\bootstrap\ButtonDropdown;
 use yii\bootstrap\Nav;
 use yii\helpers\Url;
+use yii\bootstrap\Modal;
+
 
 AppAsset::register($this);
 ?>
@@ -51,11 +53,12 @@ AppAsset::register($this);
     <div id="fixed">
         <div class="container fixed">
             <div class="container">
-                <div class="row">
+                <div class="row ">
                     <div class="col-lg-3 col-xs-2">
                         <?php if (!Yii::$app->user->isGuest): ?>
                         <div class="logo"></div>
-                        <?php echo '<div class="titleMain ">'.Html::encode($this->title).'</div>' ?>
+                        <?php echo '<div class="titleMain hidden-xs">'.Html::encode($this->title).'</div>' ?>
+                        <?php echo '<div class="titleMainMobile hidden-lg ">'.Html::encode($this->title).'</div>' ?>
                     </div>
                     <div class="col-lg-7 hidden-xs menu-vidget mt-2">
                         <?= Counter::widget() ?>
@@ -119,52 +122,52 @@ AppAsset::register($this);
                         }
                         ?>
                     </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-xs-6 hidden-lg mt-1">
-                    <?= Notifications::widget() ?>
-                    <div class="menu-mobile">
-                        <?php if (Yii::$app->user->isGuest) {
-                            echo '';
-                        } else {   echo ButtonDropdown::widget([
-                            'label' => 'Menu',
-                            'options' => ['class' => 'badge pull-right'],
-                            'dropdown' => [
-                                'items' => [
-                                    Counter::widget()
+                    <div class="col-xs-6 hidden-lg mt-1">
+                        <?= Notifications::widget() ?>
+                        <div class="menu-mobile">
+                            <?php if (Yii::$app->user->isGuest) {
+                                echo '';
+                            } else {   echo ButtonDropdown::widget([
+                                'label' => 'Menu',
+                                'options' => ['class' => 'badge pull-right'],
+                                'dropdown' => [
+                                    'items' => [
+                                        Counter::widget()
+                                    ],
                                 ],
-                            ],
-                        ]); }?>
+                            ]); }?>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 hidden-lg mt-1">
+                        <?php $counts = '<span class="glyphicon glyphicon-bell" style="font-size:21px"></span><span class="badge pull-right">'.$this->params['count'].'</span>'; ?>
+                        <?php
+                        if (Yii::$app->user->isGuest) {
+                            echo '';
+                        } else {
+                            PopoverX::begin([
+                                'header' => '<i class="glyphicon glyphicon-lock"></i>Учетная запись',
+                                'closeButton' => ['label' => false],
+                                'placement' => PopoverX::ALIGN_BOTTOM,
+                                'toggleButton' => ['label'=>'<span>'.Yii::$app->user->identity->name.'</span> <span class="glyphicon glyphicon-off exit"></span>', 'class' => 'btn btn-link logout'],
+                            ]);
+                            echo Html::a('Настройки', ['/site/setting', 'id' => Yii::$app->user->identity->id]).'<br>';
+                            echo Html::a('Контакты', ['/personnel/index']).'<br>';
+                            echo Html::a('Инфорстенд', ['/site/index']).'<br>';
+
+                            echo Html::beginForm(['/site/logout'], 'post');
+                            echo Html::submitButton('Выход '.Html::tag('span', '', ['class' => 'glyphicon glyphicon-lock']), ['class' => 'btn btn-primary']);
+                            echo Html::endForm();
+
+                            PopoverX::end();
+                        }
+                        ?>
                     </div>
                 </div>
-                <div class="col-xs-6 hidden-lg mt-1">
-                    <?php $counts = '<span class="glyphicon glyphicon-bell" style="font-size:21px"></span><span class="badge pull-right">'.$this->params['count'].'</span>'; ?>
-                    <?php
-                    if (Yii::$app->user->isGuest) {
-                        echo '';
-                    } else {
-                       PopoverX::begin([
-                            'header' => '<i class="glyphicon glyphicon-lock"></i>Учетная запись',
-                            'closeButton' => ['label' => false],
-                            'placement' => PopoverX::ALIGN_BOTTOM,
-                            'toggleButton' => ['label'=>'<span>'.Yii::$app->user->identity->name.'</span> <span class="glyphicon glyphicon-off exit"></span>', 'class' => 'btn btn-link logout'],
-                        ]);
-                        echo Html::a('Настройки', ['/site/setting', 'id' => Yii::$app->user->identity->id]).'<br>';
-                        echo Html::a('Контакты', ['/personnel/index']).'<br>';
-                        echo Html::a('Инфорстенд', ['/site/index']).'<br>';
 
-                        echo Html::beginForm(['/site/logout'], 'post');
-                        echo Html::submitButton('Выход '.Html::tag('span', '', ['class' => 'glyphicon glyphicon-lock']), ['class' => 'btn btn-primary']);
-                        echo Html::endForm();
 
-                        PopoverX::end();
-                    }
-                    ?>
-                </div>
-            </div>
 
+        </div>
         </div>
     </div>
     <?php endif ?>
@@ -200,7 +203,12 @@ AppAsset::register($this);
     <?php endif ?>
 </div>
 
-
+<?php Modal::begin([
+    'id' => 'modalCashboxCreate',
+    'header' => '<h2>Отчет по кассе</h2>'
+]);
+echo '<div class="modalContent"></div>';
+Modal::end(); ?>
 <?php $this->endBody() ?>
 </body>
 </html>

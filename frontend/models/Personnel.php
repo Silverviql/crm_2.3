@@ -46,7 +46,7 @@ class Personnel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['last_name', 'name', 'phone','email'], 'required'],
+            [['last_name', 'name', 'phone','email','position'], 'required'],
             [['action', 'bonus', 'shedule'], 'integer'],
             [['last_name', 'name', 'patronymic', 'store','email'], 'string', 'max' => 50],
             [['job_duties', 'password'], 'string', 'max' => 86],
@@ -72,7 +72,7 @@ class Personnel extends \yii\db\ActiveRecord
             'job_duties' => 'Должностные обязанности',
             'shedule' => 'График работы',
             'password' => 'Код подтверждение',
-            'positions' => 'Должность',
+            'position' => 'Должность',
             'bonus' => 'Премия'
         ];
     }

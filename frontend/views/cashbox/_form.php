@@ -43,7 +43,7 @@ switch (Yii::$app->user->id) {
         <?= $form->field($model, 'what_learned')->textarea(['placeholder' => 'Чему я научился...', 'class' => 'textareaForm','autocomplete'=> 'off'])->label(false) ?>
         <?= $form->field($model, 'what_want_learn')->textarea(['placeholder' => 'Чему я хочу научиться...', 'class' => 'textareaForm','autocomplete'=> 'off'])->label(false) ?>
        <?= $form->field($model, 'what_need_upgrade')->textarea(['placeholder' => 'Что нужно улучшить в магазине...', 'class' => 'textareaForm','autocomplete'=> 'off'])->label(false) ?>
-        <?= Html::submitButton('CОЗДАТЬ', ['class' => 'action']) ?>
+        <?= Html::submitButton('ОТПРАВИТЬ', ['class' => 'action']) ?>
     </div>
     <?php ActiveForm::end(); ?>
 </div>

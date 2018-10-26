@@ -18,14 +18,14 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
 <div class="order-table">
     <div class="container order">
         <div class="row">
-            <div class="col-lg-9 ispolShop">
+            <div class="col-lg-9 orderTableBack">
                 <h3 class="titleTable">В работе</h3>
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,
                     'floatHeader' => false,
                     'headerRowOptions' => ['class' => 'headerTable'],
                     'pjax' => true,
-                    'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
+                    'tableOptions' 	=> ['class' => 'table table-bordered '],
                     'rowOptions' => function($model){
                         if ($model->statusMaster == Zakaz::STATUS_MASTER_NEW) {
                             return ['class' => 'trTable trNormal trNewMaster'];
@@ -119,7 +119,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                         'floatHeader' => false,
                         'headerRowOptions' => ['class' => 'headerTable'],
                         'pjax' => true,
-                        'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
+                        'tableOptions' 	=> ['class' => 'table table-bordered '],
                         'rowOptions' => function($model){
                             if ($model->statusMaster == Zakaz::STATUS_MASTER_NEW) {
                                 return ['class' => 'trTable trNormal trNewMaster'];

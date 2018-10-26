@@ -22,6 +22,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'bordered' => false,
         'striped' => false,
+        'options' => [
+            'class' => 'orderTableBack',
+        ],
         'pjax' => true,
         'pjaxSettings'=>[
             'neverTimeout'=>true,
@@ -49,7 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => false,
                 'value' => function($model){
                     return $model->contact_person != null ? $model->contact_person : false;
-                }
+                },
             ],
             [
                  'attribute' => 'email',

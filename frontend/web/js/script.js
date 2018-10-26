@@ -1,6 +1,21 @@
 // document.getElementById('notification').onclick = () => {
 // 	document.getElementById('notification-container').classList.toggle('hidden');
 // }
+function startRebTabl(){
+    $pjaxContainers = ['#10-pjax', '#11-pjax', '#12-pjax'];
+
+    $.each($pjaxContainers , function(index, container) {
+        if (index+1 < $pjaxContainers.length) {
+            $(container).one('pjax:end', function (xhr, options) {
+                $.pjax.reload({container: $pjaxContainers[index+1]}) ;
+            });
+        }
+    });
+
+    $.pjax.reload({container: $pjaxContainers[0]}) ;
+
+}
+
 $(document).ready(function(){
  /*	setInterval(function(){
  		$.pjax.reload('#pjax-container')

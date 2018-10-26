@@ -206,7 +206,7 @@ body {
 }
 
 /* line 79, ../sass/gridview.scss */
-.button, .zakazSearch .zakaz-search button {
+.button, .orderSearch .zakaz-search button {
   outline: none;
   color: #999265;
   background: #302927;
@@ -244,12 +244,12 @@ body {
 }
 
 /* line 109, ../sass/gridview.scss */
-.zakazSearch {
+.orderSearch {
   height: 73px;
   float: right;
 }
 /* line 113, ../sass/gridview.scss */
-.zakazSearch .zakaz-search input {
+.orderSearch .zakaz-search input {
   position: relative;
   top: 41px;
   left: -56px;
@@ -262,13 +262,13 @@ body {
 
 
 
-.zakazSearch .zakaz-search input::-webkit-input-placeholder {
+.orderSearch .zakaz-search input::-webkit-input-placeholder {
   color: #857c61;
 
 }
 
 /* line 510, ../sass/gridview.scss */
-.order-table .zakazSearch input {
+.order-table .orderSearch input {
   left: 50px;
   width: 170px;
   background: rgba(179, 174, 132, 0);
@@ -276,13 +276,13 @@ body {
 
 
 /* line 122, ../sass/gridview.scss */
-.zakazSearch .zakaz-search input:focus {
+.orderSearch .zakaz-search input:focus {
   background: rgba(204, 198, 198, 0.6);
   color: #302927;
   border: none;
 }
 /* line 128, ../sass/gridview.scss */
-.zakazSearch .zakaz-search button {
+.orderSearch .zakaz-search button {
   margin-top: -5px;
   height: 39px;
   width: 50px;
@@ -294,7 +294,7 @@ body {
   border: 1px solid #857c61;
 }
 /* line 139, ../sass/gridview.scss */
-.zakazSearch .zakaz-search button:hover {
+.orderSearch .zakaz-search button:hover {
   background: #802c2c;
   border-bottom: 1px solid #802c2c;
   border-top: 1px solid #802c2c;
@@ -593,11 +593,6 @@ thead a {
   border: none;
 }
 
-/*!* line 336, ../sass/gridview.scss */
-.table tbody > tr {
-  border: 1px solid #b3ae84;
-}
-
 /* line 339, ../sass/gridview.scss */
 .table .textTr {
   color: #210510;
@@ -713,6 +708,10 @@ thead a {
 .table-bordered tbody tr .orderComment ::-webkit-scrollbar {
   width: 6px;
 }
+/* Подсветка выбранного элемента в таблицах. */
+.table-bordered > tbody .trNormal:hover {
+    background: #3c3432;
+}
 /* line 394, ../sass/gridview.scss */
 .table-bordered tbody tr .orderComment ::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px #857c61;
@@ -786,6 +785,10 @@ thead a {
 .table-bordered > tbody .trCloseorder {
   border: 1px solid #544943;
 }
+
+.table-bordered{
+  border: none;
+}
 .table-bordered > tbody .trShipping {
     border-bottom: 1px solid #9c9b6c;
     /* border: 1px solid #b3ae84; */
@@ -823,30 +826,6 @@ thead a {
   padding-top: 4px;
 }
 
-/*!* line 481, ../sass/gridview.scss *!
-.zakaz-index .detail-view tbody {
-  background: #191412;
-}
-!* line 485, ../sass/gridview.scss *!
-.zakaz-index .success-ispol {
-  color: #446505;
-}
-!* line 505, ../sass/gridview.scss *!
-.zakaz-index .zakazSearch .shopSearch {
-    margin-top: -13px;
-    margin-left: 220px;
-    font-size: 11px;
-}
-!* line 229, ../sass/button.scss *!
-.zakaz-index .modalDesign {
-    float: right;
-}
-!* line 510, ../sass/gridview.scss *!
-.zakaz-index .zakazSearch input {
-    left: 50px;
-    width: 170px;
-    background: rgba(179, 174, 132, 0);
-}*/
 .orderComment .userCommit {
   color: #b3ae84;
 }
@@ -866,17 +845,12 @@ thead a {
   color: #b3ae84;
 }
 /* line 505, ../sass/gridview.scss */
-.order-table .zakazSearch .shopSearch {
+.order-table .orderSearch .shopSearch {
   margin-top: -13px;
   margin-left: 220px;
   font-size: 11px;
 }
 
-
-/* line 515, ../sass/gridview.scss */
-.order-table .shopZakaz {
-  margin-top: 1px;
-}
 /* line 519, ../sass/gridview.scss */
 .order-table .zakazFile .table {
   background: #96916d;
@@ -956,6 +930,8 @@ thead a {
 .helpdesk-index a:hover {
   color: white;
 }
+
+
 
 /* line 91, ../sass/button.scss */
 .commentButton {
@@ -1042,7 +1018,7 @@ thead a {
 .zakaz-form {
   height: 30px;
   /*line-height: 25px;*/
-  padding-left: 20px;
+  padding: 0 20px 0 20px;
 }
 /* line 160, ../sass/button.scss */
 .zakaz-form .kv-file-content i {
@@ -1169,12 +1145,16 @@ thead a {
 
 
 /* line 234, ../sass/button.scss */
-.ispolShop a {
+.orderTableBack a {
   color: #446505;
   text-decoration: none;
 }
+/* line 86, ../sass/button.scss */
+.order .orderTableBack a:hover {
+    color: white;
+}
 
-.ispolShop{
+.orderTableBack{
   background: #b3ae84;
   border-radius: 10px 10px;
   margin-top: 20px;
@@ -1426,10 +1406,9 @@ thead a {
   width: 86%;
   background: rgba(0, 0, 0, 0.2);
   color: #928d8a;
-  margin-top: 25px;
 }
 #modalOrderCreate .modal-content .form-group input {
-  font-size: 24px;
+  font-size: 14px;
   height: 38px;
   border-radius: 2px;
 }
@@ -1445,7 +1424,7 @@ thead a {
 
 }
 #modalOrderCreate .modal-content .form-group .inputForm {
-  width: 90%;
+  width: 100%;
 }
 #modalOrderCreate .modal-content .form-group .textareaForm {
   height: 86px;
@@ -1479,7 +1458,7 @@ thead a {
   margin-top: 25px;
 }
 #modalOrderUpdate .modal-content .form-group input {
-  font-size: 24px;
+  font-size: 14px;
   height: 38px;
   border-radius: 2px;
 }
@@ -1495,7 +1474,7 @@ thead a {
 
 }
 #modalOrderUpdate .modal-content .form-group .inputForm {
-  width: 90%;
+  width: 100%;
 }
 #modalOrderUpdate .modal-content .form-group .textareaForm {
   height: 86px;
@@ -1513,6 +1492,21 @@ thead a {
 }
 
 /* Модальное окно создания отчета по кассе*/
+#modalCashboxCreate .modal-content .modal-header {
+  color: #b3ae84;
+}
+#modalCashboxCreate .modal-content .action {
+  font-size: 24px;
+  font-weight: 100;
+  width: 219px;
+  height: 86px;
+  border: 2px solid #928d8a;
+  border-radius: 2px;
+  width: 86%;
+  background: rgba(0, 0, 0, 0.2);
+  color: #928d8a;
+  margin-top: 25px;
+}
 #modalCashboxCreate .modal-content .form-group input {
   font-size: 24px;
   height: 38px;
@@ -1647,7 +1641,7 @@ thead a {
 .form-group .inputForm {
   outline: 0;
   width: 65%;
- /* padding-left: 3%;*/
+  padding-left: 7%;
   background: #736a50;
   border: none;
 }
@@ -1679,29 +1673,29 @@ thead a {
 }
 /* line 127, ../sass/input.scss */
 .zakaz-form .inputWidget-form {
-  width: 82px;
+  width: 100%;
   padding-right: 7%;
 }
 /* line 130, ../sass/input.scss */
 .zakaz-form .inputWidget-contact {
-  padding-left: 7%;
+  /*padding-left: 7%;*/
+  width: 100%;
 }
 /* line 133, ../sass/input.scss */
 .zakaz-form #zakaz-number1 {
-  padding-left: 9%;
-  margin-left: -48px;
+  padding: 0;
 }
 /* line 137, ../sass/input.scss */
 .zakaz-form #zakaz-phone, .zakaz-form #zakaz-email {
-  width: 109px;
-}
-/* line 140, ../sass/input.scss */
-.zakaz-form #zakaz-sotrud_name {
-  width: 69%;
+  padding-left: 7%;
 }
 /* line 143, ../sass/input.scss */
 .zakaz-form #zakaz-name, .zakaz-form #zakaz-oplata, .zakaz-form #zakaz-fact_oplata {
   padding-left: 7%;
+}
+/* line 140, ../sass/input.scss */
+.zakaz-form #zakaz-sotrud_name {
+  width: 69%;
 }
 /* line 146, ../sass/input.scss */
 .zakaz-form #zakaz-srok_date-disp {
@@ -1894,7 +1888,7 @@ thead a {
 /* line 87, ../sass/style.scss */
 .menu-vidget .headerNav li a span {
   color: rgba(204, 198, 198, 0.6);
-  background: #3a3331;
+  /*background: #3a3331;*/
     /* padding-left: 1px; */
     margin-top: 2px;
     font-size: 11px;
@@ -1932,13 +1926,20 @@ thead a {
 
 /* line 123, ../sass/style.scss */
 .titleMain {
-  font-size: 23px;
+  font-size: 30px;
   font-weight: 400;
   color: rgb(179, 174, 132);
   margin-top: 19px;
   position: relative;
   float: left;
   top: 6px;
+}
+.titleMainMobile {
+    font-weight: 400;
+    color: rgb(179, 174, 132);
+    position: relative;
+    float: left;
+    top: 6px;
 }
 
 /* line 132, ../sass/style.scss */
@@ -2002,9 +2003,9 @@ thead a {
 /* line 183, ../sass/style.scss */
 .zakaz-form .informationZakaz {
   /*margin-left: 94px;*/
-  height: 255px;
-  border-top: 1px solid #736a50;
-  border-bottom: 1px solid #736a50;
+  padding: 0;
+  /*height: 218px;*/
+  border-top: 3px solid #736a50;
 }
 /* line 186, ../sass/style.scss */
 .zakaz-form .informationZakaz h3 {
@@ -2012,40 +2013,61 @@ thead a {
 }
 /* line 189, ../sass/style.scss */
 .zakaz-form .informationZakaz textarea {
-  width: 255px;
+}
+.zakaz-form .informationZakaz .description{
+    padding-left: 0;
+}
+.zakaz-form .informationZakaz .information{
+    padding: 0;
+}
+
+.zakaz-form .informationZakaz #zakaz-information{
+    width: 100%;
+    height: 90px;
+    resize: none;
 }
 /* line 193, ../sass/style.scss */
 .zakaz-form .clientZakaz {
   /*margin-left: -76px;*/
-  height: 255px;
-  border-top: 1px solid #736a50;
-  border-bottom: 1px solid #736a50;
+  padding-right: 0;
+  /*height: 218px;*/
+  border-top: 3px solid #736a50;
 }
 /* line 196, ../sass/style.scss */
 .zakaz-form .clientZakaz h3 {
-  padding-left: 18px;
-}
-/* line 200, ../sass/style.scss */
-.zakaz-form .moneyZakaz {
-  margin-left: -42px;
-  height: 255px;
-  border-top: 1px solid #736a50;
-  border-bottom: 1px solid #736a50;
-}
-/* line 203, ../sass/style.scss */
-.zakaz-form .moneyZakaz h3 {
-  padding-left: 12px;
+    padding-left: 18px;
 }
 /* line 207, ../sass/style.scss */
 .zakaz-form .managmentZakaz {
-  margin-left: -60px;
-  height: 255px;
-  border-top: 1px solid #736a50;
-  border-bottom: 1px solid #736a50;
+    padding : 0;
+    /*height: 218px;*/
+    border-top: 3px solid #736a50;
 }
 /* line 210, ../sass/style.scss */
 .zakaz-form .managmentZakaz h3 {
+    padding-left: 12px;
+}
+
+.zakaz-form .moneyOrder .paidOrder{
+    margin-top: 30px;
+}
+
+/* line 200, ../sass/style.scss */
+.zakaz-form .moneyOrder {
+  padding-left: 0;
+  color: #8b875f;
+  /*height: 218px;*/
+  border-top: 3px solid #736a50;
+}
+/* line 203, ../sass/style.scss */
+.zakaz-form .moneyOrder h3 {
   padding-left: 12px;
+}
+.zakaz-form .moneyOrder  p {
+    margin: 0 0 8px;
+}
+.zakaz-form .uploadFile{
+  color: #8b875f;
 }
 
 /* line 215, ../sass/style.scss */
@@ -2356,3 +2378,12 @@ thead a {
   height: 14px;
   float: right;
 }
+.contacts-state-table {
+    color: rgb(179, 174, 132);
+}
+/*
+!*!* line 336, ../sass/gridview.scss *!
+.table tbody > tr {
+  border: 1px solid #b3ae84;
+}*/
+

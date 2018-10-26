@@ -47,14 +47,14 @@ $this->title = 'Контакты';
         'bordered' => false,
         'striped' => false,
        
-        'tableOptions' => ['class' => 'table table-bordered'],
+        'tableOptions' => ['class' => 'table table-bordered contacts-state-table'],
         'showHeader' => false,
         'columns' => [
             /*['class' => 'yii\grid\SerialColumn'],*/
             [
-                'attribute' => 'positions',
-                'filter' => \app\models\Position::find()->select(['name', 'id'])->indexBy('id')->column(),
-                'value' => 'positionsAsString',
+                'attribute' => 'position',
+//                'filter' => \app\models\Position::find()->select(['name', 'id'])->indexBy('id')->column(),
+//                'value' => 'positionsAsString',
                 'contentOptions' => ['class' => 'textPerTr tr250'],
             ],
             [
@@ -73,13 +73,16 @@ $this->title = 'Контакты';
                 'attribute' => 'store',
                 'contentOptions' => ['class' => 'textPerTr tr50'],
             ],
-           /* [
+            [
                 'attribute' => 'shedule',
                 'value' => function($model){
-                    return $model->shedule != null ? $model->shedule : false;
+                    if ($model->shedule !== NULL) {
+                        return $model->shedule ==='1' ? '2/2' : '5/2';
+                    }
+                    return false;
                 },
                 'contentOptions' => ['class' => 'textPerTr tr70'],
-            ],*/
+            ],
             [
                 'attribute' => 'job_duties',
                 'value' => function($model){

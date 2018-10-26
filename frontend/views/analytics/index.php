@@ -6,6 +6,7 @@
 use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\helpers\ArrayHelper;
+use kartik\date\DatePicker;
 use yii\data\ActiveDataProvider;
 use frontend\models\NumberColumn;
 
@@ -17,14 +18,14 @@ use frontend\models\NumberColumn;
     ],
 ]);*/
 //выборка по заказам за срок
-$dataProvider = new ActiveDataProvider([
-    'query' => \app\models\Zakaz::find()
-        ->where('action <= 0') ->andWhere(['>=', 'date_close', '2018-09-01 00:00:00'])->andWhere(['<=', 'date_close', '2018-10-01 00:00:00']),
-    'pagination' => [
-        'pageSize' => 10,
-    ],
-]);
-
+//$dataProvider = new ActiveDataProvider([
+//    'query' => \app\models\Zakaz::find()
+//        ->where('action <= 0') ->andWhere(['>=', 'date_close', '2018-09-01 00:00:00'])->andWhere(['<=', 'date_close', '2018-10-01 00:00:00']),
+//    'pagination' => [
+//        'pageSize' => 10,
+//    ],
+//]);
+//
 //выборка доставок курьера
 $dataProviderCourier = new ActiveDataProvider([
     'query' => \app\models\Courier::find()
@@ -42,6 +43,7 @@ $dataProviderCourier = new ActiveDataProvider([
 ]);*/
 ?>
 <div> <h1><?= Html::encode('Отчет по заказам') ?></h1>
+
 
  <?php $date_yesterday = new DateTime('-1 day');
 
@@ -61,6 +63,23 @@ $dataProviderCourier = new ActiveDataProvider([
             [
                 'attribute' => 'date_close',
                 'contentOptions' =>['style'=>'color:black;'],
+                'headerOptions' => [
+                    'class' => 'col-md-2'
+                ],
+                'filter' => DatePicker::widget([
+                    'model' => $searchModel,
+                    'name' => 'date_from',
+                    'name2' => 'date_to',
+                    'type' => DatePicker::TYPE_RANGE,
+                    'separator' => 'до',
+                    'pluginOptions' => [
+//                        'todayHighlight' => true,
+                        'weekStart' => 1,
+                        'autoclose' => true,
+                        'format' => 'dd-M-yyyy',
+                    ],
+                ]),
+//                'format' => ['date', 'dd-MM-Y'],
             ],
             [
                 'attribute' => 'id_zakaz',

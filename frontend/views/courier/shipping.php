@@ -69,7 +69,7 @@ $this->title = 'ВСЕ ДОСТАВКИ';
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-9 ispolShop">
+            <div class="col-lg-9 orderTableBack">
                 <h3 class="titleTable">Доставки</h3>
                 <?= GridView::widget([
                     'dataProvider' => $dataProvider,

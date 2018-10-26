@@ -45,6 +45,7 @@ use yii\db\ActiveRecord;
  * @property integer $interior
  * @property string $term_accept
  * @property string $date_performed
+ * @property string $design_date
  *
  * @property Courier[] $couriers
  * @property Todoist[] $todoists
@@ -184,7 +185,8 @@ class Zakaz extends ActiveRecord
             'date_close' => 'Дата закрытия',
             'interior' => 'Внутренний заказ',
             'term_accept'=> 'Подтвержденный админом срок',
-            'date_performed'=> 'Дата исполненого'
+            'date_performed'=> 'Дата исполненого',
+            'design_date' => 'Дата назначения'
         ];
     }
 

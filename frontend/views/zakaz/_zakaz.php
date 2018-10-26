@@ -36,7 +36,7 @@ use app\models\User;
     </div>
 	<div class="col-lg-4 zakazInfo">
         <div class="divInform">
-        <?= $model->information ?>
+            <?=   nl2br($model->information ); ?>
         </div>
     </div>
     <div  class="col-lg-2 orderComment">
@@ -214,7 +214,8 @@ use app\models\User;
             Modal::end(); ?>
         <?php endif ?>
         <?php if (($model->status == Zakaz::STATUS_DESIGN or $model->status == Zakaz::STATUS_DECLINED_DESIGN) && Yii::$app->user->can('design')): ?>
-            <?= Html::submitButton('Заказ исполнен', ['class' => 'action modalDesign', 'value' => Url::to(['uploadedesign', 'id' => $model->id_zakaz])]) ?>
+            <?= Html::a('Заказ исполнен',['#'],['class' => 'btn action modalDesign', 'value' => Url::to(['uploadedesign', 'id' => $model->id_zakaz]), 'onclick' => 'return false'])?>
+<!--            --><?//= Html::submitButton('Заказ исполнен', ['class' => 'btn action modalDesign', 'value' => Url::to(['uploadedesign', 'id' => $model->id_zakaz])]) ?>
         <?php endif ?>
         <?php if (($model->status == Zakaz::STATUS_SUC_DESIGN or $model->status == Zakaz::STATUS_DECLINED_DESIGN) && Yii::$app->user->can('design')): ?>
         <?= Html::submitButton('Изменить макет', ['class' => 'action modalDesign', 'value' => Url::to(['uploadedesign', 'id' => $model->id_zakaz])]) ?>

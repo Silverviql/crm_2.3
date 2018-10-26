@@ -49,6 +49,7 @@ class HelpdeskSearch extends Helpdesk
             $query = $query->where(['id_user' => Yii::$app->user->id, 'status' => [Helpdesk::STATUS_NEW, Helpdesk::STATUS_DECLINED]]);
         } else {
             $query = $query->where(['id_user' => Yii::$app->user->id, 'status' => Helpdesk::STATUS_CHECKING]);
+            var_dump($query);
         }
 
         // add conditions that should always apply here

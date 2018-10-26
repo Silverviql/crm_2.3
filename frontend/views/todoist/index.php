@@ -95,7 +95,7 @@ $this->title = 'ВСЕ ЗАДАЧИ';
         'floatHeader' => true,
         'headerRowOptions' => ['class' => 'headerTable'],
         'pjax' => true,
-        'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
+        'tableOptions' 	=> ['class' => 'table table-bordered tableSize tableTodoist'],
         'rowOptions' => function($model){
                 return $model->srok < date('Y-m-d') ? ['class' => 'trTable trNormal trTablePass'] : ['class' => 'trTable trNormal'];
         },
@@ -191,9 +191,9 @@ $this->title = 'ВСЕ ЗАДАЧИ';
             'floatHeader' => true,
             'headerRowOptions' => ['class' => 'headerTable'],
             'pjax' => true,
-            'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
+            'tableOptions' 	=> ['class' => 'table table-bordered tableSize tableTodoist'],
             'rowOptions' => function($model){
-                return $model->srok < date('Y-m-d') ? ['class' => 'trTable trNormal trTablePass'] : ['class' => 'trTable trNormal'];
+                return $model->srok < date('Y-m-d') ? ['class' => 'trTable trNormal trTablePass '] : ['class' => 'trTable trNormal'];
             },
             'striped' => false,
             'columns' => [
@@ -260,7 +260,7 @@ $this->title = 'ВСЕ ЗАДАЧИ';
                 [
                     'attribute' => '',
                     'format' => 'raw',
-                    'contentOptions' => ['class' => 'border-right textTr tr50 ispolShop'],
+                    'contentOptions' => ['class' => 'border-right textTr tr50 orderTableBack'],
                     'value' => function($model){
                         if ($model->activate == Todoist::ACTIVE){
                             return Html::a('Выполнить', ['accept', 'id' => $model->id], [

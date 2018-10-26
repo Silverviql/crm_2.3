@@ -1,15 +1,13 @@
 <?php
 
 use app\models\Courier;
-use yii\bootstrap\Nav;
-use yii\helpers\StringHelper;
-use kartik\grid\GridView;
-use yii\bootstrap\Modal;
 use app\models\Zakaz;
 use app\models\Comment;
+use yii\bootstrap\Nav;
+use yii\helpers\StringHelper;
+use yii\bootstrap\Modal;
 use yii\bootstrap\ButtonDropdown;
-use yii\widgets\Pjax;
-
+use kartik\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\ZakazSearch */
@@ -19,7 +17,6 @@ use yii\widgets\Pjax;
 
 $this->title = 'ВСЕ ЗАКАЗЫ';
 ?>
-<?php /*Pjax::begin(['id' => 'pjax-container']); */?>
 
 <div class="order-table">
     <div class="container order">
@@ -90,21 +87,21 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
         ]
     ]); ?>
             </div>
-            <div class="col-lg-6 shopZakaz"></div>
-            <div class="col-lg-6 zakazSearch">
+            <div class="col-lg-6"></div>
+            <div class="col-lg-6 orderSearch">
                 <?php echo $this->render('_search', ['model' => $searchModel]);?>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-9 ispolShop">
+            <div class="col-lg-9 orderTableBack">
                 <h3 class="titleTable">В работе</h3>
                 <?= GridView::widget([
         'dataProvider' => $dataProviderWork,
         'floatHeader' => false,
         'headerRowOptions' => ['class' => 'headerTable'],
         'pjax' => true,
-        'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
-
+        'id'=> 10,
+        'tableOptions' 	=> ['class' => 'table table-bordered'],
         'rowOptions' => function($model){
             if ($model->srok < date('Y-m-d H:i:s') && $model->status > Zakaz::STATUS_NEW ) {
                 return ['class' => 'trTable trTablePass italic trSrok'];
@@ -288,11 +285,13 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
         'floatHeader' => false,
         'headerRowOptions' => ['class' => 'headerTable'],
         'pjax' => true,
-        'tableOptions'  => ['class' => 'table table-bordered tableSize'],
+         'id'=> 11,
+        'tableOptions'  => ['class' => 'table table-bordered'],
         'striped' => false,
+
         'rowOptions' => function($model){
             if ($model->srok < date('Y-m-d H:i:s')) {
-                return['class' => 'trTable trTablePass trNormal'];
+                return['class' => 'trTable trTablePass trNormal '];
             } else {
                 return['class' => 'trTable srok trNormal'];
             }
@@ -427,8 +426,9 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                 'floatHeader' => false,
                 'headerRowOptions' => ['class' => 'headerTable'],
                 'pjax' => true,
+                 'id'=> 12,
                 'striped' => false,
-                'tableOptions' => ['class' => 'table table-bordered tableSize'],
+                'tableOptions' => ['class' => 'table table-bordered '],
                 'rowOptions' => ['class' => 'trTable  trNormal'],
                 'columns' => [
                     [
@@ -437,10 +437,10 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
                             return ['id' => $model->id_zakaz, 'class' => 'border-left', 'style' => 'border:none'];
                         },
                         'width'=>'10px',
-                        'value' => function ($model, $key, $index) {
+                        'value' => function () {
                             return GridView::ROW_COLLAPSED;
                         },
-                        'detail'=>function ($model, $key, $index, $column) {
+                        'detail'=>function ($model) {
                             $comment = new Comment();
                             return Yii::$app->controller->renderPartial('_zakaz', ['model'=>$model, 'comment' => $comment]);
                         },
@@ -554,23 +554,7 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
         </div>
     </div>
 </div>
-    <?php Modal::begin([
-        'id' => 'declinedModal',
-        'header' => '<h2>Укажите причину отказа:</h2>',
-    ]);
 
-    echo '<div class="modalContent"></div>';
-
-    Modal::end();?>
-    <?php Modal::begin([
-        'id' => 'acceptdModal',
-        'header' => '<h2>Назначить ответственного:</h2>',
-    ]);
-
-    echo '<div class="modalContent"></div>';
-
-    Modal::end();?>
-</div>
 <div class="footer">
     <?php echo Nav::widget([
         'options' => ['class' => 'nav nav-pills footerNav'],
@@ -579,6 +563,22 @@ $this->title = 'ВСЕ ЗАКАЗЫ';
         ],
     ]); ?>
 </div>
+<?php Modal::begin([
+    'id' => 'declinedModal',
+    'header' => '<h2>Укажите причину отказа:</h2>',
+]);
+
+echo '<div class="modalContent"></div>';
+
+Modal::end();?>
+<?php Modal::begin([
+    'id' => 'acceptdModal',
+    'header' => '<h2>Назначить ответственного:</h2>',
+]);
+
+echo '<div class="modalContent"></div>';
+
+Modal::end();?>
 <?php Modal::begin([
     'id' => 'modalOrderCreate',
     'header' => '<h2>Отчет по кассе</h2>'

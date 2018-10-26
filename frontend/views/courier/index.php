@@ -15,7 +15,7 @@ $this->title = 'ВСЕ ДОСТАВКИ';
 <div class="order-table">
     <div class="container order">
         <div class="row">
-            <div class="col-lg-9 ispolShop">
+            <div class="col-lg-9 orderTableBack">
                 <h3 class="titleTable">Доставки</h3>
                 <!-- <div class="form-group" style="font-size: 16px;">
     <?php //ActiveForm::begin(); ?>

@@ -45,11 +45,11 @@ use yii\widgets\MaskedInput;
 
     <?= $form->field($model, 'bonus')->textInput(['type' => 'number']) ?>-->
 
-    <?= $form->field($position, 'position_id')->dropDownList(ArrayHelper::map(Position::find()->all(), 'id', 'name'),
-        [
-            'prompt' => 'Выберите должность'
-        ])->label('Должность') ?>
-
+<!--    --><?//= $form->field($position, 'position_id')->dropDownList(ArrayHelper::map(Position::find()->all(), 'id', 'name'),
+//        [
+//            'prompt' => 'Выберите должность'
+//        ])->label('Должность') ?>
+    <?= $form->field($model, 'position')->textInput(['maxlength' => true])->label('Должность')?>
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Создать' : 'Редактировать', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>

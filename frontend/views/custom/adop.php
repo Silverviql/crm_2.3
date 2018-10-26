@@ -20,41 +20,44 @@ $this->title = 'ВСЕ ЗАПРОСЫ';?>
         'validateOnSubmit'          => true,
         'validateOnBlur'            => false,
     ]); ?>
-    <div id="customForm">
+    <div class="row">
+        <div class="col-lg-9 orderTableBack">
+            <div id="customForm">
 
-        <?=
-        TabularInput::widget([
-            'models' => $models,
-            'columns' => [
-                [
-                    'name' => 'tovar',
-                    'type' => \unclead\multipleinput\MultipleInputColumn::TYPE_TEXT_INPUT,
-                    'title' => 'Товар',
-                    'options' => [
-                        'maxlength' => '50',
-                        'placeholder' => 'Максимальное значение должно быть не больше 50 символов',
-                    ]
-                ],
-                [
-                    'name' => 'number',
-                    'type' => 'textInput',
-                    'title' => 'Кол-во',
-                    'options' => [
-                        'type' => 'number',
-                        'min' => '0'
-                    ]
-                ],
-            ],
-        ]) ?>
+                <?=
+                TabularInput::widget([
+                    'models' => $models,
+                    'columns' => [
+                        [
+                            'name' => 'tovar',
+                            'type' => \unclead\multipleinput\MultipleInputColumn::TYPE_TEXT_INPUT,
+                            'title' => 'Товар',
+                            'options' => [
+                                'maxlength' => '50',
+                                'placeholder' => 'Максимальное значение должно быть не больше 50 символов',
+                            ]
+                        ],
+                        [
+                            'name' => 'number',
+                            'type' => 'textInput',
+                            'title' => 'Кол-во',
+                            'options' => [
+                                'type' => 'number',
+                                'min' => '0'
+                            ]
+                        ],
+                    ],
+                ]) ?>
 
+            </div>
+            <div class="form-group">
+                <?= Html::submitButton('Создать', ['class' => 'btn btn-success']) ?>
+        </div>
     </div>
-    <div class="form-group">
-        <?= Html::submitButton('Создать', ['class' => 'btn btn-success']) ?>
-    </div>
 
-    <?php ActiveForm::end(); ?>
+        <?php ActiveForm::end(); ?>
 
-    <div class="button-dropmenu">
+        <div class="button-dropmenu">
         <?php echo ButtonDropdown::widget([
             'label' => '+',
             'options' => [
@@ -105,41 +108,41 @@ $this->title = 'ВСЕ ЗАПРОСЫ';?>
             ]
         ]); ?>
     </div>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'floatHeader' => true,
-        'headerRowOptions' => ['class' => 'headerTable'],
-        'pjax' => true,
-        'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
-        'striped' => false,
-        'rowOptions' => ['class' => 'trTable srok trNormal'],
-        'columns' => [
-            [
-				'attribute' => 'date',
-				'format' => ['datetime', 'php:d M H:m'],
-                'hAlign' => GridView::ALIGN_RIGHT,
-                'contentOptions' => ['class' => 'border-left textTr tr90', 'style' => 'border:none'],
-			],
-            [
-                'attribute' => 'tovar',
-                'contentOptions'=>['style'=>'white-space: normal;'],
-            ],
-            [
-                'attribute' => 'number',
-                'hAlign' => GridView::ALIGN_RIGHT,
-                'contentOptions' => ['class' => 'textTr tr50'],
-                'value' => function($model){
-                    return $model->number == null ? '' : $model->number;
-                }
-            ],
-            [
-                'attribute' => 'action',
-                'value' => function($model){
-                    return $model->action == 0 ? 'В процессе' : 'Привезен';
-                },
-                'contentOptions' => ['class' => 'border-right textTr tr90'],
-            ],
+            <div class="col-lg-9 orderTableBack">
+            <?= GridView::widget([
+                'dataProvider' => $dataProvider,
+                'floatHeader' => true,
+                'headerRowOptions' => ['class' => 'headerTable'],
+                'pjax' => true,
+                'tableOptions' 	=> ['class' => 'table table-bordered tableSize trTableAdop'],
+                'striped' => false,
+                'rowOptions' => ['class' => 'trTable srok trNormal '],
+                'columns' => [
+                    [
+                        'attribute' => 'date',
+                        'format' => ['datetime', 'php:d M H:m'],
+                        'hAlign' => GridView::ALIGN_RIGHT,
+                        'contentOptions' => ['class' => 'border-left textTr tr90', 'style' => 'border:none'],
+                    ],
+                    [
+                        'attribute' => 'tovar',
+                        'contentOptions'=>['style'=>'white-space: normal;'],
+                    ],
+                    [
+                        'attribute' => 'number',
+                        'hAlign' => GridView::ALIGN_RIGHT,
+                        'contentOptions' => ['class' => 'textTr tr50'],
+                        'value' => function($model){
+                            return $model->number == null ? '' : $model->number;
+                        }
+                    ],
+                    [
+                        'attribute' => 'action',
+                        'value' => function($model){
+                            return $model->action == 0 ? 'В процессе' : 'Привезен';
+                        },
+                        'contentOptions' => ['class' => 'border-right textTr tr90'],
+                    ],
 //            [
 //                'header' => 'Действие',
 //                'format' => 'raw',
@@ -147,6 +150,10 @@ $this->title = 'ВСЕ ЗАПРОСЫ';?>
 //                    return $model->action == 0 ? Html::a('Привезен', ['brought', 'id' => $model->id]) : '';
 //                }
 //            ],
-        ],
-    ]); ?>
+                ],
+            ]); ?>
+
+        </div>
+    </div>
+
 </div>

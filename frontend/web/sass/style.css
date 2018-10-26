@@ -1612,7 +1612,7 @@ thead a {
   /*  margin-top: -26px;
     margin-left: 426px;*/
   font-size: 14px;
-  background: rgb(133, 124, 97);
+  /*background: rgb(133, 124, 97);*/
   border-radius: 26px;
   color: #736a50;
   width: 335px;
@@ -1628,7 +1628,7 @@ thead a {
 /* line 87, ../sass/style.scss */
 .menu-vidget .headerNav li a span {
   color: rgba(204, 198, 198, 0.6);
-  background: #3a3331;
+  /*background: #3a3331;*/
   padding-left: 1px;
   margin-top: 2px;
   font-size: 11px;

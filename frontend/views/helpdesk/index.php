@@ -15,10 +15,12 @@ use yii\widgets\Pjax;
 $this->title = 'ВСЕ ПОЛОМКИ';
 ?>
 <?php Pjax::begin(); ?>
-<div class="helpdesk-index">
-
+<div class="order-table">
+    <div class="container order">
+        <div class="row">
+            <div class="col-lg-9 orderTableBack">
     <p>
-        <?php if (Yii::$app->user->can('design')): ?>
+        <?php if (Yii::$app->user->can('desain')): ?>
          <div class="button-dropmenu">
         <!--<?= Html::a('+', ['create'], ['class' => 'buttonAdd btn-group'])?>-->
         <?php echo ButtonDropdown::widget([
@@ -38,7 +40,7 @@ $this->title = 'ВСЕ ПОЛОМКИ';
         </div>
         <?php endif ?>
        	<?php if(!(Yii::$app->user->can('system'))):?>
-            <?php if (!Yii::$app->user->can('design')): ?>
+            <?php if (!Yii::$app->user->can('desain')): ?>
              <div class="button-dropmenu">
             <?php echo ButtonDropdown::widget([
                 'label' => '+',
@@ -109,7 +111,7 @@ $this->title = 'ВСЕ ПОЛОМКИ';
     <h3>В работе</h3>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'floatHeader' => true,
+        'floatHeader' => false,
         'headerRowOptions' => ['class' => 'headerTable'],
         'pjax' => true,
         'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
@@ -213,7 +215,7 @@ $this->title = 'ВСЕ ПОЛОМКИ';
     <h3>На проверке</h3>
     <?= GridView::widget([
         'dataProvider' => $dataProviderSoglas,
-        'floatHeader' => true,
+        'floatHeader' => false,
         'headerRowOptions' => ['class' => 'headerTable'],
         'pjax' => true,
         'tableOptions' 	=> ['class' => 'table table-bordered tableSize'],
@@ -310,6 +312,10 @@ $this->title = 'ВСЕ ПОЛОМКИ';
             ],
         ],
     ]); ?>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
     <?php $js = <<< 'SCRIPT'
 /* To initialize BS3 popovers set this below */
 $(function () { 

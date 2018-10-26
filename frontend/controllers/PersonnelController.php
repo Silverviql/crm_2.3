@@ -6,6 +6,7 @@ use app\models\Financy;
 use app\models\Fine;
 use app\models\Payroll;
 use app\models\PersonnelPosition;
+use app\models\Position;
 use app\models\Shifts;
 use Yii;
 use app\models\Personnel;
@@ -79,16 +80,16 @@ class PersonnelController extends Controller
     public function actionCreate()
     {
         $model = new Personnel();
-        $position = new PersonnelPosition();
+//        $position = new PersonnelPosition();
 
-        if ($model->load(Yii::$app->request->post()) && $position->load(Yii::$app->request->post()) && $model->save()) {
-            $position->personnel_id = $model->id;
-            $position->save();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+//            $position->personnel_id = $model->id;
+//            $position->save();
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
-                'position' => $position
+//                'position' => $position
             ]);
         }
     }
@@ -102,16 +103,14 @@ class PersonnelController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $position = new PersonnelPosition();
 
-        if ($model->load(Yii::$app->request->post()) && $position->load(Yii::$app->request->post()) && $model->save()) {
-            $position->personnel_id = $id;
-            $position->save();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [
                 'model' => $model,
-                'position' => $position,
+//                'position' => $position,
             ]);
         }
     }
